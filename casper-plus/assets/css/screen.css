@@ -263,16 +263,14 @@ production stylesheet in assets/built/screen.css
 /* ---------------------------------------------------------- */
 
 .gh-head {
+    position: sticky;
+    top: 0;
     height: 88px;
     font-size: 1.6rem;
     line-height: 1.3em;
     background-color: #fff;
+    color: #000;
     z-index: 150;
-}
-
-.has-cover:not(.home-template) .gh-head {
-    background-color: var(--ghost-accent-color);
-    color: #fff;
 }
 
 :is(.home-template, .paged:not(.tag-template):not(.author-template)).has-cover .gh-head {
@@ -280,9 +278,10 @@ production stylesheet in assets/built/screen.css
     top: 0;
     right: 0;
     left: 0;
-    z-index: 2000;
-    background-color: transparent;
-    color: #fff;
+}
+
+:is(.home-template, .paged:not(.tag-template):not(.author-template)).has-cover .gh-head.sticky {
+    position: sticky;
 }
 
 .gh-head a {
