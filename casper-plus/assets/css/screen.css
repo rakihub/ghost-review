@@ -958,6 +958,18 @@ production stylesheet in assets/built/screen.css
     line-height: 1;
 }
 
+.post-card-header .post-card-primary-tag {
+    font-size: 1rem;
+    border-radius: 30px;
+    border: 1px solid #000;
+    padding: 10px 15px;
+}
+
+.post-card-header .post-card-primary-tag:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 .post-card-featured {
     position: relative;
     display: flex;
