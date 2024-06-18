@@ -265,6 +265,8 @@ production stylesheet in assets/built/screen.css
 .gh-head {
     position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
     height: 88px;
     font-size: 1.6rem;
     line-height: 1.3em;
