@@ -263,7 +263,7 @@ production stylesheet in assets/built/screen.css
 /* ---------------------------------------------------------- */
 
 .gh-head {
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 88px;
     font-size: 1.6rem;
@@ -281,7 +281,7 @@ production stylesheet in assets/built/screen.css
 }
 
 :is(.home-template, .paged:not(.tag-template):not(.author-template)).has-cover .gh-head.sticky {
-    position: sticky;
+    position: fixed;
 }
 
 .gh-head a {
