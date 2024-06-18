@@ -53,6 +53,7 @@ function css(done) {
             autoprefixer(),
             cssnano()
         ]),
+        concat('screen.css'),
         dest('assets/built/', {sourcemaps: '.'}),
         livereload()
     ], handleError(done));
