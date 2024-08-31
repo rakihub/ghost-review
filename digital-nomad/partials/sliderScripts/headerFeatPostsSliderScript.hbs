@@ -1,0 +1,23 @@
+{{!-- Header Featured Posts Slider Init Script --}}
+
+<script>
+    if (window.innerWidth > 1000) {
+        const swiper = new Swiper('.header-feat-posts-slider', {
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            loop: true,
+            spaceBetween: 32,
+            speed: 800,
+            allowTouchMove: true,
+            breakpoints: {
+                1100: {
+                    allowTouchMove: false,
+                },
+            },
+            navigation: {
+                nextEl: `.header-feat-posts-slider-next`,
+                prevEl: `.header-feat-posts-slider-prev`
+            }
+        })
+    }
+</script>

@@ -1,0 +1,258 @@
+{{!-- Swiper Min Code File --}}
+
+{{!-- Props:
+1. loadMinCSS - if 'true', will load min CSS
+2. loadMinJS - if 'true', will load min JS --}}
+
+{{!-- ----------------- Swiper Min CSS ----------------- --}}
+
+{{#match loadMinCSS "=" 'true' }}
+
+    {{#match @custom.header_type "=" "Header with logo and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)" />
+    {{else match @custom.header_type "=" "Header with author and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Header with centered logo and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Header with centered author and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Header with logo and centered nav and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Header with author and centered nav and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Burger header with logo and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Burger header with author and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Burger header with centered logo and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else match @custom.header_type "=" "Burger header with centered author and featured posts"}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="screen and (min-width: 1001px)"/>
+    {{else}}
+
+        {{#is 'index'}}
+
+            {{#match @custom.first_section_layout_type "=" 'Fullscreen slider'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Big slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Big slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Medium slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Medium slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Slider 2 posts light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Small slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.first_section_layout_type "=" 'Small slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />   
+            {{else match @custom.second_section_layout_type "=" 'Fullscreen slider'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Big slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Big slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Medium slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Medium slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Small slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Small slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Slider 2 posts light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.second_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Fullscreen slider'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Big slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Big slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Medium slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Medium slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Small slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Small slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.third_section_layout_type "=" 'Slider 2 posts light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />  
+            {{else match @custom.third_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />  
+            {{else match @custom.fourth_section_layout_type "=" 'Fullscreen slider'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Big slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Big slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Medium slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Medium slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Small slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Small slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Slider 2 posts light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fourth_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Fullscreen slider'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Big slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Big slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Medium slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Medium slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Small slider light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Small slider dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Slider 2 posts light background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{else match @custom.fifth_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            {{/match}}
+
+        {{/is}}
+
+    {{/match}}
+
+{{/match}}
+
+
+{{!-- ----------------- Swiper Min JS ----------------- --}}
+
+{{#match loadMinJS "=" 'true' }}
+
+    {{#match @custom.header_type "=" "Header with logo and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Header with author and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Header with centered logo and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Header with centered author and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Header with logo and centered nav and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Header with author and centered nav and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Burger header with logo and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Burger header with author and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Burger header with centered logo and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else match @custom.header_type "=" "Burger header with centered author and featured posts"}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{else}}
+
+        {{#is 'index'}}
+            
+            {{#match @custom.first_section_layout_type "=" 'Fullscreen slider'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.first_section_layout_type "=" 'Big slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.first_section_layout_type "=" 'Big slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.first_section_layout_type "=" 'Medium slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.first_section_layout_type "=" 'Medium slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.first_section_layout_type "=" 'Small slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.first_section_layout_type "=" 'Small slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.first_section_layout_type "=" 'Slider 2 posts light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  
+            {{else match @custom.first_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>   
+            {{else match @custom.second_section_layout_type "=" 'Fullscreen slider'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Big slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Big slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Medium slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Medium slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Small slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Small slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Slider 2 posts light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.second_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Fullscreen slider'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Big slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Big slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Medium slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Medium slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Small slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Small slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Slider 2 posts light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.third_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Fullscreen slider'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Big slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Big slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Medium slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Medium slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Small slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Small slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Slider 2 posts light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fourth_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Fullscreen slider'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Big slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Big slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Medium slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Medium slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Small slider light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Small slider dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Slider 2 posts light background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{else match @custom.fifth_section_layout_type "=" 'Slider 2 posts dark background'}}
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            {{/match}}
+
+        {{/is}}
+
+    {{/match}}
+
+{{/match}}

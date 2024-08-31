@@ -1,0 +1,124 @@
+{{!-- HEADER OPTIONS --}}
+{{!-- ------------------------------------------------------------------------------------------ --}}
+
+{{!-- "Header with logo" --}}
+{{#match @custom.header_type "=" "Header with logo"}}
+    {{>header/header-layout withLogo = "true"}}
+{{/match}}
+
+{{!-- "Header with logo and featured posts" --}}
+{{#match @custom.header_type "=" "Header with logo and featured posts"}}
+    {{>header/header-layout withLogo = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- "Header with author" --}}
+{{#match @custom.header_type "=" "Header with author"}}
+    {{>header/header-layout withAuthor = "true"}}
+{{/match}}
+
+{{!-- "Header with author and featured posts" --}}
+{{#match @custom.header_type "=" "Header with author and featured posts"}}
+    {{>header/header-layout withAuthor = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --}}
+
+{{!-- "Header with centered logo" --}}
+{{#match @custom.header_type "=" "Header with centered logo"}}
+    {{>header/header-layout withLogo = "true" centeredIdentity = "true"}}
+{{/match}}
+
+{{!-- "Header with centered logo and featured posts" --}}
+{{#match @custom.header_type "=" "Header with centered logo and featured posts"}}
+    {{>header/header-layout withLogo = "true" centeredIdentity = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- "Header with centered author" --}}
+{{#match @custom.header_type "=" "Header with centered author"}}
+    {{>header/header-layout withAuthor = "true" centeredIdentity = "true"}}
+{{/match}}
+
+{{!-- "Header with centered author and featured posts" --}}
+{{#match @custom.header_type "=" "Header with centered author and featured posts"}}
+    {{>header/header-layout withAuthor = "true" centeredIdentity = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --}}
+
+{{!-- "Header with logo and centered nav" --}}
+{{#match @custom.header_type "=" "Header with logo and centered nav"}}
+    {{>header/header-layout withLogo = "true" centeredNav = "true"}}
+{{/match}}
+
+{{!-- "Header with logo and centered nav and featured posts" --}}
+{{#match @custom.header_type "=" "Header with logo and centered nav and featured posts"}}
+    {{>header/header-layout withLogo = "true" centeredNav = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- "Header with author and centered nav" --}}
+{{#match @custom.header_type "=" "Header with author and centered nav"}}
+    {{>header/header-layout withAuthor = "true" centeredNav = "true"}}
+{{/match}}
+
+{{!-- "Header with author and centered nav and featured posts" --}}
+{{#match @custom.header_type "=" "Header with author and centered nav and featured posts"}}
+    {{>header/header-layout withAuthor = "true" centeredNav = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --}}
+
+{{!-- "Big header with logo" --}}
+{{#match @custom.header_type "=" "Big header with logo"}}
+    {{>header/big-header withLogo = "true"}}
+{{/match}}
+
+{{!-- "Big header with author" --}}
+{{#match @custom.header_type "=" "Big header with author"}}
+    {{>header/big-header withAuthor = "true"}}
+{{/match}}
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --}}
+
+{{!-- "Burger header with logo" --}}
+{{#match @custom.header_type "=" "Burger header with logo"}}
+    {{>header/header-layout withLogo = "true" withBurger = "true"}}
+{{/match}}
+
+{{!-- "Burger header with logo and featured posts" --}}
+{{#match @custom.header_type "=" "Burger header with logo and featured posts"}}
+    {{>header/header-layout withLogo = "true" withBurger = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- "Burger header with author" --}}
+{{#match @custom.header_type "=" "Burger header with author"}}
+    {{>header/header-layout withAuthor = "true" withBurger = "true"}}
+{{/match}}
+
+{{!-- "Burger header with author and featured posts" --}}
+{{#match @custom.header_type "=" "Burger header with author and featured posts"}}
+    {{>header/header-layout withAuthor = "true" withBurger = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --}}
+
+{{!-- "Burger header with centered logo" --}}
+{{#match @custom.header_type "=" "Burger header with centered logo"}}
+    {{>header/header-layout withLogo = "true" withBurger = "true" centeredIdentity = "true"}}
+{{/match}}
+
+{{!-- "Burger header with centered logo and featured posts" --}}
+{{#match @custom.header_type "=" "Burger header with centered logo and featured posts"}}
+    {{>header/header-layout withLogo = "true" withBurger = "true" centeredIdentity = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- "Burger header with centered author" --}}
+{{#match @custom.header_type "=" "Burger header with centered author"}}
+    {{>header/header-layout withAuthor = "true" withBurger = "true" centeredIdentity = "true"}}
+{{/match}}
+
+{{!-- "Burger header with centered author and featured posts" --}}
+{{#match @custom.header_type "=" "Burger header with centered author and featured posts"}}
+    {{>header/header-layout withAuthor = "true" withBurger = "true" centeredIdentity = "true" withFeaturedPosts = "true"}}
+{{/match}}
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --}}

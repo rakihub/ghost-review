@@ -1,0 +1,11 @@
+{{!-- --------- Props --------- --}}
+{{!-- 1. showLogo --}}
+{{!-- 2. showAuthor --}}
+
+<div class="header-identity">
+    {{#match showLogo "=" 'true'}}
+        {{>site-logo}}
+    {{else match showAuthor "=" 'true'}}
+        {{>site-author}}
+    {{/match}}
+</div>

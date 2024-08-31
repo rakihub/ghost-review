@@ -1,0 +1,135 @@
+// Post tags
+// ---------------------------------------------------------------
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-tags;
+  padding: 4px 8px;
+  background-color: var(--accent-bg-color);
+  color: var(--accent-color-DM-monochrome);
+  @include font--tags;
+  transition: background-color $transition-time ease, color $transition-time ease;
+
+  &:hover {
+    color: var(--accent-bg-color);
+    background-color: var(--accent-color-DM-monochrome);
+  }
+}
+
+.post-tag-icons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-tag-icon {
+  width: 23px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-tags;
+  background-color: var(--accent-bg-color);
+  @include font--tags;
+  transition: background-color $transition-time ease, color $transition-time ease;
+  position: relative;
+
+  svg {
+    path {
+      fill: var(--accent-color-DM-monochrome);
+      transition: fill $transition-time ease;
+    }
+  }
+
+  // &::after {
+  //   color: #fff;
+  //   background-color: #7f7f7f;
+  //   display: none;
+  //   align-items: center;
+  //   justify-content: center;
+  //   @include font--tags;
+  //   line-height: 100%;
+  //   padding: 4px 8px;
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: calc(100% + 4px);
+  //   animation: fadeIn 0.35s ease;
+  //   width: max-content;
+  //   z-index: 10;
+  //   border-radius: $border-radius-tags;
+  // }
+
+  .post-tag-icon__tooltip {
+    color: #fff;
+    background-color: #7f7f7f;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    @include font--tags;
+    line-height: 100%;
+    padding: 4px 8px;
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 4px);
+    animation: fadeIn 0.35s ease;
+    width: max-content;
+    z-index: 10;
+    border-radius: $border-radius-tags;
+  }
+
+  // &.featured-tag {
+  //   &::after {
+  //     content: 'Featured Post';
+  //   }
+  // }
+
+  // &.private-tag {
+  //   &::after {
+  //     content: 'For Members Only';
+  //   }
+  // }
+
+  &:hover {
+    background-color: var(--accent-color-DM-monochrome);
+
+    .post-tag-icon__tooltip {
+      display: flex;
+    }
+
+    svg {
+      path {
+        fill: var(--accent-bg-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .post-tag {
+    &:hover {
+      color: var(--accent-color-DM-monochrome);
+      background-color: var(--accent-bg-color);
+    }
+  }
+
+  .post-tag-icon {
+    &:hover {
+      background-color: var(--accent-bg-color);
+
+      svg {
+        path {
+          fill: var(--accent-color-DM-monochrome);
+        }
+      }
+    }
+  }
+}

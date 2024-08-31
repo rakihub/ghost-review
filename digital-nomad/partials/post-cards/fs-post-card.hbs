@@ -1,0 +1,23 @@
+<article class="fs-post-card" role="article">
+    {{>post-meta}}
+
+    <h3 class="fs-post-card__title">
+        <a class="fs-post-card__title-link" aria-label="{{t "Post title link"}}" href="{{url}}">{{title}}</a>
+    </h3>
+    {{#if custom_excerpt}}
+        <p class="fs-post-card__excerpt">{{custom_excerpt}}</p>
+    {{/if}}
+
+    <a href="{{url}}" class="post-card__btn" aria-label="{{t "Read now button"}}">
+        <span class="post-card__btn-text-wrapper">
+            <span class="post-card__btn-text">
+                {{t "Read Now"}}
+                {{>icons/chevron-right-icon}}
+            </span>
+            <span class="post-card__btn-text">
+                {{t "Read Now"}}
+                {{>icons/chevron-right-icon}}
+            </span>
+        </span>
+    </a>
+</article>

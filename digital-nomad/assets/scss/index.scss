@@ -1,0 +1,138 @@
+/* digital nomad v2.5.1 */
+/* Variables */
+// ------------------------------------------------------------------
+@import 'variables';
+
+/* Globals */
+// ------------------------------------------------------------------
+@import 'reset';
+@import 'normalize';
+
+/* Animations */
+// ------------------------------------------------------------------
+@import 'keyframes';
+
+/* Components */
+// ------------------------------------------------------------------
+@import 'components/site-logo';
+@import 'components/site-author';
+@import 'components/navigation';
+@import 'components/socials';
+// header components
+@import 'components/header/header';
+@import 'components/header/header-CTA';
+@import 'components/header/mobile-menu';
+@import 'components/header/header-feat-posts';
+// - - - - - - - - -
+@import 'components/footer';
+@import 'components/navigation';
+@import 'components/post-tags';
+@import 'components/post-meta';
+@import 'components/post-card';
+@import 'components/fs-post-card';
+@import 'components/posts-layout';
+// sidebar components
+@import 'components/sidebar/sidebar-banner';
+@import 'components/sidebar/sidebar-post';
+@import 'components/sidebar/sidebar';
+// - - - - - - - - -
+@import 'components/content';
+@import 'components/announcement-bar';
+@import 'components/button';
+@import 'components/subscribe-banner';
+@import 'components/post-upgrade-cta';
+@import 'components/slider/slider-2-posts';
+@import 'components/tags-section';
+@import 'components/small-post-card';
+@import 'components/medium-post-card';
+@import 'components/post-card-with-date';
+@import 'components/fs-section-with-tiers';
+@import 'components/fs-section-with-defined-tier';
+@import 'components/fs-section-with-author';
+@import 'components/sections-bg';
+
+/* Pages */
+// ------------------------------------------------------------------
+// post page components
+@import 'pages/post/progress-bar';
+@import 'pages/post/post';
+@import 'pages/post/post-sidebars';
+@import 'pages/post/post-footer';
+@import 'pages/post/share-block';
+@import 'pages/post/read-next-section';
+@import 'pages/post/post-head';
+// - - - - - - - - -
+@import 'pages/page-template';
+@import 'pages/archive-page';
+@import 'pages/categories-page';
+@import 'pages/authors-page';
+@import 'pages/author-page';
+@import 'pages/form-page';
+@import 'pages/page-404';
+@import 'pages/account-page';
+@import 'pages/membership-page';
+
+html {
+  &.lock-scroll {
+    overflow: hidden;
+  }
+}
+
+body:has(#sodo-search-root:not(:empty)) {
+  overflow: initial !important;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  flex: 1 0 auto;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1480px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: 0 auto;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+// PhotoSwipe Styles
+// ------------------------------------------------------------------
+
+.pswp {
+  z-index: 9999999 !important;
+
+  .pswp__counter {
+    @include font--text-S-bold;
+    line-height: 30px;
+  }
+}
+
+// Media Queries
+// ------------------------------------------------------------------
+
+@media (max-width: 1100px) {
+  .wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .wrapper {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}

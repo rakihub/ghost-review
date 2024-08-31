@@ -1,0 +1,122 @@
+// Medium post card 
+// ------------------------------------------------------
+
+.medium-post-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 386px;
+  height: 100%;
+
+  &__img-link {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: $border-radius-images;
+
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background-color: rgba(0, 0, 0, 0.2);
+
+      border-radius: $border-radius-images;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  &__content {
+    padding: 40px;
+
+    height: 100%;
+
+    z-index: 5;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__heading {
+    margin-top: auto;
+  }
+
+  &__heading-link {
+    @include font--titles-H2;
+  }
+
+  &__excerpt {
+    @include font--text-M-medium;
+  }
+
+  &__heading-link,
+  .post-author__link {
+    transition: opacity $transition-time ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__heading-link,
+  &__excerpt,
+  .post-data,
+  .post-author__span,
+  .post-author__link {
+    color: #fff;
+  }
+
+  .post-author::before {
+    background-color: #fff;
+  }
+}
+
+@media (max-width: 1300px) {
+  .medium-post-card {
+    &__content {
+      padding: 20px;
+    }
+
+    &__heading-link {
+      @include font--titles-H3;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .medium-post-card {
+    &__content {
+      padding: 20px;
+    }
+
+    &__heading-link {
+      @include font--titles-H3;
+    }
+
+    &__excerpt {
+      @include font--text-S-bold;
+    }
+  }
+}

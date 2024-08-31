@@ -1,0 +1,22 @@
+.read-next-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  position: relative;
+  z-index: 3;
+  padding-bottom: 80px;
+
+  .post-card {
+    &__content {
+      max-width: 923px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .read-next-section {
+    padding-bottom: 64px;
+  }
+}

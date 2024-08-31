@@ -1,0 +1,31 @@
+{{!-- Slider 2 Posts Init Script --}}
+<script>
+    const slider2Posts = document.querySelectorAll('.swiper.slider-2-posts')
+
+    slider2Posts.forEach(slide => {
+            new Swiper(slide, {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 2,
+            spaceBetween: 24,
+            speed: 800,
+            allowTouchMove: true,
+            watchOverflow: true,
+            breakpoints: {
+                1100: {
+                    allowTouchMove: false,
+                },
+                750: {
+                    slidesPerView: 2,
+                },
+                0: {
+                    slidesPerView: 1
+                }
+            },
+            navigation: {
+            nextEl: `.slider-2-posts-next-btn-${slide.dataset.indexSlider}`,
+            prevEl: `.slider-2-posts-prev-btn-${slide.dataset.indexSlider}`
+            }
+        })
+    })
+</script>

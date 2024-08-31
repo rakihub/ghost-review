@@ -1,0 +1,97 @@
+{{!< default}}
+
+{{^if @member}}
+<script>window.location = '{{@site.url}}/signin/';</script>
+{{/if}}
+<main class="main account-page">
+    <div class="account">
+        <button aria-label="{{t "Log Out"}}" class="logout-btn" data-members-signout>
+            {{>icons/logout-icon}}
+            <span>{{t "Log Out"}}</span>
+        </button>
+        <div class="account__header">
+            {{#if @member.paid}}
+                {{#foreach @member.subscriptions}}
+                    {{#if avatar_image}}
+                        <picture>
+                            <source 
+                            srcset="{{img_url avatar_image size="300" format="webp"}} 300w, 
+                            {{img_url avatar_image size="150" format="webp"}} 150w" 
+                            sizes="(max-width:600px) 80px, 148px"  type="image/webp">
+                            <img class="account__image" 
+                            srcset="{{img_url avatar_image size="300"}} 300w, 
+                            {{img_url avatar_image size="150"}} 150w" 
+                            sizes="(max-width:600px) 80px, 148px" 
+                            src="{{img_url avatar_image size="300"}}"
+                            alt="{{primary_author.name}} {{t "Profile image"}}">
+                        </picture>
+                    {{else}}
+                        <div class="account__image account__image--default">
+                            {{>icons/author-default-icon}}
+                        </div>
+                    {{/if}}
+                {{/foreach}}
+            {{else}}
+                <div class="account__image account__image--default">
+                    {{>icons/author-default-icon}}
+                </div>
+            {{/if}}
+            <span class="account__name">{{@member.name}}</span>
+            {{#if @member.paid}}
+                {{#foreach @member.subscriptions}}
+                    <p class="account__desc">
+                        {{t "Hey"}}, {{@member.firstname}}! {{t "You have an"}} <strong>{{status}} {{plan.nickname}}</strong> {{t "account with access to all areas. Get in touch if you have any problems or need some help getting things updated, and thanks for subscribing."}}
+                    </p>
+                {{/foreach}}
+            {{else}}
+                <p class="account__desc">
+                    {{t "Hey"}}, {{@member.firstname}}! {{t "You have an active free account. Get in touch if you have any problems or need some help getting things updated, and thanks for subscribing."}}
+                </p>
+            {{/if}}
+            <button aria-label="{{t "Account Settings"}}" class="account__settings" data-portal="account">
+                {{>icons/settings-icon}}
+                <span>{{t "Account Settings"}}</span>
+            </button>
+        </div>
+        <div class="account-info">
+            <div class="account-info__row">
+                <div class="account-info-item">
+                    <span class="account-info-item__name">{{t "Email Address"}}</span>
+                    <span class="account-info-item__value">{{@member.email}}</span>
+                </div>
+                <div class="account-info-item">
+                    <span class="account-info-item__name">{{t "Your Plan"}}</span>
+                    <span class="account-info-item__value">{{#if @member.paid}}{{#foreach @member.subscriptions}}{{plan.nickname}}{{/foreach}}{{else}}{{t "Free"}}{{/if}}</span>
+                </div>
+            </div>
+            {{#if @member.paid}}
+                {{#foreach @member.subscriptions}}
+                <div class="account-info__row">
+                    <div class="account-info-item">
+                        <span class="account-info-item__name">{{t "Card"}}</span>
+                        <div class="account-info-item__value">
+                            {{>icons/dots-icon}}
+                            {{default_payment_card_last4}}
+                        </div>
+                    </div>
+                    <div class="account-info-item">
+                        <span class="account-info-item__name">{{t "Next Bill Date"}}</span>
+                        <span class="account-info-item__value">{{date current_period_end format="DD MMMM YYYY"}}</span>
+                    </div>
+                </div>
+                {{/foreach}}
+            {{/if}}
+        </div>
+        {{#if @member.paid}}
+            <div class="account-buttons">
+                <button aria-label="{{t "Edit Billing Info"}}" class="submit-btn submit-btn--form-btn edit-billing-btn" data-members-edit-billing>
+                    <span class="submit-btn__text">{{t "Edit Billing Info"}}</span>
+                    {{>icons/loader-icon}}
+                </button>
+                {{#foreach @member.subscriptions}} 
+                {{cancel_link class="main-button cancel-subscription-btn"}}  
+                {{/foreach}}
+            </div>
+        {{/if}}
+    </div>
+</main>

@@ -1,0 +1,35 @@
+{{!-- Big Sliders Init Script --}}
+<script>
+    const bigSliders = document.querySelectorAll('.swiper.big-slider')
+
+    bigSliders.forEach(bigSlider => {
+        new Swiper(bigSlider, {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            parallax: true,
+            speed: 1000,
+            allowTouchMove: true,
+            watchOverflow: true,
+            breakpoints: {
+                1100: {
+                    allowTouchMove: false
+                }
+            },
+            pagination: {
+                el: '.big-slider-pagination',
+                clickable: true,
+                bulletClass: 'slider-pagination-bullet',
+                bulletActiveClass: 'active',
+                renderBullet: function (_, className) {
+                    return `<div class="${className}"><span></span></div>`;
+                }
+            },
+            navigation: {
+                nextEl: `.big-next-btn-${bigSlider.dataset.indexSlider}`,
+                prevEl: `.big-prev-btn-${bigSlider.dataset.indexSlider}`
+            }
+        })
+    })
+</script>

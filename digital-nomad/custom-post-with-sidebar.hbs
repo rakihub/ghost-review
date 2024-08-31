@@ -1,0 +1,114 @@
+{{!< default}}
+
+{{#post}}
+<div class="progress-bar">
+    <progress class="reading-progress" value="0" max="100" aria-label="{{t "Reading progress"}}"></progress>
+    <div class="progress-bar-wrapper wrapper">
+        <div class="progress-bar-main">
+            <div class="progress-bar-tags">
+                {{>post-tags showOnlyPrimaryTag = 'true'}}
+            </div>
+            <span class="progress-bar-main__title">{{title}}</span>
+        </div>
+        <button class="scroll-top-button" aria-label="{{t "Scroll to top button"}}">
+            {{>icons/arrow-top-icon}}
+        </button>
+    </div>
+</div>
+<main class="post-page with-sidebar {{post_class}}">
+    <article class="post-article">
+        <div class="post-main">
+            {{>post-head}}
+            {{^if featured}}
+            {{#if feature_image}}
+            <div class="post-feature-image-container">
+                <div class="post-feature-image-wrapper wrapper">
+                    <picture>
+                        <source srcset="{{img_url feature_image size="2800" format="webp" }} 2800w, {{img_url feature_image size="2000"
+                            format="webp" }} 2000w, {{img_url feature_image size="1600" format="webp" }} 1600w, {{img_url feature_image
+                            size="1200" format="webp" }} 1200w, {{img_url feature_image size="960" format="webp" }} 960w, {{img_url
+                            feature_image size="720" format="webp" }} 720w, {{img_url feature_image size="400" format="webp" }} 400w"
+                            sizes="(max-width: 1479px) 95vw, 1400px" type="image/webp">
+                        <img class="post-feature-image" srcset="{{img_url feature_image size="2800" }} 2800w, {{img_url feature_image
+                            size="2000" }} 2000w, {{img_url feature_image size="1600" }} 1600w, {{img_url feature_image size="1200" }}
+                            1200w, {{img_url feature_image size="960" }} 960w, {{img_url feature_image size="720" }} 720w, {{img_url
+                            feature_image size="400" }} 400w" sizes="(max-width: 1479px) 95vw, 1400px" src="{{img_url feature_image size="2800"}}" 
+                            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}} {{t "feature image"}}{{/if}}" />
+                    </picture>
+                </div>
+            </div>
+            {{/if}}
+            {{/if}}
+            <div class="post-content-sidebar-wrapper">
+                <div class="post-content-sidebar-container">
+                    {{>sidebar/post-info-sidebar}}
+                    <div class="post-content with-sidebar{{^if access}} without-access{{/if}}">
+                        {{#if access}}
+                            {{content}}
+                        {{else}}
+                            {{{html}}}
+                            {{>content-cta}}
+                        {{/if}}
+                    </div>
+                    {{>sidebar/post-sidebar}}
+                    <div class="post-footer with-sidebar">
+                        <div class="post-footer-container">
+                            {{#match authors.length "=" 1}}
+                            {{#primary_author}}
+                            <div class="post-footer-author">
+                                {{#if profile_image}}
+                                <a class="post-footer-author__image-wrapper-link" href="{{@site.url}}{{url}}" aria-label="{{t "Link to page author {authorName}" authorName=name}}">
+                                <picture>
+                                        <source srcset="{{img_url profile_image size="100" format="webp"}} 100w" sizes="40px"  type="image/webp">
+                                        <img class="post-footer-author__image" srcset="{{img_url profile_image size="100"}} 100w" sizes="40px" src="{{img_url profile_image size="100"}}" alt="{{name}} {{t "profile image"}}"/>
+                                    </picture>
+                                </a>
+                                {{/if}}
+                                <div class="post-footer-author-name">
+                                    <span class="post-footer-author-name__by">{{t "by"}}</span>
+                                    <a class="post-footer-author-name__link" href="{{@site.url}}{{url}}" aria-label="{{t "Link to page author {authorName}" authorName=name}}">
+                                        {{name}}
+                                    </a>
+                                </div>
+                            </div>
+                            {{/primary_author}}
+                            {{else}}
+                            <div class="post-footer-authors">
+                                <span class="post-footer-author-name__by">{{t "by"}}</span>
+                                <div class="post-footer-author-names">
+                                    {{#foreach authors}}
+                                    <a class="post-footer-author-name__link" href="{{@site.url}}{{url}}" aria-label="{{t "Link to page author {authorName}" authorName=name}}">
+                                        {{name}}
+                                    </a>
+                                    {{/foreach}}
+                                </div>
+                            </div>
+                            {{/match}}
+                            <div class="post-footer-date-container">
+                                <span class="post-footer-updated">
+                                    {{t "Published"}}
+                                </span>
+                                <span class="post-footer-date">  
+                                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time>
+                                </span>    
+                            </div>
+                            {{>share-block}}
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </article>
+    {{#if access}}
+    {{#if comments}}
+    <section class="post-comments with-sidebar">
+        <div class="post-comments-wrapper wrapper">
+            <h2 class="post-comments-title">{{t "Comments"}}</h2>
+            {{comments title="" mode="auto" saturation=0 count=false}}
+        </div>
+    </section>
+    {{/if}}
+    {{/if}}
+    {{/post}}
+    {{>read-next-section}}
+</main>

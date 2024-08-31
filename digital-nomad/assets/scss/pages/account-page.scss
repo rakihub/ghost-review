@@ -1,0 +1,350 @@
+/* Account Page */
+/* ---------------------------------------------------------- */
+
+.account-page {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-top: 24px;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--accent-bg-color);
+  border-radius: $border-radius-tags;
+  width: calc(100% - 80px);
+  max-width: 1056px;
+  padding: 64px;
+  position: relative;
+
+  transition: background-color $transition-time ease;
+
+  margin: 0 auto;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    width: 100%;
+
+    border-bottom: 1px solid var(--account-gray-color);
+  }
+
+  &__image {
+    width: 148px;
+    height: 148px;
+    border-radius: 100%;
+    margin-bottom: 24px;
+
+    svg {
+      path {
+        stroke: var(--color-main);
+      }
+    }
+
+    &--default {
+      background-color: var(--account-gray-color);
+      transition: background-color $transition-time ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        height: 36px;
+        width: 36px;
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: 16px;
+
+    @include font--titles-H2;
+    color: var(--color-main);
+  }
+
+  &__desc {
+    margin-bottom: 24px;
+
+    @include font--text-M-medium;
+    color: var(--color-main);
+  }
+
+  &__settings,
+  .logout-btn {
+    color: var(--color-gray);
+    @include font--buttons-M-semibold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color $transition-time ease;
+
+    svg {
+      path {
+        stroke: var(--color-gray);
+        transition: stroke $transition-time ease;
+      }
+    }
+
+    &:hover {
+      color: var(--color-main);
+
+      svg {
+        path {
+          stroke: var(--color-main);
+        }
+      }
+    }
+  }
+}
+
+.logout-btn {
+  position: absolute;
+  top: 64px;
+  right: 64px;
+}
+
+.account-info {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  border-bottom: 1px solid var(--account-gray-color);
+
+  gap: 32px;
+
+  &__row {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.account-info-item {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__name {
+    @include font--text-M-semibold;
+    color: var(--color-gray);
+  }
+
+  &__value {
+    color: var(--color-main);
+    @include font--text-M-medium;
+
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    svg {
+      circle {
+        fill: var(--color-main);
+      }
+    }
+  }
+}
+
+.edit-billing-btn {
+  @include font--buttons-M-semibold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.submit-btn {
+    width: auto;
+    height: auto;
+  }
+
+  &.loading {
+    width: 167px;
+    height: 46px;
+    pointer-events: none;
+
+    .submit-btn__text {
+      display: none;
+    }
+
+    .loader-icon {
+      display: block;
+
+      circle {
+        stroke: #FFF;
+      }
+    }
+  }
+}
+
+.cancel-subscription-btn {
+  @include font--buttons-M-semibold;
+  color: var(--color-gray);
+
+  &.error {
+    color: red;
+
+    &:hover {
+      color: #fe4b4b;
+    }
+  }
+
+  &:hover {
+    color: var(--color-main);
+  }
+}
+
+.account-buttons {
+  padding-top: 40px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .gh-error-subscription-cancel {
+    @include font--text-S-bold;
+    position: absolute;
+    bottom: -32px;
+    left: 0;
+    color: red;
+    width: 100%;
+    text-align: right;
+  }
+}
+
+@media (max-width: 1100px) {
+  .account-page {
+    gap: 48px;
+    padding-bottom: 48px;
+  }
+
+  .account {
+    padding: 48px;
+    width: calc(100% - 60px);
+  }
+
+  .logout-btn {
+    right: 48px;
+    top: 48px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .account {
+    .cancel-subscription-btn {
+      &:hover {
+        color: var(--color-gray);
+      }
+
+      &.error {
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    .logout-btn,
+    .account__settings {
+      &:hover {
+        color: var(--color-gray);
+
+        svg {
+          path {
+            stroke: var(--color-gray);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .account {
+    &__name {
+      font-size: 3.2rem;
+    }
+
+    .logout-btn,
+    .account__settings {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .account-buttons {
+    flex-direction: column;
+    gap: 32px;
+
+    .gh-error-subscription-cancel {
+      bottom: -36px;
+      text-align: center;
+    }
+  }
+
+  .account-info__row {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .account__image {
+    width: 80px;
+    height: 80px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .account-buttons {
+    .gh-error-subscription-cancel {
+      bottom: -64px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .account-page {
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+
+  .account {
+    width: calc(100% - 40px);
+    padding: 32px;
+
+    &__name {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .account {
+    padding: 24px;
+  }
+
+  .account__header {
+    padding-bottom: 24px;
+  }
+
+  .account-info {
+    padding: 24px 0;
+
+    &__row {
+      gap: 24px;
+    }
+  }
+
+  .logout-btn {
+    right: 24px;
+    top: 24px;
+  }
+}

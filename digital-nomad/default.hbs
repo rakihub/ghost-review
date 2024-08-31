@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}" data-theme="light">
+
+    <head>
+        {{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{meta_title}}</title>
+
+        {{!-- Dark Mode Script --}}
+        <script>
+            const rootElem = document.querySelector("html[data-theme]");
+
+            const detectSystemTheme = () => {
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    rootElem.setAttribute("data-theme", "dark");
+                } else {
+                    rootElem.setAttribute("data-theme", "light");
+                }
+            };
+
+            const initTheme = () => {
+                const localStoragePref = localStorage.getItem("data-theme");
+
+                if (localStoragePref) {
+                    rootElem.setAttribute("data-theme", localStoragePref);
+                } else {
+                    detectSystemTheme();
+                }
+            };
+
+            initTheme();
+
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .addEventListener("change", () => {
+                    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                        rootElem.setAttribute("data-theme", "dark");
+                    } else {
+                        rootElem.setAttribute("data-theme", "light");
+                    }
+                });
+        </script>
+
+        {{!-- Loading Fonts, Fonts Variables Declarations --}}
+        {{>font-pairings}}
+
+        {{!-- Swiper Min CSS --}}
+        {{>swiperMinCode loadMinCSS = 'true'}}
+
+        {{!-- Main Styles --}}
+        <link rel="stylesheet" href="{{asset "built/main.css"}}">
+
+        {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
+        it should always be the last tag before the closing head tag --}}
+        {{ghost_head}}
+        
+    </head>
+
+    <body class="{{body_class}}{{#match @custom.header_type "=" "Header with author"}} withAuthorHeader{{else match
+        @custom.header_type "=" "Header with author and featured posts" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Header with centered author" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Header with centered author and featured posts" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Header with author and centered nav" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Header with author and centered nav and featured posts" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Burger header with author" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Burger header with author and featured posts" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Burger header with centered author" }} withAuthorHeader{{else match
+        @custom.header_type "=" "Burger header with centered author and featured posts" }}
+        withAuthorHeader{{/match}}{{#match @custom.header_type "=" "Header with logo and featured posts" }}
+        withFeaturedPostsHeader{{else match @custom.header_type "=" "Header with author and featured posts" }}
+        withFeaturedPostsHeader{{else match @custom.header_type "=" "Header with centered logo and featured posts" }}
+        withFeaturedPostsHeader{{else match @custom.header_type "=" "Header with centered author and featured posts" }}
+        withFeaturedPostsHeader{{else match @custom.header_type "=" "Header with logo and centered nav and featured posts"
+        }} withFeaturedPostsHeader{{else match
+        @custom.header_type "=" "Header with author and centered nav and featured posts" }} withFeaturedPostsHeader{{else
+        match @custom.header_type "=" "Burger header with logo and featured posts" }} withFeaturedPostsHeader{{else match
+        @custom.header_type "=" "Burger header with author and featured posts" }} withFeaturedPostsHeader{{else match
+        @custom.header_type "=" "Burger header with centered logo and featured posts" }} withFeaturedPostsHeader{{else match
+        @custom.header_type "=" "Burger header with centered author and featured posts" }}
+        withFeaturedPostsHeader{{/match}}{{#match @custom.header_type "=" "Big header with logo" }} withBigHeader{{else
+        match @custom.header_type "=" "Big header with author" }} withBigHeader{{/match}}{{#is "index" }}{{#match
+        @custom.first_section_layout_type "=" "Fullscreen section with membership slider" }} withFullScreenFirstSection withTransparentHeader{{/match}}{{#match
+        @custom.first_section_layout_type "=" "Fullscreen section with defined membership tier" }} withFullScreenFirstSection withTransparentHeader{{/match}}{{/is}}">
+        
+        {{!-- Website's Header --}}
+        {{>header}}
+
+        {{!-- All other templates get inserted here, index.hbs, post.hbs, etc (except Error and Form pages) --}}
+        {{{body}}}
+
+        {{!-- Website's Footer --}}
+        {{>footer}}
+
+        {{!-- Swiper Min JS --}}
+        {{>swiperMinCode loadMinJS = 'true'}}
+
+        {{!-- Sliders Init JS --}}
+        {{>slidersInitScripts}}
+
+        {{!-- Main Script --}}
+        <script src="{{asset 'built/main.js'}}" defer></script>
+
+        {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
+        {{ghost_foot}}
+    </body>
+
+</html>

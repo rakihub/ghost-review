@@ -1,0 +1,48 @@
+.socials {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: fit-content;
+
+    &__link {
+        padding: 0 4px;
+
+
+        &:first-child {
+            padding: 0 4px 0 0;
+        }
+
+        &:last-child {
+            padding: 0 0 0 4px;
+        }
+
+        svg path {
+            fill: var(--color-main);
+            transition: fill $transition-time ease;
+        }
+
+        &:hover {
+            svg path {
+                fill: var(--accent-hover-color);
+            }
+        }
+    }
+
+    svg {
+        fill: var(--color-main);
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .socials {
+        &__link {
+            &:hover {
+                svg path {
+                    fill: var(--color-main);
+                }
+            }
+        }
+    }
+}

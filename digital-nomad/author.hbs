@@ -1,0 +1,80 @@
+{{!< default}}
+
+<main class="main archive-page author-page">
+    {{#author}}
+    <div class="author-page-head{{#if cover_image}} with-feature-image{{/if}}{{#if profile_image}} with-profile-image{{/if}}">
+        {{#if cover_image}} 
+        <picture>
+            <source srcset="{{img_url cover_image size="3600" format="webp" }} 3600w, {{img_url cover_image size="2800"
+                format="webp" }} 2800w, {{img_url cover_image size="2400" format="webp" }} 2400w, {{img_url cover_image size="2000"
+                format="webp" }} 2000w, {{img_url cover_image size="1600" format="webp" }} 1600w, {{img_url cover_image size="1200"
+                format="webp" }} 1200w, {{img_url cover_image size="960" format="webp" }} 960w, {{img_url cover_image size="720"
+                format="webp" }} 720w,{{img_url cover_image size="400" format="webp" }} 400w" sizes="100vw" type="image/webp">
+            <img class="author-page-head__bg-image" srcset="{{img_url cover_image size="3600" }} 3600w, {{img_url cover_image
+                size="2800" }} 2800w, {{img_url cover_image size="2400" }} 2400w, {{img_url cover_image size="2000" }} 2000w,
+                {{img_url cover_image size="1600" }} 1600w, {{img_url cover_image size="1200" }} 1200w, {{img_url cover_image
+                size="960" }} 960w, {{img_url cover_image size="720" }} 720w,{{img_url cover_image size="400" }} 400w" sizes="100vw"
+                src="{{img_url cover_image size="3600"}}" alt="{{name}} {{t "cover image"}}" />
+        </picture>
+        {{/if}}
+        <div class="author-page-head__content wrapper">
+            <div class="author-page-head__main">
+                {{#if profile_image}}
+                <picture>
+                    <source srcset="{{img_url profile_image size="400" format="webp" }} 400w, {{img_url profile_image size="300"
+                        format="webp" }} 300w, {{img_url profile_image size="150" format="webp" }} 150w, {{img_url profile_image
+                        size="100" format="webp" }} 100w"
+                        sizes="(max-width: 350px) 64px, (max-width: 550px) 80px, (max-width: 700px) 96px, 120px" type="image/webp">
+                    <img class="author-page-head__profile-image" srcset="{{img_url profile_image size="400" }} 400w, {{img_url
+                        profile_image size="300" }} 300w, {{img_url profile_image size="150" }} 150w, {{img_url profile_image size="100"
+                        }} 100w" sizes="(max-width: 350px) 64px, (max-width: 550px) 80px, (max-width: 700px) 96px, 120px"
+                        src="{{img_url profile_image size="400"}}" alt="{{name}} {{t "profile image"}}" />
+                </picture>
+                {{/if}}
+                <div class="author-page-head__main-content{{#if profile_image}} with-profile-image{{/if}}">
+                    <h1 class="author-page-head__title{{#if profile_image}} with-profile-image{{/if}}">{{name}}</h1>
+                    {{#if location}}
+                    <div class="author-page-head__location">
+                        {{>icons/location-icon}}
+                        <span>{{location}}</span>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{#if bio}}
+            <p class="author-page-head__excerpt">{{bio}}</p>
+            {{/if}}
+            <div class="author-page-head__socials">
+                {{#if facebook}}
+                <a class="author-page-head__social-link" href="{{facebook_url}}" target="_blank" rel="noopener"
+                    aria-label="{{name}}'s {{t "facebook link"}}">
+                    {{>icons/facebook-icon}}
+                </a>
+                {{/if}}
+                {{#if twitter}}
+                <a class="author-page-head__social-link" href="{{twitter_url}}" target="_blank" rel="noopener"
+                    aria-label="{{name}}'s {{t "twitter link"}}">
+                    {{>icons/twitter-icon}}
+                </a>
+                {{/if}}
+                {{#if website}}
+                <a class="author-page-head__social-link" href="{{website}}" target="_blank" rel="noopener"
+                    aria-label="{{name}}'s {{t "website link"}}">
+                    {{>icons/globe-icon}}
+                </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/author}}
+    <div class="archive-page-posts">
+        <section class="wrapper">
+            <div class="layout-grid layout-grid--3-column latest-section-posts">
+                {{#foreach posts}}
+                    {{>post-cards/post-card postType="Grid 3 column" showExcerpt="true" className=" latest-post"}}
+                {{/foreach}}
+            </div>
+            {{>button btnType="loadMore" classNames="load-more-btn--margin-top"}}
+        </section>
+    </div>
+</main>

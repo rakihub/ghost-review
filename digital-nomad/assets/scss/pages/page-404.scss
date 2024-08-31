@@ -1,0 +1,85 @@
+.error-404-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.error-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+
+  .logo {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    color: var(--color-main);
+
+    margin-bottom: 24px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.25s ease-in forwards;
+    animation-delay: 100ms;
+
+    @include font--titles-H1;
+  }
+
+  &__desc {
+    color: var(--color-main);
+    max-width: 500px;
+
+    @include font--text-M-semibold;
+
+    margin-bottom: 24px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.25s ease-in forwards;
+    animation-delay: 200ms;
+  }
+
+  .submit-btn {
+    opacity: 0;
+    animation: fadeIn 0.25s ease-in forwards;
+    animation-delay: 300ms;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 900px) {
+  .error-404 {
+    padding: 0 40px;
+
+    &__title {
+      font-size: 3.6rem;
+    }
+
+    &__desc {
+      max-width: 80%;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .error-404 {
+    padding: 0 20px;
+
+    &__title {
+      font-size: 3.2rem;
+    }
+
+    &__desc {
+      max-width: 100%;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .error-404 {
+    padding: 0 14px;
+  }
+}

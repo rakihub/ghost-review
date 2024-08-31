@@ -1,0 +1,36 @@
+{{!-- Fullscreen Sliders Init Script --}}
+<script>
+    const fullScreenSliders = document.querySelectorAll('.swiper.fullscreen-slider')
+
+    fullScreenSliders.forEach(fullScreenSlider => {
+        new Swiper(fullScreenSlider, {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            parallax: true,
+            speed: 900,
+            allowTouchMove: true,
+            watchOverflow: true,
+            breakpoints: {
+                1100: {
+                    allowTouchMove: false,
+                    speed: 1200,
+                }
+            },
+            pagination: {
+                el: '.fullscreen-slider-pagination',
+                clickable: true,
+                bulletClass: 'slider-pagination-bullet',
+                bulletActiveClass: 'active',
+                renderBullet: function (_, className) {
+                    return `<div class="${className}"><span></span></div>`;
+                }
+            },
+            navigation: {
+                nextEl: `.fullscreen-next-btn-${fullScreenSlider.dataset.indexSlider}`,
+                prevEl: `.fullscreen-prev-btn-${fullScreenSlider.dataset.indexSlider}`
+            }
+        })
+    })
+</script>

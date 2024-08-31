@@ -1,0 +1,931 @@
+.section-one-plus-two,
+.section-one-featured-plus-two,
+.section-one-plus-three,
+.section-one-featured-plus-three,
+.section-grid-two-column,
+.section-grid-two-column-sidebar-with-featured-posts,
+.section-grid-two-column-sidebar-with-latest-posts,
+.section-list-sidebar-with-featured-posts,
+.section-list-sidebar-with-latest-posts,
+.section-list-with-img-sidebar-with-featured-posts,
+.section-list-with-img-sidebar-with-latest-posts,
+.section-grid-three-column,
+.section-grid-four-column,
+.section-small-slider,
+.section-big-slider,
+.section-medium-slider,
+.section-slider-two-posts,
+.section-categories-tabs,
+.section-medium-small-posts,
+.section-posts-with-date-sidebar-with-featured-posts,
+.section-posts-with-date-sidebar-with-latest-posts,
+.section-list-with-img-sidebar-with-featured-posts,
+.section-list-with-img-sidebar-with-latest-posts,
+.section-membership,
+.section-subscribe-banner,
+.section-with-author,
+.section-subscribe-banner-with-benefits {
+  transition: background-color $transition-time ease;
+
+  &--dark-bg {
+    .layout-title,
+    .layout-title__link,
+    .post-card__heading-link,
+    .post-card__excerpt,
+    .post-data,
+    .post-author__link,
+    .post-card-with-date__heading-link,
+    .post-card-with-date__excerpt,
+    .sidebar-posts__title,
+    .tags-section__title,
+    .tags-section__subtitle,
+    .tags-section__tab,
+    .slider-card-2-posts__heading-link,
+    .slider-card-2-posts__excerpt,
+    .small-post-card__heading-link,
+    .small-post-card__excerpt,
+    .membership-page__span,
+    .membership-page__title,
+    .membership-page__excerpt,
+    .section-subscribe-banner-with-benefits__span,
+    .section-subscribe-banner-with-benefits__title,
+    .section-subscribe-banner-with-benefits__benefit-item {
+      color: #fff;
+    }
+
+    .section-subscribe-banner-with-benefits__benefit-item {
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    .section-subscribe-banner-with-benefits__text {
+      color: #babac1;
+    }
+
+    .post-card__heading-link,
+    .post-author__link,
+    .layout-title__link,
+    .post-card-with-date__heading-link {
+      &:hover {
+        color: #c7c7c7;
+      }
+    }
+
+    .post-author {
+      &::before {
+        background-color: #a5a5a5;
+      }
+    }
+
+    .post-author__span {
+      color: #a5a5a5;
+    }
+
+    .layout-aside--three-posts .post-card {
+      border-bottom: 1px solid #404040;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+
+    .layout-aside--two-posts .post-card + .post-card {
+      border-top: 1px solid #404040;
+    }
+
+    .post-card-with-date + .post-card-with-date {
+      border-top: 1px solid #404040;
+    }
+
+    .post-card .post-card-no-image,
+    .slider-card-2-posts .post-card-no-image,
+    .medium-post-card .post-card-no-image {
+      background-color: #303030;
+    }
+
+    .post-tag {
+      background-color: #303030;
+      color: #fff;
+
+      &:hover {
+        background-color: #fff;
+        color: #303030;
+      }
+    }
+
+    .post-tag-icon {
+      background-color: #303030;
+      color: #fff;
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+
+      &:hover {
+        background-color: #fff;
+        color: #303030;
+
+        svg {
+          path {
+            fill: #303030;
+          }
+        }
+      }
+    }
+
+    .load-more-btn {
+      color: #fff;
+      background-color: #303030;
+
+      &:hover {
+        color: #303030;
+        background-color: #fff;
+      }
+    }
+
+    .post-card--medium-list:nth-of-type(n + 2) {
+      border-top: 1px solid #404040;
+    }
+
+    .sidebar-post {
+      &__title {
+        color: #fff;
+
+        &:hover {
+          color: #c7c7c7;
+        }
+      }
+
+      &:nth-of-type(n + 2) {
+        border-top: 1px solid #404040;
+      }
+
+      .post-card-no-image {
+        background-color: #303030;
+      }
+    }
+
+    .subscribe-banner,
+    .subscribe-banner-with-img,
+    .post-card-with-date__date-wrapper,
+    .sidebar-post__date-wrapper {
+      background-color: #303030;
+    }
+
+    .subscribe-banner__title,
+    .subscribe-banner-with-img__span,
+    .subscribe-banner-with-img__title,
+    .subscribe-banner-with-img__text,
+    .subscribe-banner__text,
+    .subscribe-banner-terms a > * > * {
+      color: #fff;
+    }
+
+    .subscribe-banner-terms a > * > * {
+      &:hover {
+        color: #c7c7c7;
+      }
+    }
+
+    .subscribe-banner-terms * {
+      color: #a5a5a5;
+    }
+
+    .post-card-with-date {
+      .post-card-with-date__day {
+        color: #fff;
+      }
+
+      .post-card-with-date__month-year {
+        color: #a5a5a5;
+      }
+    }
+
+    .sidebar-post__date-wrapper {
+      .sidebar-post__day {
+        color: #fff;
+      }
+
+      .sidebar-post__month-year {
+        color: #a5a5a5;
+      }
+    }
+
+    .small-slider-btn,
+    .medium-slider-btn,
+    .slider-2-posts-btn {
+      background-color: #303030;
+
+      svg {
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+
+    .tier-card {
+      border-color: #404040 !important;
+    }
+
+    .membership-page__toggle-btn,
+    .tier-card__price-value {
+      color: #fff;
+    }
+
+    .tier-card__price-per {
+      color: #a5a5a5;
+    }
+
+    .membership-page__toggle {
+      background-color: #fff;
+
+      &::after {
+        background-color: #1d1d1f;
+      }
+    }
+
+    &.membership-page.yearly .membership-page__toggle-btn--yearly {
+      color: #fff;
+    }
+
+    .membership-page__toggle-btn--yearly {
+      color: #747474;
+    }
+
+    .tier-card__name {
+      color: #fff;
+      background-color: #303030;
+    }
+
+    .subscribe-banner-with-img__btn,
+    .section-subscribe-banner-with-benefits__btn,
+    .tier-card__btn {
+      background-color: #fff;
+      color: #303030;
+
+      svg {
+        path {
+          stroke: #303030;
+        }
+      }
+    }
+
+    .tier-card__trial-days-container {
+      background-color: #343435;
+    }
+
+    .tier-card__trial-days-item-content {
+      color: #fff;
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    .tier-card__benefit-item {
+      color: #fff;
+
+      svg {
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+
+    .section-with-author__first-name,
+    .section-with-author__bio,
+    .section-with-author__surname {
+      color: #fff;
+    }
+
+    .section-with-author__img-wrapper-link {
+      svg {
+        path {
+          fill: var(--with-author-dark-bg);
+          stroke: var(--with-author-dark-bg);
+        }
+      }
+    }
+
+    .section-with-author__btn--default {
+      color: #fff;
+      background-color: #303030;
+
+      &:hover {
+        color: #303030;
+        background-color: #fff;
+      }
+    }
+
+    .section-with-author__btn--colored-bg {
+      background-color: #fff;
+      color: #303030;
+
+      svg {
+        path {
+          stroke: #303030;
+        }
+      }
+    }
+
+    .tags-section {
+      &__tab {
+        background-color: #1d1d1f;
+        border-color: #404040;
+      }
+      &__count {
+        background-color: #303030;
+      }
+      &__count-value {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.section-big-slider--dark-bg {
+  .post-card {
+    .post-author {
+      &::before {
+        background-color: #fff;
+      }
+
+      &__span {
+        color: #fff;
+      }
+    }
+
+    &__btn {
+      background-color: #303030;
+      color: #fff;
+
+      svg {
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+}
+
+.section-membership--dark-bg,
+.section-with-author--dark-bg {
+  border-color: #404040;
+}
+
+.section-one-plus-two {
+  &--dark-bg {
+    background-color: var(--one-plus-two-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--one-plus-two-light-bg);
+  }
+}
+
+.section-one-featured-plus-two {
+  &--dark-bg {
+    background-color: var(--one-featured-plus-two-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--one-featured-plus-two-light-bg);
+  }
+}
+
+.section-one-plus-three {
+  &--dark-bg {
+    background-color: var(--one-plus-three-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--one-plus-three-light-bg);
+  }
+}
+
+.section-one-featured-plus-three {
+  &--dark-bg {
+    background-color: var(--one-featured-plus-three-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--one-featured-plus-three-light-bg);
+  }
+}
+
+.section-grid-two-column {
+  &--dark-bg {
+    background-color: var(--grid-two-column-dark-bg);
+
+    .post-card--small-list:nth-of-type(n + 3) {
+      border-top: 1px solid #404040;
+    }
+  }
+
+  &--light-bg {
+    background-color: var(--grid-two-column-light-bg);
+  }
+}
+
+.section-grid-two-column-sidebar-with-featured-posts {
+  &--dark-bg {
+    background-color: var(--grid-two-column-sidebar-with-featured-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--grid-two-column-sidebar-with-featured-posts-light-bg);
+  }
+}
+
+.section-grid-two-column-sidebar-with-latest-posts {
+  &--dark-bg {
+    background-color: var(--grid-two-column-sidebar-with-latest-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--grid-two-column-sidebar-with-latest-posts-light-bg);
+  }
+}
+
+.section-list-sidebar-with-featured-posts {
+  &--dark-bg {
+    background-color: var(--list-sidebar-with-featured-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--list-sidebar-with-featured-posts-light-bg);
+  }
+}
+
+.section-list-sidebar-with-latest-posts {
+  &--dark-bg {
+    background-color: var(--list-sidebar-with-latest-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--list-sidebar-with-latest-posts-light-bg);
+  }
+}
+
+.section-grid-three-column {
+  &--dark-bg {
+    background-color: var(--grid-three-column-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--grid-three-column-light-bg);
+  }
+}
+
+.section-grid-four-column {
+  &--dark-bg {
+    background-color: var(--grid-four-column-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--grid-four-column-light-bg);
+  }
+}
+
+.section-small-slider {
+  &--dark-bg {
+    background-color: var(--small-slider-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--small-slider-light-bg);
+  }
+}
+
+.section-big-slider {
+  &--dark-bg {
+    background-color: var(--big-slider-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--big-slider-light-bg);
+  }
+}
+
+.section-medium-slider {
+  &--dark-bg {
+    background-color: var(--medium-slider-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--medium-slider-light-bg);
+  }
+}
+
+.section-slider-two-posts {
+  &--dark-bg {
+    background-color: var(--slider-two-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--slider-two-posts-light-bg);
+  }
+}
+
+.section-categories-tabs {
+  &--dark-bg {
+    background-color: var(--categories-tabs-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--categories-tabs-light-bg);
+  }
+}
+
+.section-medium-small-posts {
+  &--dark-bg {
+    background-color: var(--medium-small-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--medium-small-posts-light-bg);
+  }
+}
+
+.section-posts-with-date-sidebar-with-featured-posts {
+  &--dark-bg {
+    background-color: var(--posts-with-date-sidebar-with-featured-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--posts-with-date-sidebar-with-featured-posts-light-bg);
+  }
+}
+
+.section-posts-with-date-sidebar-with-latest-posts {
+  &--dark-bg {
+    background-color: var(--posts-with-date-sidebar-with-latest-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--posts-with-date-sidebar-with-latest-posts-light-bg);
+  }
+}
+
+.section-list-with-img-sidebar-with-featured-posts {
+  &--dark-bg {
+    background-color: var(--list-with-img-sidebar-with-featured-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--list-with-img-sidebar-with-featured-posts-light-bg);
+  }
+}
+
+.section-list-with-img-sidebar-with-featured-posts {
+  &--dark-bg {
+    background-color: var(--list-with-img-sidebar-with-featured-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--list-with-img-sidebar-with-featured-posts-light-bg);
+  }
+}
+
+.section-list-with-img-sidebar-with-latest-posts {
+  &--dark-bg {
+    background-color: var(--list-with-img-sidebar-with-latest-posts-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--list-with-img-sidebar-with-latest-posts-light-bg);
+  }
+}
+
+.section-membership {
+  &--dark-bg {
+    background-color: var(--membership-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--membership-light-bg);
+  }
+}
+
+.section-subscribe-banner {
+  &--dark-bg {
+    background-color: var(--subscribe-banner-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--subscribe-banner-light-bg);
+  }
+}
+
+.section-with-author {
+  &--dark-bg {
+    background-color: var(--with-author-dark-bg);
+
+    .section-with-author__img-wrapper-link {
+      svg {
+        path {
+          fill: var(--with-author-dark-bg);
+          stroke: var(--with-author-dark-bg);
+        }
+      }
+    }
+  }
+
+  &--light-bg {
+    background-color: var(--with-author-light-bg);
+
+    .section-with-author__img-wrapper-link {
+      svg {
+        path {
+          fill: var(--with-author-light-bg);
+          stroke: var(--with-author-light-bg);
+        }
+      }
+    }
+  }
+}
+
+.section-subscribe-banner-with-benefits {
+  &--dark-bg {
+    background-color: var(--subscribe-banner-with-benefits-dark-bg);
+  }
+
+  &--light-bg {
+    background-color: var(--subscribe-banner-with-benefits-light-bg);
+  }
+}
+
+// Sections paddings
+
+.section-one-plus-two,
+.section-one-featured-plus-two,
+.section-one-plus-three,
+.section-one-featured-plus-three,
+.section-grid-two-column,
+.section-grid-two-column-sidebar-with-featured-posts,
+.section-grid-two-column-sidebar-with-latest-posts,
+.section-list-sidebar-with-featured-posts,
+.section-list-sidebar-with-latest-posts,
+.section-list-with-img-sidebar-with-featured-posts,
+.section-list-with-img-sidebar-with-latest-posts,
+.section-grid-three-column,
+.section-grid-four-column,
+.section-small-slider,
+.section-big-slider,
+.section-medium-slider,
+.section-slider-two-posts,
+.section-categories-tabs,
+.section-medium-small-posts,
+.section-posts-with-date-sidebar-with-featured-posts,
+.section-posts-with-date-sidebar-with-latest-posts,
+.section-list-with-img-sidebar-with-featured-posts,
+.section-list-with-img-sidebar-with-latest-posts,
+.section-subscribe-banner {
+  padding: 56px 0;
+
+  &:first-of-type {
+    padding-top: 24px;
+  }
+
+  &:last-of-type {
+    padding-bottom: 112px;
+  }
+
+  &:has(+ .section-membership),
+  &:has(+ .section-with-author),
+  &:has(+ .fs-section-tiers),
+  &:has(+ .fullscreen-slider-section),
+  &:has(+ .section-with-cover-image),
+  &:has(+ .section-subscribe-banner-with-benefits) {
+    padding-bottom: 112px;
+  }
+}
+
+.section-membership + section:not(.section-membership),
+.section-with-author + section:not(.section-with-author),
+.fs-section-tiers + section:not(.fs-section-tiers),
+.fullscreen-slider-section + section:not(.fullscreen-slider-section),
+.section-with-cover-image + section:not(.section-with-cover-image),
+.section-subscribe-banner-with-benefits + section:not(.section-subscribe-banner-with-benefits) {
+  padding-top: 112px;
+}
+
+.fs-section-with-author + .section-categories-tabs {
+  padding-top: 112px;
+}
+
+.main.home-page {
+  .section-with-cover-image {
+    padding: 0;
+  }
+
+  .section-with-author {
+    padding-top: 120px;
+  }
+}
+
+.section-with-author + section.fs-section-tiers {
+  padding-top: 0;
+}
+
+.section-with-author,
+.section-membership {
+  &--light-bg {
+    &.section-1,
+    &.section-2,
+    &.section-3,
+    &.section-4 {
+      border-top: 1px solid var(--main-hr-color);
+    }
+  }
+
+  &--dark-bg {
+    &.section-1,
+    &.section-2,
+    &.section-3,
+    &.section-4 {
+      border-top: 1px solid #404040;
+    }
+  }
+}
+
+.fs-section-tiers {
+  &.section-1,
+  &.section-2,
+  &.section-3,
+  &.section-4 {
+    margin-top: 0;
+  }
+}
+
+// Media
+
+@media (max-width: 1100px) {
+  .section-membership.section-membership--dark-bg {
+    .tier-card {
+      border-color: #404040 !important;
+    }
+  }
+
+  .section-one-plus-three--dark-bg {
+    .layout-aside--three-posts .post-card {
+      border-bottom: none;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .section-one-plus-two,
+  .section-one-featured-plus-two,
+  .section-one-plus-three,
+  .section-one-featured-plus-three,
+  .section-grid-two-column,
+  .section-grid-two-column-sidebar-with-featured-posts,
+  .section-grid-two-column-sidebar-with-latest-posts,
+  .section-list-sidebar-with-featured-posts,
+  .section-list-sidebar-with-latest-posts,
+  .section-grid-three-column,
+  .section-grid-four-column,
+  .section-small-slider,
+  .section-big-slider,
+  .section-medium-slider,
+  .section-slider-two-posts,
+  .section-categories-tabs,
+  .section-medium-small-posts,
+  .section-posts-with-date-sidebar-with-featured-posts,
+  .section-posts-with-date-sidebar-with-latest-posts,
+  .section-list-with-img-sidebar-with-featured-posts,
+  .section-list-with-img-sidebar-with-latest-posts,
+  .section-membership,
+  .section-subscribe-banner,
+  .section-with-author {
+    &--dark-bg {
+      .post-card__heading-link,
+      .post-author__link,
+      .layout-title__link,
+      .post-card-with-date__heading-link,
+      .post-card-with-date__excerpt,
+      .sidebar-post__title {
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      .post-tag {
+        &:hover {
+          background-color: #303030;
+          color: #fff;
+        }
+      }
+
+      .post-tag-icon {
+        &:hover {
+          background-color: #303030;
+
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
+      }
+
+      .subscribe-banner-terms a > * > * {
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      .load-more-btn {
+        &:hover {
+          color: #fff;
+          background-color: #303030;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .section-one-plus-two,
+  .section-one-featured-plus-two,
+  .section-one-plus-three,
+  .section-one-featured-plus-three,
+  .section-grid-two-column,
+  .section-grid-two-column-sidebar-with-featured-posts,
+  .section-grid-two-column-sidebar-with-latest-posts,
+  .section-list-sidebar-with-featured-posts,
+  .section-list-sidebar-with-latest-posts,
+  .section-list-with-img-sidebar-with-featured-posts,
+  .section-list-with-img-sidebar-with-latest-posts,
+  .section-grid-three-column,
+  .section-grid-four-column,
+  .section-small-slider,
+  .section-big-slider,
+  .section-medium-slider,
+  .section-slider-two-posts,
+  .section-categories-tabs,
+  .section-medium-small-posts,
+  .section-posts-with-date-sidebar-with-featured-posts,
+  .section-posts-with-date-sidebar-with-latest-posts,
+  .section-list-with-img-sidebar-with-featured-posts,
+  .section-list-with-img-sidebar-with-latest-posts,
+  .section-subscribe-banner {
+    padding: 40px 0;
+
+    &:first-of-type {
+      padding-top: 24px;
+    }
+
+    &:last-of-type {
+      padding-bottom: 80px;
+    }
+
+    &:has(+ .section-membership),
+    &:has(+ .section-with-author),
+    &:has(+ .fs-section-tiers),
+    &:has(+ .fullscreen-slider-section),
+    &:has(+ .section-with-cover-image),
+    &:has(+ .section-subscribe-banner-with-benefits) {
+      padding-bottom: 80px;
+    }
+  }
+
+  .section-membership + section:not(.section-membership),
+  .section-with-author + section:not(.section-with-author),
+  .fs-section-tiers + section:not(.fs-section-tiers),
+  .fullscreen-slider-section + section:not(.fullscreen-slider-section),
+  .section-with-cover-image + section:not(.section-with-cover-image),
+  .section-subscribe-banner-with-benefits + section:not(.section-subscribe-banner-with-benefits) {
+    padding-top: 80px;
+  }
+
+  .fs-section-with-author + .section-categories-tabs {
+    padding-top: 80px;
+  }
+
+  .main.home-page {
+    .section-with-cover-image {
+      padding: 0;
+    }
+
+    .section-with-author {
+      padding-top: 80px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .main.home-page {
+    .section-with-author {
+      padding-top: 64px;
+    }
+  }
+}

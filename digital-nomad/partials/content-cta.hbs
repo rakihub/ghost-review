@@ -1,0 +1,32 @@
+<aside class="post-upgrade-cta">
+    <div class="post-upgrade-cta-content">
+        {{#has visibility="paid"}}
+            <h2 class="post-upgrade-cta-title">{{t "This post is for paying subscribers only"}}</h2>
+        {{/has}}
+        {{#has visibility="members"}}
+            <h2 class="post-upgrade-cta-title">{{t "This post is for subscribers only"}}</h2>
+        {{/has}}
+        {{#has visibility="tiers"}}
+            <h2 class="post-upgrade-cta-title">{{t "This post is for subscribers on the"}} {{tiers}} {{t "only"}}</h2>
+        {{/has}}
+        {{#if @member}}
+            {{#if @site.portal_button}}
+            <a class="post-upgrade-cta-btn" data-portal="account/plans" aria-label="{{t "Upgrade your account"}}">{{t "Upgrade your account"}}</a>
+            {{else}}
+            <a class="post-upgrade-cta-btn" href="/membership" aria-label="{{t "Upgrade your account"}}">{{t "Upgrade your account"}}</a>
+            {{/if}}
+        {{else}}
+            {{#if @site.portal_button}}
+            <a class="post-upgrade-cta-btn" data-portal="signup" aria-label="{{t "Subscribe now"}}">{{t "Subscribe now"}}</a>
+            <p class="post-upgrade-cta-small-text">
+                <small>Already have an account? <a class="post-upgrade-cta-signin" data-portal="signin" aria-label="{{t "Sign In"}}">{{t "Sign In"}} {{>icons/chevron-right-icon}}</a></small>
+            </p>
+            {{else}}
+            <a class="post-upgrade-cta-btn" href="/signup" aria-label="{{t "Subscribe now"}}">{{t "Subscribe now"}}</a>
+            <p class="post-upgrade-cta-small-text">
+                <small>Already have an account? <a class="post-upgrade-cta-signin" href="/signin" aria-label="{{t "Sign In"}}">{{t "Sign In"}} {{>icons/chevron-right-icon}}</a></small>
+            </p>
+            {{/if}}
+        {{/if}}
+    </div>
+</aside>

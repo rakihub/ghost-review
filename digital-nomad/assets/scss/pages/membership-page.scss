@@ -1,0 +1,533 @@
+// Membership page
+// -------------------------------------------------------------
+
+.membership-page {
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__desc {
+    max-width: 678px;
+    width: 100%;
+  }
+
+  &__span {
+    @include font--titles-H4;
+  }
+
+  &__title {
+    @include font--titles-H2;
+    margin-bottom: 8px;
+  }
+
+  &__excerpt {
+    @include font--text-L-medium;
+
+    color: var(--color-gray);
+  }
+
+  &__toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    align-self: flex-end;
+  }
+
+  &__toggle-btn {
+    cursor: pointer;
+    color: var(--color-main);
+    @include font--text-L-semibold;
+    transition: opacity $transition-time ease, color $transition-time ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &--yearly {
+      color: var(--no-active-toggle);
+    }
+  }
+
+  &__toggle {
+    width: 64px;
+    height: 32px;
+    cursor: pointer;
+    background-color: var(--color-main);
+    position: relative;
+    border-radius: 100px;
+    transition: opacity $transition-time ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &::after {
+      content: '';
+      background-color: var(--color-bg);
+      position: absolute;
+      width: 18px;
+      height: 18px;
+
+      border-radius: 50%;
+      top: 50%;
+      left: 10px;
+
+      transform: translateY(-50%);
+      transition: left $transition-time ease;
+    }
+  }
+
+  &.yearly {
+    .membership-page__toggle {
+      &::after {
+        left: calc(100% - 28px);
+      }
+    }
+
+    .membership-page__toggle-btn--monthly {
+      color: var(--no-active-toggle);
+    }
+
+    .membership-page__toggle-btn--yearly {
+      color: var(--color-main);
+    }
+
+    .tier-card__price-value {
+      display: none;
+    }
+
+    .tier-card__price-per {
+      display: none;
+    }
+
+    .tier-card__price-value.yearly {
+      display: block;
+    }
+
+    .tier-card__price-per.yearly {
+      display: block;
+    }
+
+    .tier-card__btn {
+      display: none;
+    }
+
+    .tier-card__btn.yearly {
+      display: flex;
+    }
+  }
+
+  &__toggle-value {
+    display: block;
+    z-index: 2;
+
+    width: 100%;
+    padding: 10px 16px;
+
+    transition: color $transition-time ease;
+
+    &--monthly {
+      color: var(--color-bg);
+    }
+
+    &--yearly {
+      color: var(--color-main);
+    }
+  }
+}
+
+.tiers {
+  &--default {
+    display: flex;
+    justify-content: center;
+  }
+
+  &--2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  &--3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+
+  &.tiers--default {
+    .tier-card {
+      border-bottom: 1px solid var(--main-hr-color);
+    }
+  }
+
+  &.tiers--2col {
+    .tier-card:nth-of-type(odd) {
+      border-left: 1px solid var(--main-hr-color);
+    }
+
+    .tier-card:nth-of-type(-n + 2) {
+      border-bottom: none;
+    }
+  }
+
+  &.tiers--3col {
+    .tier-card:nth-of-type(4) {
+      border-left: 1px solid var(--main-hr-color);
+    }
+
+    .tier-card:nth-of-type(n + 4) {
+      border-top: none;
+    }
+  }
+}
+
+.tier-card {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  border: 1px solid var(--main-hr-color);
+  transition: box-shadow $transition-time ease;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+
+  background-color: var(--color-bg);
+
+  &:hover {
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  &:nth-of-type(n + 2) {
+    border-left: none;
+  }
+
+  &__name {
+    display: inline-block;
+    @include font--tags;
+    color: var(--accent-color-DM-monochrome);
+    background-color: var(--accent-bg-color);
+    padding: 4px 8px;
+    width: fit-content;
+    border-radius: $border-radius-tags;
+  }
+
+  &__trial-days-container {
+    position: absolute;
+    width: 200px;
+    max-width: 200px;
+    top: 36px;
+    right: -54px;
+    rotate: 45deg;
+    height: 37px;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--trial-day-bg-color);
+  }
+
+  &__trial-days-ticker {
+    display: inline-block;
+    margin-top: 10px;
+    animation: marquee 20s linear infinite;
+  }
+
+  &__trial-days-item-collection {
+    &:first-of-type {
+      position: relative;
+      left: 0%;
+      animation: swap 20s linear infinite;
+    }
+  }
+
+  &__trial-days-item {
+    display: inline-block;
+    padding: 0 6px;
+  }
+
+  &__trial-days-item-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+    @include font--text-S-bold;
+    line-height: 100%;
+    color: var(--trial-day-color);
+
+    svg {
+      path {
+        fill: var(--trial-day-color);
+      }
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--color-main);
+  }
+
+  &__price-value {
+    @include font--full-width-post;
+    position: relative;
+    top: 30px;
+    opacity: 0;
+    animation: toTopFadeIn 0.4s ease forwards;
+
+    &.yearly {
+      display: none;
+    }
+  }
+
+  &__price-per {
+    @include font--text-L-medium;
+    color: var(--color-gray);
+    position: relative;
+    top: 30px;
+    opacity: 0;
+    animation: toTopFadeIn 0.3s ease forwards;
+    animation-delay: 0.1s;
+
+    &.yearly {
+      display: none;
+    }
+  }
+
+  &__desc {
+    margin-top: 24px;
+  }
+
+  &__benefits-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: auto;
+  }
+
+  &__benefit-item {
+    color: var(--color-main);
+    @include font--text-M-medium;
+
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    svg {
+      path {
+        stroke: var(--color-main);
+      }
+    }
+  }
+
+  &__btn-text-wrapper {
+    overflow: hidden;
+    display: block;
+    position: relative;
+  }
+
+  &__btn-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    transition: opacity 0.25s ease, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+    &:last-child {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(120%) translateZ(0);
+    }
+
+    svg {
+      path {
+        stroke: var(--btn-custom-colored-text);
+      }
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 46px;
+    margin-top: 40px;
+
+    color: var(--btn-custom-colored-text);
+    background-color: var(--accent-color-DM-monochrome);
+
+    border-radius: $border-radius-buttons;
+
+    cursor: pointer;
+
+    @include font--text-M-semibold;
+
+    &:hover {
+      .tier-card__btn-text {
+        &:first-child {
+          transform: translateY(-120%) translateZ(0);
+        }
+
+        &:last-child {
+          transform: translateY(0) translateZ(0);
+        }
+      }
+    }
+
+    &.yearly {
+      display: none;
+    }
+  }
+
+  &__your-plan {
+    @include font--titles-H3;
+    margin-top: 40px;
+  }
+}
+
+// Media queries
+// -------------------------------------------------------------
+
+@media (max-width: 1450px) {
+  .tier-card {
+    padding: 34px;
+
+    &__price-value {
+      font-size: 5.4rem;
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .tier-card {
+    padding: 30px;
+
+    &__price-per {
+      @include font--text-M-medium;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .tier-card {
+    &__price-value {
+      font-size: 4.4rem;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .tier-card {
+    width: 100%;
+
+    &__btn {
+      width: fit-content;
+      padding: 0 24px;
+    }
+  }
+
+  .tiers {
+
+    &--3col,
+    &--2col,
+    &--default {
+      display: flex;
+      flex-direction: column;
+
+      .tier-card {
+        max-width: 100%;
+        border: 1px solid var(--main-hr-color) !important;
+
+        &:nth-of-type(n + 2) {
+          border-top: none !important;
+        }
+      }
+    }
+  }
+
+  .membership-page {
+    &__content {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    &__toggle-wrapper {
+      align-self: flex-start;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .membership-page {
+
+    &__toggle,
+    &__toggle-btn {
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .tier-card__btn {
+      &:hover {
+        opacity: 1;
+
+        .tier-card__btn-text {
+          &:first-child {
+            transform: translateY(0%) translateZ(0);
+          }
+
+          &:last-child {
+            transform: translateY(120%) translateZ(0);
+          }
+        }
+      }
+    }
+  }
+
+  .tier-card {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .tier-card {
+    padding: 40px 24px;
+
+    &__price-value {
+      font-size: 4rem;
+    }
+
+    &__btn {
+      padding: 0 20px;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .tier-card {
+    &__price-value {
+      font-size: 3.6rem;
+    }
+
+    &__btn {
+      width: 100%;
+    }
+  }
+}

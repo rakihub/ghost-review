@@ -1,0 +1,328 @@
+// Subscribe Banner
+// ---------------------------------------------------------------------------
+
+.subscribe-banner {
+  max-width: 356px;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--accent-bg-color);
+  padding: 40px 24px;
+  border-radius: $border-radius-blocks;
+  overflow: hidden;
+
+  &__title {
+    @include font--titles-H3;
+    text-align: center;
+
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    @include font--text-S-medium;
+    text-align: center;
+  }
+
+  &__input-wrapper {
+    border-radius: $border-radius-inputs;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    outline: 1px solid transparent;
+    transition: outline $transition-time ease, box-shadow $transition-time ease;
+
+    height: 50px;
+
+    &:focus-within {
+      outline: 1px solid var(--accent-color);
+      box-shadow: 0 0 4px 0 var(--accent-color);
+    }
+  }
+
+  &__input {
+    padding: 15px 20px;
+    width: 100%;
+    height: 100%;
+    @include font--text-S-medium;
+
+    background-color: var(--input-bg);
+
+    &::placeholder {
+      @include font--text-S-medium;
+      columns: var(--color-gray);
+    }
+  }
+
+  &__input-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 20px;
+    @include font--text-M-semibold;
+    color: var(--input-btn-text-color);
+    transition: opacity $transition-time ease;
+
+    background-color: var(--input-bg);
+
+    svg {
+      transition: transform $transition-time ease;
+
+      path {
+        fill: var(--input-btn-text-color);
+        stroke: var(--input-btn-text-color);
+      }
+    }
+
+    &--loader {
+      display: none;
+
+      svg {
+        circle {
+          stroke: var(--input-btn-text-color);
+        }
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+
+      svg {
+        transform: translate(3px);
+      }
+    }
+  }
+
+  .subscribe-banner-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 8px;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+      gap: 8px;
+
+      .form-success-icon {
+        opacity: 0;
+
+        g {
+          fill: var(--color-main);
+        }
+      }
+    }
+
+    &__title {
+      @include font--titles-H4;
+      opacity: 0;
+    }
+
+    &__text {
+      @include font--text-S-medium;
+      margin-top: 8px;
+      opacity: 0;
+    }
+
+    svg {
+      path {
+        fill: var(--accent-color-DM-monochrome);
+      }
+    }
+  }
+
+  .subscribe-banner-error {
+    color: red;
+    margin-top: 8px;
+    @include font--text-S-medium;
+    text-align: center;
+    display: none;
+  }
+
+  &.error {
+    .subscribe-banner-error {
+      display: block;
+    }
+  }
+
+  &.loading {
+    .subscribe-banner__input-btn-text,
+    .subscribe-banner__input-btn-icon {
+      display: none;
+    }
+
+    .subscribe-banner__input-btn {
+      pointer-events: none;
+    }
+
+    .subscribe-banner__input-btn--loader {
+      display: block;
+    }
+  }
+
+  &.success {
+    .subscribe-banner-success {
+      display: flex;
+    }
+
+    .form-success-icon {
+      animation: fadeIn 0.35s ease-in forwards;
+    }
+
+    .subscribe-banner-success__title {
+      animation: fadeIn 0.35s ease-in forwards;
+      animation-delay: 100ms;
+    }
+
+    .subscribe-banner-success__text {
+      animation: fadeIn 0.35s ease-in forwards;
+      animation-delay: 200ms;
+    }
+
+    .subscribe-banner__title,
+    .subscribe-banner__text,
+    .subscribe-banner__input-wrapper,
+    .subscribe-banner-terms {
+      display: none;
+    }
+  }
+}
+
+// Subscribe Banner with img
+// ---------------------------------------------------------------------------
+
+.subscribe-banner-with-img {
+  max-width: 356px;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--accent-bg-color);
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: $border-radius-blocks;
+  overflow: hidden;
+
+  &__span {
+    @include font--text-M-semibold;
+  }
+
+  &__title {
+    @include font--titles-H3;
+    text-align: center;
+  }
+
+  &__text {
+    @include font--text-S-medium;
+    text-align: center;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 16px;
+  }
+
+  &__btn-text-wrapper {
+    overflow: hidden;
+    display: block;
+    position: relative;
+  }
+
+  &__btn-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    transition: opacity 0.25s ease, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+    &:last-child {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(120%) translateZ(0);
+    }
+
+    svg {
+      path {
+        stroke: var(--btn-custom-colored-text);
+      }
+    }
+  }
+
+  &__btn {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 46px;
+    background-color: var(--accent-color-DM-monochrome);
+    color: var(--btn-custom-colored-text);
+    border-radius: $border-radius-buttons;
+
+    &:hover {
+      .subscribe-banner-with-img__btn-text {
+        &:first-child {
+          transform: translateY(-120%) translateZ(0);
+        }
+
+        &:last-child {
+          transform: translateY(0) translateZ(0);
+        }
+      }
+    }
+  }
+
+  &__btn-text {
+    @include font--text-M-semibold;
+  }
+}
+
+@media (max-width: 1000px) {
+  .subscribe-banner {
+    &__input-btn {
+      &:hover {
+        opacity: 1;
+
+        svg {
+          transform: none;
+        }
+      }
+    }
+  }
+  .subscribe-banner-with-img {
+    &__btn {
+      &:hover {
+        .subscribe-banner-with-img__btn-text {
+          &:first-child {
+            transform: translateY(0) translateZ(0);
+          }
+
+          &:last-child {
+            transform: translateY(120%) translateZ(0);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .subscribe-banner {
+    &__input-wrapper {
+      margin-top: 32px;
+    }
+  }
+}

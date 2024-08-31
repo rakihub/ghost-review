@@ -1,0 +1,278 @@
+// HEADER CTA
+// --------------------------------------------------------
+
+.header-CTA {
+    position: absolute;
+    opacity: 0;
+    top: calc(100% + 1px);
+    right: 40px;
+    width: 360px;
+    background-color: var(--color-bg);
+    display: none;
+    flex-direction: column;
+    border-left: 1px solid var(--main-hr-color);
+    border-right: 1px solid var(--main-hr-color);
+    border-bottom: 1px solid var(--main-hr-color);
+    z-index: -2;
+
+    &.active {
+        display: flex;
+        animation: fadeIn 0.35s ease forwards;
+    }
+}
+
+.header-CTA-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px 20px;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--accent-bg-color);
+
+    &__cover-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+    }
+
+    &__content-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__title {
+        color: var(--color-main);
+        @include font--titles-H4;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    &__input-wrapper {
+        width: 100%;
+        border-radius: $border-radius-inputs;
+        overflow: hidden;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        outline: 1px solid transparent;
+        transition: outline $transition-time ease, box-shadow $transition-time ease;
+
+        &:focus-within {
+            outline: 1px solid var(--accent-color);
+            box-shadow: 0 0 4px 0 var(--accent-color);
+        }
+    }
+
+    &__input {
+        padding: 15px 20px;
+        width: 100%;
+        @include font--text-S-medium;
+
+        &::placeholder {
+            @include font--text-S-medium;
+            color: var(--color-gray);
+        }
+    }
+
+    &__input-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 15px 20px;
+        @include font--text-M-semibold;
+        color: var(--accent-color);
+        transition: opacity $transition-time ease;
+
+        svg {
+            transition: transform $transition-time ease;
+
+            path {
+                fill: var(--accent-color);
+                stroke: var(--accent-color);
+            }
+        }
+
+        &--loader {
+            display: none;
+
+            svg {
+                circle {
+                    stroke: var(--accent-color-DM-monochrome);
+                }
+            }
+        }
+
+        &:hover {
+            opacity: 0.8;
+
+            svg {
+                transform: translate(3px);
+            }
+        }
+    }
+
+    &.with-image {
+        padding: 64px 20px 20px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .header-CTA-form__title,
+        .header-CTA-form-success__title {
+            color: #ffffff;
+        }
+
+        .header-CTA-form-success__text {
+            color: rgba(255, 255, 255, 0.85);
+            @include font--text-XS-bold;
+        }
+
+        .header-CTA-form__input-wrapper {
+            outline: 1px solid transparent;
+
+            &:focus-within {
+                box-shadow: 0 0 4px 2px var(--accent-color);
+            }
+        }
+
+        .header-CTA-form-terms {
+            * {
+                color: rgba(255, 255, 255, 0.75);
+            }
+
+            a,
+            a>*,
+            a>*>* {
+                color: #ffffff;
+            }
+
+            a {
+                &:hover {
+                    color: rgba(255, 255, 255, 0.75);
+
+                    &>*,
+                    &>*>* {
+                        color: rgba(255, 255, 255, 0.75);
+                    }
+                }
+            }
+        }
+    }
+
+    &.success {
+
+        .header-CTA-form__title,
+        .header-CTA-form__input-wrapper,
+        .header-CTA-form-terms {
+            display: none;
+        }
+
+        .header-CTA-form-success {
+            display: flex;
+        }
+    }
+
+    &.error {
+        .header-CTA-form-error {
+            display: block;
+        }
+    }
+}
+
+.header-CTA-form-terms {
+    width: 90%;
+    text-align: center;
+    margin-top: 8px;
+
+    * {
+        @include font--text-XS-medium;
+        color: var(--color-gray);
+    }
+
+    strong {
+        @include font--text-XS-bold;
+    }
+
+    a,
+    a>*,
+    a>*>* {
+        color: var(--color-main);
+        transition: color $transition-time ease;
+    }
+
+    a {
+        &:hover {
+            color: var(--accent-hover-color);
+
+            &>*,
+            &>*>* {
+                color: var(--accent-hover-color);
+            }
+        }
+    }
+}
+
+.header-CTA-form-success {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    animation: fadeIn 0.25s ease;
+
+    &__title {
+        color: var(--color-main);
+        @include font--titles-H4;
+        text-align: center;
+
+    }
+
+    &__text {
+        @include font--text-XS-medium;
+        color: var(--color-gray);
+        text-align: center;
+    }
+}
+
+.header-CTA-form-error {
+    display: none;
+    @include font--text-XS-bold;
+    color: red;
+    text-align: center;
+    animation: fadeIn 0.25s ease;
+    margin-top: 4px;
+}
+
+.header-CTA-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+@media (max-width: 1250px) {
+    .header-CTA.active {
+        display: none;
+    }
+}

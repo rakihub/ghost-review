@@ -1,0 +1,66 @@
+<article class="small-post-card" role="article">
+    {{#if feature_image}}
+        <a class="small-post-card__img-link" href="{{url}}" aria-label="{{t "Post image link"}}">
+            <picture>
+                <source 
+                    srcset="{{img_url feature_image size="1200" format="webp" }} 1200w, 
+                    {{img_url feature_image size="960" format="webp" }} 960w, 
+                    {{img_url feature_image size="720" format="webp" }} 720w,
+                    {{img_url feature_image size="480" format="webp" }} 480w,
+                    {{img_url feature_image size="400" format="webp" }} 400w"
+                    sizes="(max-width: 550px) 92vw, (max-width: 1100px) 32vw, 22vw"
+                    type="image/webp">
+                    <img 
+                    srcset="{{img_url feature_image size="1200"}} 1200w,
+                    {{img_url feature_image size="960"}} 960w, 
+                    {{img_url feature_image size="720"}} 720w,
+                    {{img_url feature_image size="480"}} 480w,
+                    {{img_url feature_image size="400"}} 400w"
+                    sizes="(max-width: 550px) 92vw, (max-width: 1100px) 32vw, 22vw"
+                    src="{{img_url feature_image size="1200"}}"
+                    class="small-post-card__img"
+                    {{#match lazyLoading "=" "true"}}loading="lazy"{{/match}}>
+            </picture>
+            {{#if tags}}
+                {{>post-tags showOnlyPrimaryTag='true'}}
+            {{else if featured}}
+                {{>post-tags showOnlyPrimaryTag='true'}}
+            {{else}}
+                {{^match visibility "=" 'public'}}
+                    {{>post-tags showOnlyPrimaryTag='true'}}
+                {{/match}}
+            {{/if}}
+        </a>
+    {{else}}
+         <a href="{{url}}" class="post-card-no-image{{#if @custom.dark_mode_logo}} post-card-no-image--dark-logo{{/if}}" aria-label="{{t "Post image link"}}">
+            {{#if @site.logo}}
+                {{#if @custom.dark_mode_logo}}
+                <img src="{{img_url @custom.dark_mode_logo}}" alt="{{@site.title}} {{t "logo"}}" class="post-card-no-image__dark-logo" {{#match lazyLoading "=" "true"}}loading="lazy"{{/match}}/>
+                {{/if}}
+                <img src="{{img_url @site.logo}}" alt="{{@site.title}} {{t "logo"}}" class="post-card-no-image__logo" {{#match lazyLoading "=" "true"}}loading="lazy"{{/match}}/>
+                {{else}}
+                <h3 class="post-card-no-image__title">{{@site.title}}</h3>
+            {{/if}}
+            {{#if tags}}
+                {{>post-tags showOnlyPrimaryTag='true'}}
+            {{else if featured}}
+                {{>post-tags showOnlyPrimaryTag='true'}}
+            {{else}}
+                {{^match visibility "=" 'public'}}
+                    {{>post-tags showOnlyPrimaryTag='true'}}
+                {{/match}}
+            {{/if}}
+        </a>
+    {{/if}}
+
+    <div class="small-post-card__content">
+        <h3 class="small-post-card__heading">
+            <a class="small-post-card__heading-link" aria-label="{{t "Post title link"}}" href="{{url}}">{{title}}</a>
+        </h3>
+        {{#if custom_excerpt}}
+            <p class="small-post-card__excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+
+        {{>post-meta}}
+    </div>
+</article>

@@ -1,0 +1,11 @@
+<div class="post-meta">
+    <time datetime="{{date format='YYYY-MM-DD'}}" class="post-data">{{date format="MMM DD, YYYY"}}</time>
+    <div class="post-author">
+        <span class="post-author__span">{{t "by"}}</span>
+        {{#primary_author}}
+        <a href="{{url}}" class="post-author__link" aria-label="{{t "Link to page author {authorName}" authorName=name}}">
+            {{name}}
+        </a>
+        {{/primary_author}}
+    </div>
+</div>

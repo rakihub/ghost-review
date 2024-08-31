@@ -1,0 +1,51 @@
+<section class="section-grid-two-column-sidebar-with-featured-posts{{class}}">
+    <div class="wrapper">
+        {{#match tag "=" 'show-latest-posts'}}
+            <h2 class="layout-title">{{t "Latest Posts"}}</h2>
+            <div class="layout-with-sidebar">
+            <div class="layout-grid layout-grid--2-column latest-section-posts">
+                {{#foreach posts}}
+                    {{>post-cards/post-card postType="Grid 2 column + sidebar with featured posts" showExcerpt="true" className=" latest-post" lazyLoading=../lazyLoading}}
+                {{/foreach}}
+            </div>
+            {{>button btnType="loadMore"}}
+        {{else match tag "=" 'show-featured-posts' }}
+            <h2 class="layout-title">{{t "Featured Posts"}}</h2>
+            <div class="layout-with-sidebar">
+                <div class="layout-grid layout-grid--2-column">
+                    {{#get "posts" limit = count include="tags,authors" order="published_at desc" filter="featured:true"}}
+                        {{#foreach posts}}
+                            {{>post-cards/post-card postType="Grid 2 column + sidebar with featured posts" showExcerpt="true" lazyLoading=../../lazyLoading}}
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+        {{else}}
+            <h2 class="layout-title">
+                <a class="layout-title__link" href="/tag/{{tag}}" arial-label="{{t "Link to page tag {tagName}" tagName=tag}}">
+                    {{#get "tags" filter="slug:{{tag}}"}}
+                        {{#foreach tags}}
+                        {{name}}
+                        {{/foreach}}
+                    {{/get}}
+                </a>
+            </h2>
+            <div class="layout-with-sidebar">
+                <div class="layout-grid layout-grid--2-column">
+                    {{#get "posts" limit = count include="tags,authors" order="published_at desc" filter="primary_tag:{{tag}}"}}
+                        {{#foreach posts}}
+                            {{>post-cards/post-card postType="Grid 2 column + sidebar with featured posts" showExcerpt="true" lazyLoading=../../lazyLoading}}
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+        {{/match}}  
+
+            {{>sidebar/sidebar featuredPosts="true"}}
+        </div>  
+        
+        {{#match tag "=" 'show-latest-posts'}}
+            <div class="layout-grid-btn">
+                {{>button btnType="loadMore"}}
+            </div>
+        {{/match}}
+    </div>
+</section>

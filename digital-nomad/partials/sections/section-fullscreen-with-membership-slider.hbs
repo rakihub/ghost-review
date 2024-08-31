@@ -1,0 +1,258 @@
+<section class="fs-section-tiers{{#if @site.cover_image}} with-image{{/if}} section-{{sectionIndex}}">
+    {{#if @site.cover_image}}
+    <picture>
+        <source srcset="{{img_url @site.cover_image size="3600" format="webp" }} 3600w, {{img_url @site.cover_image
+            size="2800" format="webp" }} 2800w, {{img_url @site.cover_image size="2400" format="webp" }} 2400w, {{img_url
+            @site.cover_image size="2000" format="webp" }} 2000w, {{img_url @site.cover_image size="1600" format="webp" }}
+            1600w, {{img_url @site.cover_image size="1200" format="webp" }} 1200w, {{img_url @site.cover_image size="960"
+            format="webp" }} 960w, {{img_url @site.cover_image size="720" format="webp" }} 720w, {{img_url @site.cover_image
+            size="400" format="webp" }} 400w" sizes="100vw" type="image/webp">
+        <img srcset="{{img_url @site.cover_image size="3600"}} 3600w, {{img_url @site.cover_image size="2800" }} 2800w,
+            {{img_url @site.cover_image size="2400" }} 2400w, {{img_url @site.cover_image size="2000" }} 2000w, {{img_url
+            @site.cover_image size="1600" }} 1600w, {{img_url @site.cover_image size="1200" }} 1200w, {{img_url
+            @site.cover_image size="960" }} 960w, {{img_url @site.cover_image size="720" }} 720w, {{img_url
+            @site.cover_image size="400" }} 400w" sizes="100vw" src="{{img_url @site.cover_image size="3600"}}"
+            alt="{{@site.title}} {{t "cover image"}}" class="fs-section-tiers-image" loading="lazy">
+    </picture>
+    {{/if}}
+    <div class="fs-section-tiers-content-wrapper wrapper">
+        <div class="fs-section-tiers-content">
+            <div class="fs-section-tiers-main">
+                {{#if tag}}
+                <h1 class="fs-section-tiers-main__title">
+                    {{tag}}
+                </h1>
+                {{/if}}
+                {{#if count}}
+                <p class="fs-section-tiers-main__text">
+                    {{count}}
+                </p>
+                {{/if}}
+            </div>
+            {{#if @site.members_enabled}}
+            <div class="fs-section-tiers-slider-container membership-page">
+                <h2 class="fs-section-tiers-slider-title">
+                    {{t "Explore Plans"}}
+                </h2>
+                <div class="fs-section-tiers-slider" data-index-slider="{{sectionIndex}}">
+                    <div class="fs-section-tiers-slider-wrapper">
+                    {{#get "tiers" include="monthly_price,yearly_price,benefits" limit="all" as |tiers|}}
+                    {{#if tiers}}
+                        {{#foreach tiers}}
+                        <div class="fs-section-tiers-slide" data-slide="{{@index}}" style="--index: {{@index}}">
+                            {{#if trial_days}}
+                            <div class="tier-card__trial-days-container">
+                                <div class="tier-card__trial-days-ticker">
+                                    <span class="tier-card__trial-days-item-collection">
+                                        <span class="tier-card__trial-days-item">
+                                            <div class="tier-card__trial-days-item-content">
+                                                {{>icons/hand-icon}}
+                                                <div>{{trial_days}} {{t "Trial Days"}}</div>
+                                            </div>
+                                        </span>
+                                        <span class="tier-card__trial-days-item">
+                                            <div class="tier-card__trial-days-item-content">
+                                                {{>icons/hand-icon}}
+                                                <div>{{trial_days}} {{t "Trial Days"}}</div>
+                                            </div>
+                                        </span>
+                                    </span>
+                                    <span class="tier-card__trial-days-item-collection">
+                                        <span class="tier-card__trial-days-item">
+                                            <div class="tier-card__trial-days-item-content">
+                                                {{>icons/hand-icon}}
+                                                <div>{{trial_days}} {{t "Trial Days"}}</div>
+                                            </div>
+                                        </span>
+                                        <span class="tier-card__trial-days-item">
+                                            <div class="tier-card__trial-days-item-content">
+                                                {{>icons/hand-icon}}
+                                                <div>{{trial_days}} {{t "Trial Days"}}</div>
+                                            </div>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            {{/if}}
+                            <h2 class="tier-card__name">{{name}}</h2>
+                            <div class="tier-card__price">
+                                <span class="tier-card__price-value monthly">{{#match type "free"}}0{{else}}{{price monthly_price currency=currency numberFormat="long" currencyFormat="symbol"}}{{/match}}</span>
+                                <span class="tier-card__price-value yearly">{{#match type "free"}}0{{else}}{{price yearly_price currency=currency numberFormat="long" currencyFormat="symbol"}}{{/match}}</span>
+                                <span class="tier-card__price-per monthly">{{t "per month"}}</span>
+                                <span class="tier-card__price-per yearly">{{t "per year"}}</span>
+                            </div>
+                            {{#if benefits}}
+                                <ul class="tier-card__benefits-list">
+                                    {{#foreach benefits as |benefit|}}
+                                    <li class="tier-card__benefit-item">
+                                        {{>icons/check-icon}}
+                                        {{benefit}}
+                                    </li>
+                                    {{/foreach}}
+                                </ul>
+                            {{/if}}
+
+                            {{#if ../../member}}
+                                {{#match ../../member.subscriptions.length "=" 0}}
+                                    {{#match type "=" 'free'}}
+                                        <span class="tier-card__your-plan">{{t "Your Plan"}}</span>
+                                    {{else}}
+                                        <a class="tier-card__btn" href="#/portal/signup/{{id}}/monthly" aria-label="{{t "Sign Up for"}} {{name}} {{t "Plan"}} {{t "monthly"}}">
+                                            <span class="tier-card__btn-text-wrapper">
+                                                <span class="tier-card__btn-text">
+                                                    <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                    {{>icons/arrow-right-icon}}
+                                                </span>
+                                                <span class="tier-card__btn-text">
+                                                    <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                    {{>icons/arrow-right-icon}}
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <a class="tier-card__btn yearly" href="#/portal/signup/{{id}}/yearly" aria-label="{{t "Sign Up for"}} {{name}} {{t "Plan"}} {{t "yearly"}}">
+                                           <span class="tier-card__btn-text-wrapper">
+                                                <span class="tier-card__btn-text">
+                                                    <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                    {{>icons/arrow-right-icon}}
+                                                </span>
+                                                <span class="tier-card__btn-text">
+                                                    <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                    {{>icons/arrow-right-icon}}
+                                                </span>
+                                            </span>
+                                        </a>
+                                    {{/match}}
+                                {{else}}
+                                    {{#match ../../member.subscriptions.[0].tier.name "=" name}}
+                                        <span class="tier-card__your-plan">{{t "Your Plan"}}</span>
+                                    {{else}}
+                                        {{#match type "=" "free"}}
+                                            <a class="tier-card__btn" href="{{#if @site.portal_button}}#/portal/account{{else}}/account{{/if}}" aria-label="{{t "Manage subscriptions"}}">
+                                                <span class="tier-card__btn-text-wrapper">
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Manage subscriptions"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Manage subscriptions"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <a class="tier-card__btn yearly" href="{{#if @site.portal_button}}#/portal/account{{else}}/account{{/if}}" aria-label="{{t "Manage subscriptions"}}">
+                                                <span class="tier-card__btn-text-wrapper">
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Manage subscriptions"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Manage subscriptions"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        {{else}}
+                                            <a class="tier-card__btn" href="#/portal/signup/{{id}}/monthly" aria-label="{{t "Sign Up for"}} {{name}} {{t "Plan"}} {{t "monthly"}}">
+                                                <span class="tier-card__btn-text-wrapper">
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <a class="tier-card__btn yearly" href="#/portal/signup/{{id}}/yearly" aria-label="{{t "Sign Up for"}} {{name}} {{t "Plan"}} {{t "yearly"}}">
+                                                <span class="tier-card__btn-text-wrapper">
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                    <span class="tier-card__btn-text">
+                                                        <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                        {{>icons/arrow-right-icon}}
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        {{/match}}
+                                    {{/match}}
+                                {{/match}}
+                            {{else}}
+                                {{#match type "=" 'free'}}
+                                    <a class="tier-card__btn" href="{{#if @site.portal_button}}#/portal/signup/free{{else}}/signup{{/if}}" aria-label="{{t "Sign Up for Free"}}">
+                                        <span class="tier-card__btn-text-wrapper">
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Sign Up for Free"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Sign Up for Free"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a class="tier-card__btn yearly" href="{{#if @site.portal_button}}#/portal/signup/free{{else}}/signup{{/if}}" aria-label="{{t "Sign Up for Free"}}">
+                                        <span class="tier-card__btn-text-wrapper">
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Sign Up for Free"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Sign Up for Free"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                        </span>
+                                    </a>
+                                {{else}}
+                                    <a class="tier-card__btn" href="#/portal/signup/{{id}}/monthly" aria-label="{{t "Sign Up for"}} {{name}} {{t "Plan"}} {{t "monthly"}}">
+                                        <span class="tier-card__btn-text-wrapper">
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a class="tier-card__btn yearly" href="#/portal/signup/{{id}}/yearly" aria-label="{{t "Sign Up for"}} {{name}} {{t "Plan"}} {{t "yearly"}}">
+                                        <span class="tier-card__btn-text-wrapper">
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                            <span class="tier-card__btn-text">
+                                                <span>{{t "Choose"}} {{name}} {{t "Plan"}}</span>
+                                                {{>icons/arrow-right-icon}}
+                                            </span>
+                                        </span>
+                                    </a>
+                                {{/match}}
+                            {{/if}}
+                        </div>
+                        {{/foreach}}
+                    {{/if}}
+                    {{/get}}
+                    </div>
+                </div>
+                <button class="fs-section-tiers-slider-prev-btn">
+                    {{>icons/slider-prev-icon}}
+                </button>
+                <button class="fs-section-tiers-slider-next-btn">
+                    {{>icons/slider-next-icon}}
+                </button>
+                <div class="fs-section-tiers-toggle-container">
+                    <div class="membership-page__toggle-wrapper">
+                        <button class="membership-page__toggle-btn membership-page__toggle-btn--monthly" aria-label="{{t "Change to monthly button"}}">{{t "Monthly"}}</button>
+                        <button class="membership-page__toggle" aria-label="{{t "Monthly or yearly toggle button"}}"></button>
+                        <button class="membership-page__toggle-btn membership-page__toggle-btn--yearly" aria-label="{{t "Change to yearly button"}}">{{t "Yearly"}}</button>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,511 @@
+// COLORS
+// --------------------------------------------------------------------
+
+// --ghost-accent-color - Ghost CMS accent color variable;
+// --accent-background-color - user's variable from Code Injection;
+// --trial-day-font-color - user's variable from Code Injection;
+// --trial-day-background-color - user's variable from Code Injection;
+
+:root {
+  &[data-theme='light'] {
+    --color-main: #1e1e1e;
+    --color-main--hover: #696969;
+    --color-bg: #fff;
+    --color-gray: #696969;
+    --accent-color: var(--ghost-accent-color, #06f);
+    --accent-color-DM-monochrome: var(--ghost-accent-color, #06f);
+    --accent-hover-color: var(--ghost-accent-color, #06f);
+    --accent-bg-color: var(--accent-background-color, #f2f2f2);
+    --main-hr-color: #dcdcdc;
+
+    // HEADER
+    --transparent-header-border-color: rgba(255, 255, 255, 0.2);
+
+    // BUTTONS
+    --btn-bg: var(--ghost-accent-color, #06f);
+    --btn-color: #fff;
+    --btn-custom-colored-text: var(--btn-colored-text, #fff);
+
+    // POST CARDS
+    --post-card-no-img-bg: rgba(44, 44, 44, 0.04);
+
+    // SECTION BACKGROUND
+
+    --one-plus-two-light-bg: var(--section-one-plus-two-light-bg, #fff);
+    --one-plus-two-dark-bg: var(--section-one-plus-two-dark-bg, #1e1e1e);
+
+    --one-featured-plus-two-light-bg: var(--section-one-featured-plus-two-light-bg, #fff);
+    --one-featured-plus-two-dark-bg: var(--section-one-featured-plus-two-dark-bg, #1e1e1e);
+
+    --one-plus-three-light-bg: var(--section-one-plus-three-light-bg, #fff);
+    --one-plus-three-dark-bg: var(--section-one-plus-three-dark-bg, #1e1e1e);
+
+    --one-featured-plus-three-light-bg: var(--section-one-featured-plus-three-light-bg, #fff);
+    --one-featured-plus-three-dark-bg: var(--section-one-featured-plus-three-dark-bg, #1e1e1e);
+
+    --grid-two-column-light-bg: var(--section-grid-two-column-light-bg, #fff);
+    --grid-two-column-dark-bg: var(--section-grid-two-column-dark-bg, #1e1e1e);
+
+    --grid-two-column-sidebar-with-featured-posts-light-bg: var(--section-grid-two-column-sidebar-with-featured-posts-light-bg,
+        #fff);
+    --grid-two-column-sidebar-with-featured-posts-dark-bg: var(--section-grid-two-column-sidebar-with-featured-posts-dark-bg,
+        #1e1e1e);
+
+    --grid-two-column-sidebar-with-latest-posts-light-bg: var(--section-grid-two-column-sidebar-with-latest-posts-light-bg,
+        #fff);
+    --grid-two-column-sidebar-with-latest-posts-dark-bg: var(--section-grid-two-column-sidebar-with-latest-posts-dark-bg,
+        #1e1e1e);
+
+    --list-sidebar-with-featured-posts-light-bg: var(--section-list-sidebar-with-featured-posts-light-bg,
+        #fff);
+    --list-sidebar-with-featured-posts-dark-bg: var(--section-list-sidebar-with-featured-posts-dark-bg,
+        #1e1e1e);
+
+    --list-sidebar-with-latest-posts-light-bg: var(--section-list-sidebar-with-latest-posts-light-bg,
+        #fff);
+    --list-sidebar-with-latest-posts-dark-bg: var(--section-list-sidebar-with-latest-posts-dark-bg,
+        #1e1e1e);
+
+    --list-with-img-sidebar-with-featured-posts-light-bg: var(--section-list-with-img-sidebar-with-featured-posts-light-bg,
+        #fff);
+    --list-with-img-sidebar-with-featured-posts-dark-bg: var(--section-list-with-img-sidebar-with-featured-posts-dark-bg,
+        #1e1e1e);
+
+    --list-with-img-sidebar-with-latest-posts-light-bg: var(--section-list-with-img-sidebar-with-latest-posts-light-bg,
+        #fff);
+    --list-with-img-sidebar-with-latest-posts-dark-bg: var(--section-list-with-img-sidebar-with-latest-posts-dark-bg,
+        #1e1e1e);
+
+    --grid-three-column-light-bg: var(--section-grid-three-column-light-bg, #fff);
+    --grid-three-column-dark-bg: var(--section-grid-three-column-dark-bg, #1e1e1e);
+
+    --grid-four-column-light-bg: var(--section-grid-four-column-light-bg, #fff);
+    --grid-four-column-dark-bg: var(--section-grid-four-column-dark-bg, #1e1e1e);
+
+    --small-slider-light-bg: var(--section-small-slider-light-bg, #fff);
+    --small-slider-dark-bg: var(--section-small-slider-dark-bg, #1e1e1e);
+
+    --big-slider-light-bg: var(--section-big-slider-light-bg, #fff);
+    --big-slider-dark-bg: var(--section-big-slider-dark-bg, #1e1e1e);
+
+    --medium-slider-light-bg: var(--section-medium-slider-light-bg, #fff);
+    --medium-slider-dark-bg: var(--section-medium-slider-dark-bg, #1e1e1e);
+
+    --slider-two-posts-light-bg: var(--section-slider-two-posts-light-bg, #fff);
+    --slider-two-posts-dark-bg: var(--section-slider-two-posts-dark-bg, #1e1e1e);
+
+    --categories-tabs-light-bg: var(--section-categories-tabs-light-bg, #fff);
+    --categories-tabs-dark-bg: var(--section-categories-tabs-dark-bg, #1e1e1e);
+
+    --medium-small-posts-light-bg: var(--section-medium-small-posts-light-bg, #fff);
+    --medium-small-posts-dark-bg: var(--section-medium-small-posts-dark-bg, #1e1e1e);
+
+    --posts-with-date-sidebar-with-featured-posts-light-bg: var(--section-posts-with-date-sidebar-with-featured-posts-light-bg,
+        #fff);
+    --posts-with-date-sidebar-with-featured-posts-dark-bg: var(--section-posts-with-date-sidebar-with-featured-posts-dark-bg,
+        #1e1e1e);
+
+    --posts-with-date-sidebar-with-latest-posts-light-bg: var(--section-posts-with-date-sidebar-with-latest-posts-light-bg,
+        #fff);
+    --posts-with-date-sidebar-with-latest-posts-dark-bg: var(--section-posts-with-date-sidebar-with-latest-posts-dark-bg,
+        #1e1e1e);
+
+    --list-with-img-sidebar-with-featured-posts-light-bg: var(--section-list-with-img-sidebar-with-featured-posts-light-bg,
+        #fff);
+    --list-with-img-sidebar-with-featured-posts-dark-bg: var(--section-list-with-img-sidebar-with-featured-posts-dark-bg,
+        #1e1e1e);
+
+    --list-with-img-sidebar-with-latest-posts-light-bg: var(--section-list-with-img-sidebar-with-latest-posts-light-bg,
+        #fff);
+    --list-with-img-sidebar-with-latest-posts-dark-bg: var(--section-list-with-img-sidebar-with-latest-posts-dark-bg,
+        #1e1e1e);
+
+    --membership-light-bg: var(--section-membership-light-bg, #fff);
+    --membership-dark-bg: var(--section-membership-dark-bg, #1e1e1e);
+
+    --subscribe-banner-light-bg: var(--section-subscribe-banner-light-bg, #fff);
+    --subscribe-banner-dark-bg: var(--section-subscribe-banner-dark-bg, #1e1e1e);
+
+    --subscribe-banner-with-benefits-light-bg: var(--section-subscribe-banner-with-benefits-light-bg,
+        #fff);
+    --subscribe-banner-with-benefits-dark-bg: var(--section-subscribe-banner-with-benefits-dark-bg,
+        #1e1e1e);
+
+    --with-author-light-bg: var(--section-with-author-light-bg, #fff);
+    --with-author-dark-bg: var(--section-with-author-dark-bg, #1e1e1e);
+
+    // POST PAGE
+    --featured-post-head-bg-color: #7f7f7f;
+
+    // TIER CARD
+    --tier-title-bg: #f5f5f5;
+
+    // CONTENT
+    --content-card-bg: var(--accent-background-color, #f2f2f2);
+    --content-post-upgrade-cta-bg: #1e1e1e;
+
+    // SUBSCRIBE INPUT
+    --input-btn-text-color: var(--ghost-accent-color, #06f);
+    --input-bg: var(--input-background-color, #fff);
+
+    // MEMBERSHIP PAGE
+    --no-active-toggle: #747474;
+    --tier-btn-bg: var(--accent-color);
+    --tier-btn-color: #fff;
+    --trial-day-color: var(--trial-day-font-color, #1e1e1e);
+    --trial-day-bg-color: var(--trial-day-background-color, #e5ffe1);
+
+    // ACCOUNT PAGE
+    --account-gray-color: #e1e1e1;
+
+    // HOME PAGE SECTIONS WITH BACKGROUND COLOR SAME AS ACCENT BG COLOR
+    main.home-page section:not(.section-membership,
+      .section-categories-tabs,
+      .section-one-featured-plus-three,
+      .section-one-plus-three,
+      .section-big-slider,
+      .section-medium-small-posts,
+      .fs-section-with-author) {
+      &.whiteAccentBGColor {
+        --accent-bg-color: #fff;
+
+        .subscribe-banner__input-wrapper,
+        .subscribe-banner__input {
+          background-color: var(--accent-background-color, #f2f2f2);
+        }
+      }
+    }
+  }
+
+  &[data-theme='dark'] {
+    --color-main: #fff;
+    --color-main--hover: #c7c7c7;
+    --color-bg: #1d1d1f;
+    --color-gray: #a5a5a5;
+    --accent-color: var(--ghost-accent-color, #06f);
+    --accent-color-DM-monochrome: #fff;
+    --accent-hover-color: #c7c7c7;
+    --accent-bg-color: #303030;
+    --main-hr-color: #404040;
+
+    // HEADER
+    --transparent-header-border-color: rgba(255, 255, 255, 0.2);
+
+    // BUTTONS
+    --btn-bg: #1e1e1e;
+    --btn-color: #fff;
+    --btn-custom-colored-text: #303030;
+
+    // SECTION BACKGROUND
+
+    --one-plus-two-light-bg: var(--color-bg);
+    --one-plus-two-dark-bg: var(--color-bg);
+
+    --one-featured-plus-two-light-bg: var(--color-bg);
+    --one-featured-plus-two-dark-bg: var(--color-bg);
+
+    --one-plus-three-light-bg: var(--color-bg);
+    --one-plus-three-dark-bg: var(--color-bg);
+
+    --one-featured-plus-three-light-bg: var(--color-bg);
+    --one-featured-plus-three-dark-bg: var(--color-bg);
+
+    --grid-two-column-light-bg: var(--color-bg);
+    --grid-two-column-dark-bg: var(--color-bg);
+
+    --grid-two-column-light-bg: var(--color-bg);
+    --grid-two-column-dark-bg: var(--color-bg);
+
+    --grid-two-column-sidebar-with-featured-posts-light-bg: var(--color-bg);
+    --grid-two-column-sidebar-with-featured-posts-dark-bg: var(--color-bg);
+
+    --grid-two-column-sidebar-with-latest-posts-light-bg: var(--color-bg);
+    --grid-two-column-sidebar-with-latest-posts-dark-bg: var(--color-bg);
+
+    --list-sidebar-with-featured-posts-light-bg: var(--color-bg);
+    --list-sidebar-with-featured-posts-dark-bg: var(--color-bg);
+
+    --list-sidebar-with-latest-posts-light-bg: var(--color-bg);
+    --list-sidebar-with-latest-posts-dark-bg: var(--color-bg);
+
+    --grid-three-column-light-bg: var(--color-bg);
+    --grid-three-column-dark-bg: var(--color-bg);
+
+    --grid-four-column-light-bg: var(--color-bg);
+    --grid-four-column-dark-bg: var(--color-bg);
+
+    --small-slider-light-bg: var(--color-bg);
+    --small-slider-dark-bg: var(--color-bg);
+
+    --big-slider-light-bg: var(--color-bg);
+    --big-slider-dark-bg: var(--color-bg);
+
+    --medium-slider-light-bg: var(--color-bg);
+    --medium-slider-dark-bg: var(--color-bg);
+
+    --slider-two-posts-light-bg: var(--color-bg);
+    --slider-two-posts-dark-bg: var(--color-bg);
+
+    --categories-tabs-light-bg: var(--color-bg);
+    --categories-tabs-dark-bg: var(--color-bg);
+
+    --medium-small-posts-light-bg: var(--color-bg);
+    --medium-small-posts-dark-bg: var(--color-bg);
+
+    --posts-with-date-sidebar-with-featured-posts-light-bg: var(--color-bg);
+    --posts-with-date-sidebar-with-featured-posts-dark-bg: var(--color-bg);
+
+    --posts-with-date-sidebar-with-latest-posts-light-bg: var(--color-bg);
+    --posts-with-date-sidebar-with-latest-posts-dark-bg: var(--color-bg);
+
+    --list-with-img-sidebar-with-featured-posts-light-bg: var(--color-bg);
+    --list-with-img-sidebar-with-featured-posts-dark-bg: var(--color-bg);
+
+    --list-with-img-sidebar-with-latest-posts-light-bg: var(--color-bg);
+    --list-with-img-sidebar-with-latest-posts-dark-bg: var(--color-bg);
+
+    --membership-light-bg: var(--color-bg);
+    --membership-dark-bg: var(--color-bg);
+
+    --subscribe-banner-light-bg: var(--color-bg);
+    --subscribe-banner-dark-bg: var(--color-bg);
+
+    --subscribe-banner-with-benefits-light-bg: var(--color-bg);
+    --subscribe-banner-with-benefits-dark-bg: var(--color-bg);
+
+    --with-author-light-bg: var(--color-bg);
+    --with-author-dark-bg: var(--color-bg);
+
+    // POST CARDS
+    --post-card-no-img-bg: #303030;
+
+    // POST PAGE
+    --featured-post-head-bg-color: #3f3f3f;
+
+    // TIER CARD
+    --tier-title-bg: #f5f5f5;
+
+    // CONTENT
+    --content-card-bg: #303030;
+    --content-post-upgrade-cta-bg: #343435;
+
+    // SUBSCRIBE INPUT
+    --input-btn-text-color: #1e1e1e;
+    --input-bg: #fff;
+
+    // MEMBERSHIP PAGE
+    --no-active-toggle: #747474;
+    --tier-btn-bg: #343435;
+    --tier-btn-color: #fff;
+    --trial-day-color: #fff;
+    --trial-day-bg-color: #343435;
+
+    // ACCOUNT PAGE
+    --account-gray-color: #4e4e4e;
+  }
+}
+
+// TRANSITIONS
+// --------------------------------------------------------------------
+
+$transition-time: 0.25s;
+
+// BORDER-RADIUS
+// --------------------------------------------------------------------
+// --border-radius-buttons - user's variable from Code Injection;
+// --border-radius-tags - user's variable from Code Injection;
+// --border-radius-inputs - user's variable from Code Injection;
+// --border-radius-images - user's variable from Code Injection;
+// --border-radius-blocks - user's variable from Code Injection;
+
+$border-radius-buttons: var(--border-radius-buttons, 100px);
+$border-radius-tags: var(--border-radius-tags, 2px);
+$border-radius-inputs: var(--border-radius-inputs, 0);
+$border-radius-images: var(--border-radius-images, 0);
+$border-radius-blocks: var(--border-radius-blocks, 0);
+
+// FONTS
+// --------------------------------------------------------------------
+
+// LOGO AND AUTHOR NAME
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--logo-author {
+  font-family: var(--logo-author-font-family);
+  font-size: var(--logo-author-font-size);
+  font-weight: var(--logo-author-font-weight);
+  line-height: var(--logo-auhtor-line-height);
+  letter-spacing: var(--logo-author-letter-spacing);
+}
+
+@mixin font--big-author-name {
+  font-family: var(--font-family-titles);
+  font-size: var(--big-author-name-font-size);
+  font-weight: var(--big-author-name-font-weight);
+  line-height: var(--big-author-name-line-height);
+  letter-spacing: var(--big-author-name-letter-spacing);
+}
+
+// TITLES
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--full-width-post {
+  font-family: var(--font-family-titles);
+  font-size: var(--full-width-post-font-size);
+  font-weight: var(--font-weight-titles);
+  line-height: var(--full-width-post-line-height);
+  letter-spacing: var(--full-width-post-letter-spacing);
+}
+
+@mixin font--titles-H1 {
+  font-family: var(--font-family-titles);
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-weight-titles);
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
+}
+
+@mixin font--titles-H2 {
+  font-family: var(--font-family-titles);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-weight-titles);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
+}
+
+@mixin font--titles-H3 {
+  font-family: var(--font-family-titles);
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-weight-titles);
+  line-height: var(--h3-line-height);
+  letter-spacing: var(--h3-letter-spacing);
+}
+
+@mixin font--titles-H4 {
+  font-family: var(--font-family-titles);
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-weight-titles);
+  line-height: var(--h4-line-height);
+  letter-spacing: var(--h4-letter-spacing);
+}
+
+// TEXT
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--text-L-semibold {
+  font-family: var(--font-family-main);
+  font-size: var(--text-L-semibold-font-size);
+  font-weight: var(--text-L-semibold-font-weight);
+  line-height: var(--text-L-semibold-line-height);
+  letter-spacing: var(--text-L-semibold-letter-spacing);
+}
+
+@mixin font--text-L-medium {
+  font-family: var(--font-family-main);
+  font-size: var(--text-L-medium-font-size);
+  font-weight: var(--text-L-medium-font-weight);
+  line-height: var(--text-L-medium-line-height);
+}
+
+@mixin font--text-M-semibold {
+  font-family: var(--font-family-main);
+  font-size: var(--text-M-semibold-font-size);
+  font-weight: var(--text-M-semibold-font-weight);
+  line-height: var(--text-M-semibold-line-height);
+  letter-spacing: var(--text-M-semibold-letter-spacing);
+}
+
+@mixin font--text-M-medium {
+  font-family: var(--font-family-main);
+  font-size: var(--text-M-medium-font-size);
+  font-weight: var(--text-M-medium-font-weight);
+  line-height: var(--text-M-medium-line-height);
+}
+
+@mixin font--text-S-bold {
+  font-family: var(--font-family-main);
+  font-size: var(--text-S-bold-font-size);
+  font-weight: var(--text-S-bold-font-weight);
+  line-height: var(--text-S-bold-line-height);
+  letter-spacing: var(--text-S-bold-letter-spacing);
+}
+
+@mixin font--text-S-medium {
+  font-family: var(--font-family-main);
+  font-size: var(--text-S-medium-font-size);
+  font-weight: var(--text-S-medium-font-weight);
+  line-height: var(--text-S-medium-line-height);
+}
+
+@mixin font--text-XS-bold {
+  font-family: var(--font-family-main);
+  font-size: var(--text-XS-bold-font-size);
+  font-weight: var(--text-XS-bold-font-weight);
+  line-height: var(--text-XS-bold-line-height);
+}
+
+@mixin font--text-XS-medium {
+  font-family: var(--font-family-main);
+  font-size: var(--text-XS-medium-font-size);
+  font-weight: var(--text-XS-medium-font-weight);
+  line-height: var(--text-XS-medium-line-height);
+}
+
+// POST BODY
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--post-body-XL-semibold {
+  font-family: var(--font-family-main);
+  font-size: var(--post-body-XL-semibold-font-size);
+  font-weight: var(--post-body-XL-semibold-font-weight);
+  line-height: var(--post-body-XL-semibold-line-height);
+}
+
+@mixin font--post-body-XL-medium {
+  font-family: var(--font-family-main);
+  font-size: var(--post-body-XL-medium-font-size);
+  font-weight: var(--post-body-XL-medium-font-weight);
+  line-height: var(--post-body-XL-medium-line-height);
+}
+
+// MENU
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--menu-M-semibold {
+  font-family: var(--font-family-main);
+  font-size: var(--menu-M-semibold-font-size);
+  font-weight: var(--menu-M-semibold-font-weight);
+  line-height: var(--menu-M-semibold-line-height);
+  letter-spacing: var(--menu-M-semibold-letter-spacing);
+}
+
+// TAGS
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--tags {
+  font-family: var(--font-family-main);
+  font-size: var(--tags-font-size);
+  font-weight: var(--tags-font-weight);
+  line-height: var(--tags-line-height);
+}
+
+// META
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--meta-XS-bold {
+  font-family: var(--font-family-main);
+  font-size: var(--meta-XS-bold-font-size);
+  font-weight: var(--meta-XS-bold-font-weight);
+  line-height: var(--meta-XS-bold-line-height);
+}
+
+// BUTTONS
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@mixin font--buttons-M-semibold {
+  font-family: var(--font-family-main);
+  font-size: var(--buttons-M-semibold-font-size);
+  font-weight: var(--buttons-M-semibold-font-weight);
+  line-height: var(--buttons-M-semibold-line-height);
+  letter-spacing: var(--buttons-M-semibold-letter-spacing);
+}

@@ -1,0 +1,153 @@
+{{#if isSecondary}}
+<ul class="nav-list nav-list--secondary">
+    {{#foreach navigation}}
+    <li class="nav-list__item nav-list__item--secondary"><a href="{{url absolute="true"}}"
+            class="nav-list__item-link nav-list__item-link--secondary" aria-label="{{label}} {{t "Navigation link"}}">{{label}}</a></li>
+    {{/foreach}}
+</ul>
+
+{{else}}
+
+<nav class="nav{{#match position "=" "footer"}} nav--footer{{/match}}{{#match position "=" "mobileMenu"}} nav--mobile-menu{{/match}}{{#match position "=" "header"}} nav--header{{/match}}">
+    <ul class="nav-list{{#match position "=" "footer"}} nav-list--footer{{/match}}{{#match position "=" "mobileMenu"}} nav-list--mobile-menu{{/match}}">
+        {{!-- Footer Nav Elements --}}
+        {{#match position "=" "footer"}}
+        {{#foreach navigation}}
+            {{#match url "=" "#"}}
+                <li class="nav-list__item nav-list__item--footer-submenu">
+                    <span class="nav-list__item-link nav-list__item-link--footer-submenu" aria-label="{{label}} {{t "Navigation link"}}">
+                        {{label}}
+                    </span>
+                    <ul class="footer-submenu">
+            {{else match label.[0] "=" "-"}}
+                        <li class="footer-submenu__item">
+                            <a class="footer-submenu__item-link" href="{{url absolute="true"}}" aria-label="{{label}} {{t "Navigation link"}}">{{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}</a>
+                        </li>
+            {{else match label.[0] "=" "+"}}
+                        <li class="footer-submenu__item">
+                            <a class="footer-submenu__item-link" href="{{url absolute="true"}}" aria-label="{{label}} {{t "Navigation link"}}">{{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}</a>
+                        </li>
+                    </ul>
+                </li>
+            {{/match}}
+        {{/foreach}}
+
+        <li class="nav-list-footer-non-submenu-links-item">
+            <ul class="nav-list-footer-non-submenu-links">{{#foreach navigation}}{{^match url "=" "#"}}{{^match label.[0] "=" "-"}}{{^match label.[0] "=" "+"}}
+                <li class="nav-list__item nav-list__item--footer"><a href="{{url absolute=" true"}}" class="nav-list__item-link nav-list__item-link--footer"
+                        aria-label="{{label}} {{t "Navigation link"}}">{{label}}</a></li>{{/match}}{{/match}}{{/match}}{{/foreach}}
+            </ul>
+        </li>
+
+        {{!-- Mobile Menu Nav Elements --}}
+        {{else match position "=" "mobileMenu"}}
+        {{#foreach navigation}}
+        {{#match url "=" "#"}}
+                <li class="nav-list__item nav-list__item--mobile-submenu">
+                    <button class="nav-list__item-link nav-list__item-link--mobile-submenu" aria-label="{{t "Open submenu"}} {{label}}">
+                        <span class="nav-list__item-link-container">
+                            <span class="nav-list__item-link-span nav-list__item-link-span--mobile">
+                                {{label}}
+                            </span>
+                            <span class="nav-list__item-link-span nav-list__item-link-span--mobile">
+                                {{label}}
+                            </span>
+                        </span>
+                        {{>icons/arrow-menu-icon}}
+                    </button>
+                    <ul class="mobile-submenu">
+            {{else match label.[0] "=" "-"}}
+                        <li class="mobile-submenu__item">
+                            <a class="mobile-submenu__item-link" href="{{url absolute="true"}}" aria-label="{{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}} {{t "Navigation link"}}">
+                                <span class="nav-list__item-link-container">
+                                    <span class="nav-list__item-link-span">
+                                        {{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}
+                                    </span>
+                                    <span class="nav-list__item-link-span">
+                                        {{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+            {{else match label.[0] "=" "+"}}
+                        <li class="mobile-submenu__item">
+                            <a class="mobile-submenu__item-link" href="{{url absolute="true"}}" aria-label="{{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}} {{t "Navigation link"}}">
+                                <span class="nav-list__item-link-container">
+                                    <span class="nav-list__item-link-span">
+                                        {{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}
+                                    </span>
+                                    <span class="nav-list__item-link-span">
+                                        {{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            {{else}}
+                <li class="nav-list__item nav-list__item--mobile">
+                    <a href="{{url absolute="true"}}" class="nav-list__item-link nav-list__item-link--mobile" aria-label="{{label}} {{t "Navigation link"}}">
+                        <span class="nav-list__item-link-container">
+                            <span class="nav-list__item-link-span nav-list__item-link-span--mobile">
+                                {{label}}
+                            </span>
+                            <span class="nav-list__item-link-span nav-list__item-link-span--mobile">
+                                {{label}}
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            {{/match}}
+        {{/foreach}}
+
+        {{!-- Primary Header Navigation Nav Elements --}}
+        {{else match position "=" "header"}}
+        {{#foreach navigation}}
+            {{#match url "=" "#"}}
+                <li class="nav-list__item nav-list__item--submenu">
+                    <button class="nav-list__item-submenu-button" aria-label="{{t "Open submenu"}} {{label}}" id="submenu-button-{{label}}-{{@index}}">
+                        <span class="nav-list__item-link-container">
+                            <span class="nav-list__item-link-span">
+                                {{label}}
+                            </span>
+                            <span class="nav-list__item-link-span">
+                                {{label}}
+                            </span>
+                        </span>
+                        {{>icons/arrow-menu-icon}}
+                    </button>
+                    <ul class="submenu">
+            {{else match label.[0] "=" "-"}}
+                        <li class="submenu__item">
+                            <a class="submenu__item-link" href="{{url absolute="true"}}" aria-label="{{label}} {{t "Navigation link"}}">
+                                {{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}
+                            </a>
+                        </li>
+            {{else match label.[0] "=" "+"}}
+                        <li class="submenu__item">
+                            <a class="submenu__item-link" href="{{url absolute="true"}}" aria-label="{{label}} {{t "Navigation link"}}">{{#foreach label as |charLabel|}}{{#match @index '>' '1'}}{{charLabel}}{{/match}}{{/foreach}}</a>
+                        </li>
+                    </ul>
+                </li>
+            {{else}}
+                <li class="nav-list__item">
+                    <a href="{{url absolute="true"}}" class="nav-list__item-link" aria-label="{{label}} {{t "Navigation link"}}">
+                        <span class="nav-list__item-link-container">
+                            <span class="nav-list__item-link-span">
+                                {{label}}
+                            </span>
+                            <span class="nav-list__item-link-span">
+                                {{label}}
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            {{/match}}
+        {{/foreach}}
+
+        {{/match}}
+    </ul>
+</nav>
+
+{{/if}}
+

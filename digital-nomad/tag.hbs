@@ -1,0 +1,40 @@
+{{!< default}}
+
+<main class="main archive-page category-page">
+    {{#tag}}
+    <div class="archive-page-head{{#if feature_image}} with-feature-image{{/if}}">
+        {{#if feature_image}} 
+        <picture>
+            <source srcset="{{img_url feature_image size="3600" format="webp" }} 3600w, {{img_url feature_image size="2800"
+                format="webp" }} 2800w, {{img_url feature_image size="2400" format="webp" }} 2400w, {{img_url feature_image
+                size="2000" format="webp" }} 2000w, {{img_url feature_image size="1600" format="webp" }} 1600w, {{img_url
+                feature_image size="1200" format="webp" }} 1200w, {{img_url feature_image size="960" format="webp" }} 960w,
+                {{img_url feature_image size="720" format="webp" }} 720w,{{img_url feature_image size="400" format="webp" }}
+                400w" sizes="100vw" type="image/webp">
+            <img class="archive-page-head__bg-image" srcset="{{img_url feature_image size="3600" }} 3600w, {{img_url
+                feature_image size="2800" }} 2800w, {{img_url feature_image size="2400" }} 2400w, {{img_url feature_image
+                size="2000" }} 2000w, {{img_url feature_image size="1600" }} 1600w, {{img_url feature_image size="1200" }}
+                1200w, {{img_url feature_image size="960" }} 960w, {{img_url feature_image size="720" }} 720w,{{img_url
+                feature_image size="400" }} 400w" sizes="100vw" src="{{img_url feature_image size="3600"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}} {{t "feature image"}}{{/if}}" />
+        </picture>
+        {{/if}}
+        <div class="archive-page-head__content wrapper">
+            <h1 class="archive-page-head__title">{{name}}</h1>
+            {{#if description}}
+            <p class="archive-page-head__excerpt">{{description}}</p>
+            {{/if}}
+        </div>
+    </div>
+    {{/tag}}
+    <div class="archive-page-posts">
+        <div class="wrapper">
+            <div class="layout-grid layout-grid--3-column latest-section-posts">
+                {{#foreach posts}}
+                    {{>post-cards/post-card postType="Grid 3 column" showExcerpt="true" className=" latest-post"}}
+                {{/foreach}}
+            </div>
+            {{>button btnType="loadMore" classNames="load-more-btn--margin-top"}}
+        </div>
+    </div>
+</main>

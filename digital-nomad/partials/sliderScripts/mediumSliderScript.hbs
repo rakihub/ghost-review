@@ -1,0 +1,58 @@
+{{!-- Medium Sliders Init Script --}}
+<script>
+    const mediumImgSliders = document.querySelectorAll('.swiper.medium-slider--img')
+    const mediumContentSliders = document.querySelectorAll('.swiper.medium-slider--content')
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth > 1050){
+            mediumImgSliders.forEach(mediumSlider => {
+                new Swiper(mediumSlider, {
+                    direction: 'horizontal',
+                    loop: true,
+                    slidesPerView: 1,
+                    parallax: true,
+                    speed: 1000,
+                    allowTouchMove: true,
+                    watchOverflow: true,
+                    breakpoints: {
+                        1100: {
+                            allowTouchMove: false,
+                        },
+                        1050: {
+                            spaceBetween: 0,
+                        },
+                        0: {
+                            spaceBetween: 24,
+                        }
+                    },
+                    navigation: {
+                        nextEl: `.medium-next-btn-${mediumSlider.dataset.indexSlider}`,
+                        prevEl: `.medium-prev-btn-${mediumSlider.dataset.indexSlider}`
+                    }
+                })
+            })
+        }
+    })
+
+    mediumContentSliders.forEach(mediumSlider => {
+        new Swiper(mediumSlider, {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 24,
+            speed: 1000,
+            parallax: true,
+            allowTouchMove: true,
+            watchOverflow: true,
+            breakpoints: {
+                1100: {
+                    allowTouchMove: false
+                },
+            },
+            navigation: {
+                nextEl: `.medium-next-btn-${mediumSlider.dataset.indexSlider}`,
+                prevEl: `.medium-prev-btn-${mediumSlider.dataset.indexSlider}`
+            }
+        })
+    })
+</script>

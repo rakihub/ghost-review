@@ -1,0 +1,38 @@
+<aside class="post-info-sidebar-wrapper">
+    <div class="post-info-sidebar">
+        <div class="post-info-sidebar-author">
+        {{#primary_author}}
+            {{#if profile_image}}
+            <a class="post-info-sidebar-author__image-wrapper-link" href="{{@site.url}}{{url}}" aria-label="{{t "Link to page author {authorName}" authorName=name}}">
+                <picture>
+                    <source srcset="{{img_url profile_image size="150" format="webp" }} 150w, {{img_url profile_image size="100w"
+                        format="webp" }} 100w" sizes="64px" type="image/webp">
+                    <img class="post-info-sidebar-author__image" srcset="{{img_url profile_image size="150"}} 150w, {{img_url
+                        profile_image size="100" }} 100w" sizes="64px" src="{{img_url profile_image size="150"}}" alt="{{name}} {{t "profile image"}}" />
+                </picture>
+            </a>
+            {{/if}}
+            <div class="post-info-sidebar-author-name">
+                <span class="post-info-sidebar-author-name__by">{{t "by"}}</span>
+                <a class="post-info-sidebar-author-name__link" href="{{@site.url}}{{url}}" aria-label="{{t "Link to page author {authorName}" authorName=name}}">
+                    {{name}}
+                </a>
+            </div>
+        {{/primary_author}}
+        </div>
+        <div class="post-info-sidebar-date-container">
+            <span class="post-info-sidebar-updated">
+                {{t "Published"}}
+            </span>
+            <span class="post-info-sidebar-date">  
+                <time datetime="{{date format="MMM D, YYYY"}}">{{date format="MMM D, YYYY"}}</time>
+            </span>    
+        </div>
+        <div class="post-info-sidebar-share">
+            <span class="post-info-sidebar-share__span">
+                {{t "Share"}}
+            </span>
+            {{>share-block}}
+        </div>
+    </div>
+</aside>

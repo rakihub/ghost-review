@@ -1,0 +1,95 @@
+.share-block {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+
+    svg {
+        width: 44px;
+        height: 44px;
+
+        path {
+            fill: var(--color-main);
+            transition: fill $transition-time ease;
+        }
+    }
+
+    &.copyToClipboardBtn {
+        &:hover:not(.copied, .notCopied) {
+            svg path {
+                fill: var(--accent-hover-color);
+            }
+        }
+    }
+
+    &:hover:not(.copyToClipboardBtn) {
+        svg path {
+            fill: var(--accent-hover-color);
+        }
+    }
+}
+
+.copyToClipboardBtn {
+    position: relative;
+
+    &::after {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        @include font--tags;
+        line-height: 100%;
+        color: #FFF;
+        background-color: #7f7f7f;
+        padding: 4px 8px;
+        border-radius: 2px;
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        animation: fadeIn 0.35s ease;
+        width: max-content;
+        z-index: 10000000;
+        border-radius: $border-radius-tags;
+    }
+
+    &.copied {
+        &::after {
+            display: flex;
+            content: 'Link copied!';
+            animation: fadeIn 0.2s ease;
+        }
+    }
+
+    &.notCopied {
+        &::after {
+            display: flex;
+            content: 'Copy failed!';
+            background-color: rgb(189, 11, 11);
+            animation: fadeIn 0.2s ease;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .share-btn {
+        &.copyToClipboardBtn {
+            &:hover:not(.copied, .notCopied) {
+                svg path {
+                    fill: var(--color-main);
+                }
+            }
+        }
+
+        &:hover:not(.copyToClipboardBtn) {
+            svg path {
+                fill: var(--color-main);
+            }
+        }
+    }
+}

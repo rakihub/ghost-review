@@ -1,0 +1,61 @@
+// Post meta
+// -----------------------------------------------------------------
+
+.post-meta {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.post-data {
+  @include font--text-XS-bold;
+  color: var(--color-gray);
+}
+
+.post-author {
+  display: flex;
+  gap: 4px;
+
+  position: relative;
+
+  @include font--text-XS-bold;
+  transition: color $transition-time ease;
+
+  &__span {
+    color: var(--color-gray);
+  }
+
+  &__link {
+    color: var(--color-main);
+
+    &:hover {
+      color: var(--color-main--hover);
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-gray);
+
+    border-radius: 50%;
+
+    position: absolute;
+    top: 7px;
+    left: -12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .post-author {
+    &__link {
+      &:hover {
+        color: var(--color-main);
+      }
+    }
+  }
+}

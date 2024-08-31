@@ -1,0 +1,546 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+{{#match @custom.typography "Manrope" }}
+{{!-- Manrope --}}
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --font-family-titles: 'Manrope', sans-serif;
+        --font-family-main: 'Manrope', sans-serif;
+
+        --logo-author-font-size: 2.4rem;
+        --logo-author-font-family: 'Manrope', sans-serif;
+        --logo-author-font-weight: 700;
+        --logo-author-letter-spacing: -0.04em;
+        --logo-auhtor-line-height: 120%;
+
+        --font-weight-titles: 700;
+
+        --big-author-name-font-size: 16rem;
+        --big-author-name-font-weight: 700;
+        --big-author-name-line-height: 100%;
+        --big-author-name-letter-spacing: -0.06em;
+
+        --full-width-post-font-size: 6.4rem;
+        --full-width-post-line-height: 120%;
+        --full-width-post-letter-spacing: -0.04em;
+
+        --h1-font-size: 6.4rem;
+        --h1-line-height: 120%;
+        --h1-letter-spacing: -0.04em;
+
+        --h2-font-size: 3.2rem;
+        --h2-line-height: 120%;
+        --h2-letter-spacing: -0.04em;
+
+        --h3-font-size: 2.4rem;
+        --h3-line-height: 120%;
+        --h3-letter-spacing: -0.04em;
+
+        --h4-font-size: 2rem;
+        --h4-line-height: 120%;
+        --h4-letter-spacing: -0.04em;
+
+        --text-L-semibold-font-size: 1.8rem;
+        --text-L-semibold-font-weight: 600;
+        --text-L-semibold-line-height: normal;
+        --text-L-semibold-letter-spacing: -0.02em; 
+
+        --text-L-medium-font-size: 1.8rem;
+        --text-L-medium-font-weight: 500;
+        --text-L-medium-line-height: 160%;
+
+        --text-M-semibold-font-size: 1.6rem;
+        --text-M-semibold-font-weight: 600;
+        --text-M-semibold-line-height: normal;
+        --text-M-semibold-letter-spacing: -0.02em; 
+
+        --text-M-medium-font-size: 1.4rem;
+        --text-M-medium-font-weight: 500;
+        --text-M-medium-line-height: 160%;
+
+        --text-S-bold-font-size: 1.4rem;
+        --text-S-bold-font-weight: 700;
+        --text-S-bold-line-height: normal;
+        --text-S-bold-letter-spacing: -0.02em;
+
+        --text-S-medium-font-size: 1.4rem;
+        --text-S-medium-font-weight: 500;
+        --text-S-medium-line-height: 140%;
+        
+        --text-XS-bold-font-size: 1.2rem;
+        --text-XS-bold-font-weight: 700;
+        --text-XS-bold-line-height: normal;
+
+        --text-XS-medium-font-size: 1.2rem;
+        --text-XS-medium-font-weight: 500;
+        --text-XS-medium-line-height: normal;
+
+        --post-body-XL-semibold-font-size: 1.8rem;
+        --post-body-XL-semibold-font-weight: 600;
+        --post-body-XL-semibold-line-height: 180%;
+
+        --post-body-XL-medium-font-size: 1.8rem;
+        --post-body-XL-medium-font-weight: 500;
+        --post-body-XL-medium-line-height: 180%;
+
+        --menu-M-semibold-font-size: 1.6rem;
+        --menu-M-semibold-font-weight: 600;
+        --menu-M-semibold-line-height: normal;
+        --menu-M-semibold-letter-spacing: -0.02em; 
+
+        --tags-font-size: 1.1rem;
+        --tags-font-weight: 700;
+        --tags-line-height: normal;
+
+        --meta-XS-bold-font-size: 1.2rem;
+        --meta-XS-bold-font-weight: 700;
+        --meta-XS-bold-line-height: normal;
+
+        --buttons-M-semibold-font-size: 1.6rem;
+        --buttons-M-semibold-font-weight: 600;
+        --buttons-M-semibold-line-height: normal;
+        --buttons-M-semibold-letter-spacing: -0.02em;
+    }
+</style>
+{{/match}}
+
+{{#match @custom.typography "Bricolage Grotesque/Manrope/Outfit" }}
+{{!-- Manrope --}}
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+{{!-- Bricolage Grotesque --}}
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+{{!-- Outfit --}}
+<link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --font-family-titles: 'Bricolage Grotesque', sans-serif;
+        --font-family-main: 'Manrope', sans-serif;
+
+        --logo-author-font-size: 2.4rem;
+        --logo-author-font-family: 'Outfit', sans-serif;
+        --logo-author-font-weight: 400;
+        --logo-author-letter-spacing: -0.02em;
+        --logo-auhtor-line-height: 120%;
+
+        --font-weight-titles: 600;
+
+        --big-author-name-font-size: 16rem;
+        --big-author-name-font-weight: 600;
+        --big-author-name-line-height: 100%;
+        --big-author-name-letter-spacing: -0.02em;
+
+        --full-width-post-font-size: 6.4rem;
+        --full-width-post-line-height: 120%;
+        --full-width-post-letter-spacing: -0.01em;
+
+        --h1-font-size: 5.6rem;
+        --h1-line-height: 100%;
+        --h1-letter-spacing: -0.02em;
+
+        --h2-font-size: 3.2rem;
+        --h2-line-height: 120%;
+        --h2-letter-spacing: -0.01em;
+
+        --h3-font-size: 2.4rem;
+        --h3-line-height: 120%;
+        --h3-letter-spacing: -0.01em;
+
+        --h4-font-size: 2rem;
+        --h4-line-height: 120%;
+        --h4-letter-spacing: -0.01em;
+
+        --text-L-semibold-font-size: 1.8rem;
+        --text-L-semibold-font-weight: 600;
+        --text-L-semibold-line-height: normal;
+        --text-L-semibold-letter-spacing: -0.02em; 
+
+        --text-L-medium-font-size: 1.8rem;
+        --text-L-medium-font-weight: 500;
+        --text-L-medium-line-height: 160%;
+
+        --text-M-semibold-font-size: 1.6rem;
+        --text-M-semibold-font-weight: 600;
+        --text-M-semibold-line-height: normal;
+        --text-M-semibold-letter-spacing: -0.02em; 
+
+        --text-M-medium-font-size: 1.6rem;
+        --text-M-medium-font-weight: 500;
+        --text-M-medium-line-height: 160%;
+
+        --text-S-bold-font-size: 1.4rem;
+        --text-S-bold-font-weight: 700;
+        --text-S-bold-line-height: normal;
+        --text-S-bold-letter-spacing: -0.02em;
+
+        --text-S-medium-font-size: 1.4rem;
+        --text-S-medium-font-weight: 500;
+        --text-S-medium-line-height: 140%;
+        
+        --text-XS-bold-font-size: 1.2rem;
+        --text-XS-bold-font-weight: 700;
+        --text-XS-bold-line-height: normal;
+
+        --text-XS-medium-font-size: 1.2rem;
+        --text-XS-medium-font-weight: 500;
+        --text-XS-medium-line-height: normal;
+
+        --post-body-XL-semibold-font-size: 1.8rem;
+        --post-body-XL-semibold-font-weight: 600;
+        --post-body-XL-semibold-line-height: 180%;
+
+        --post-body-XL-medium-font-size: 1.8rem;
+        --post-body-XL-medium-font-weight: 500;
+        --post-body-XL-medium-line-height: 180%;
+
+        --menu-M-semibold-font-size: 1.6rem;
+        --menu-M-semibold-font-weight: 600;
+        --menu-M-semibold-line-height: normal;
+        --menu-M-semibold-letter-spacing: -0.02em; 
+
+        --tags-font-size: 1.1rem;
+        --tags-font-weight: 700;
+        --tags-line-height: normal;
+
+        --meta-XS-bold-font-size: 1.2rem;
+        --meta-XS-bold-font-weight: 700;
+        --meta-XS-bold-line-height: normal;
+
+        --buttons-M-semibold-font-size: 1.6rem;
+        --buttons-M-semibold-font-weight: 600;
+        --buttons-M-semibold-line-height: normal;
+        --buttons-M-semibold-letter-spacing: -0.02em;
+    }
+</style>
+{{/match}}
+
+{{#match @custom.typography "Outfit/Manrope" }}
+{{!-- Manrope --}}
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+{{!-- Outfit --}}
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --font-family-titles: 'Outfit', sans-serif;
+        --font-family-main: 'Manrope', sans-serif;
+
+        --logo-author-font-size: 2.4rem;
+        --logo-author-font-family: 'Outfit', sans-serif;
+        --logo-author-font-weight: 600;
+        --logo-author-letter-spacing: -0.02em;
+        --logo-auhtor-line-height: 120%;
+
+        --font-weight-titles: 700;
+
+        --big-author-name-font-size: 14rem;
+        --big-author-name-font-weight: 600;
+        --big-author-name-line-height: 100%;
+        --big-author-name-letter-spacing: -0.02em;
+
+        --full-width-post-font-size: 6.4rem;
+        --full-width-post-line-height: 120%;
+        --full-width-post-letter-spacing: -0.04em;
+
+        --h1-font-size: 4rem;
+        --h1-line-height: 120%;
+        --h1-letter-spacing: -0.02em;
+
+        --h2-font-size: 3.2rem;
+        --h2-line-height: 120%;
+        --h2-letter-spacing: -0.02em;
+
+        --h3-font-size: 2.4rem;
+        --h3-line-height: 120%;
+        --h3-letter-spacing: -0.02em;
+
+        --h4-font-size: 2rem;
+        --h4-line-height: 120%;
+        --h4-letter-spacing: -0.02em;
+
+        --text-L-semibold-font-size: 1.8rem;
+        --text-L-semibold-font-weight: 600;
+        --text-L-semibold-line-height: normal;
+        --text-L-semibold-letter-spacing: -0.02em; 
+
+        --text-L-medium-font-size: 1.8rem;
+        --text-L-medium-font-weight: 500;
+        --text-L-medium-line-height: 160%;
+
+        --text-M-semibold-font-size: 1.6rem;
+        --text-M-semibold-font-weight: 600;
+        --text-M-semibold-line-height: normal;
+        --text-M-semibold-letter-spacing: -0.02em; 
+
+        --text-M-medium-font-size: 1.6rem;
+        --text-M-medium-font-weight: 500;
+        --text-M-medium-line-height: 160%;
+
+        --text-S-bold-font-size: 1.4rem;
+        --text-S-bold-font-weight: 700;
+        --text-S-bold-line-height: normal;
+        --text-S-bold-letter-spacing: -0.02em;
+
+        --text-S-medium-font-size: 1.4rem;
+        --text-S-medium-font-weight: 500;
+        --text-S-medium-line-height: 140%;
+        
+        --text-XS-bold-font-size: 1.2rem;
+        --text-XS-bold-font-weight: 700;
+        --text-XS-bold-line-height: normal;
+
+        --text-XS-medium-font-size: 1.2rem;
+        --text-XS-medium-font-weight: 500;
+        --text-XS-medium-line-height: normal;
+
+        --post-body-XL-semibold-font-size: 1.8rem;
+        --post-body-XL-semibold-font-weight: 600;
+        --post-body-XL-semibold-line-height: 180%;
+
+        --post-body-XL-medium-font-size: 1.8rem;
+        --post-body-XL-medium-font-weight: 500;
+        --post-body-XL-medium-line-height: 180%;
+
+        --menu-M-semibold-font-size: 1.6rem;
+        --menu-M-semibold-font-weight: 600;
+        --menu-M-semibold-line-height: normal;
+        --menu-M-semibold-letter-spacing: -0.02em; 
+
+        --tags-font-size: 1.1rem;
+        --tags-font-weight: 700;
+        --tags-line-height: normal;
+
+        --meta-XS-bold-font-size: 1.2rem;
+        --meta-XS-bold-font-weight: 700;
+        --meta-XS-bold-line-height: normal;
+
+        --buttons-M-semibold-font-size: 1.6rem;
+        --buttons-M-semibold-font-weight: 600;
+        --buttons-M-semibold-line-height: normal;
+        --buttons-M-semibold-letter-spacing: -0.02em;
+    }
+</style>
+{{/match}}
+
+{{#match @custom.typography "Lexend/Manrope/Bebas Neue" }}
+{{!-- Manrope --}}
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+{{!-- Lexend --}}
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap" rel="stylesheet">
+{{!-- Bebas Neue --}}
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --font-family-titles: 'Lexend', sans-serif;
+        --font-family-main: 'Manrope', sans-serif;
+
+        --logo-author-font-size: 3.2rem;
+        --logo-author-font-family: 'Bebas Neue', sans-serif;
+        --logo-author-font-weight: 400;
+        --logo-author-letter-spacing: 0;
+        --logo-auhtor-line-height: 120%;
+
+        --font-weight-titles: 600;
+
+        --big-author-name-font-size: 14.8rem;
+        --big-author-name-font-weight: 600;
+        --big-author-name-line-height: 100%;
+        --big-author-name-letter-spacing: -0.04em;
+
+        --full-width-post-font-size: 6.4rem;
+        --full-width-post-line-height: 120%;
+        --full-width-post-letter-spacing: -0.04em;
+
+        --h1-font-size: 6.4rem;
+        --h1-line-height: 100%;
+        --h1-letter-spacing: -0.04em;
+
+        --h2-font-size: 3.2rem;
+        --h2-line-height: 120%;
+        --h2-letter-spacing: -0.04em;
+
+        --h3-font-size: 2.4rem;
+        --h3-line-height: 120%;
+        --h3-letter-spacing: -0.04em;
+
+        --h4-font-size: 2rem;
+        --h4-line-height: 120%;
+        --h4-letter-spacing: -0.04em;
+
+        --text-L-semibold-font-size: 1.8rem;
+        --text-L-semibold-font-weight: 600;
+        --text-L-semibold-line-height: normal;
+        --text-L-semibold-letter-spacing: -0.02em; 
+
+        --text-L-medium-font-size: 1.8rem;
+        --text-L-medium-font-weight: 500;
+        --text-L-medium-line-height: 160%;
+
+        --text-M-semibold-font-size: 1.6rem;
+        --text-M-semibold-font-weight: 600;
+        --text-M-semibold-line-height: normal;
+        --text-M-semibold-letter-spacing: -0.02em; 
+
+        --text-M-medium-font-size: 1.6rem;
+        --text-M-medium-font-weight: 500;
+        --text-M-medium-line-height: 160%;
+
+        --text-S-bold-font-size: 1.4rem;
+        --text-S-bold-font-weight: 700;
+        --text-S-bold-line-height: normal;
+        --text-S-bold-letter-spacing: -0.02em;
+
+        --text-S-medium-font-size: 1.4rem;
+        --text-S-medium-font-weight: 500;
+        --text-S-medium-line-height: 140%;
+        
+        --text-XS-bold-font-size: 1.2rem;
+        --text-XS-bold-font-weight: 700;
+        --text-XS-bold-line-height: normal;
+
+        --text-XS-medium-font-size: 1.2rem;
+        --text-XS-medium-font-weight: 500;
+        --text-XS-medium-line-height: normal;
+
+        --post-body-XL-semibold-font-size: 1.8rem;
+        --post-body-XL-semibold-font-weight: 600;
+        --post-body-XL-semibold-line-height: 180%;
+
+        --post-body-XL-medium-font-size: 1.8rem;
+        --post-body-XL-medium-font-weight: 500;
+        --post-body-XL-medium-line-height: 180%;
+
+        --menu-M-semibold-font-size: 1.6rem;
+        --menu-M-semibold-font-weight: 600;
+        --menu-M-semibold-line-height: normal;
+        --menu-M-semibold-letter-spacing: -0.02em; 
+
+        --tags-font-size: 1.1rem;
+        --tags-font-weight: 700;
+        --tags-line-height: normal;
+
+        --meta-XS-bold-font-size: 1.2rem;
+        --meta-XS-bold-font-weight: 700;
+        --meta-XS-bold-line-height: normal;
+
+        --buttons-M-semibold-font-size: 1.6rem;
+        --buttons-M-semibold-font-weight: 600;
+        --buttons-M-semibold-line-height: normal;
+        --buttons-M-semibold-letter-spacing: -0.02em;
+    }
+</style>
+{{/match}}
+
+{{#match @custom.typography "Inter/Manrope" }}
+{{!-- Manrope --}}
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+{{!-- Inter --}}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --font-family-titles: 'Inter', sans-serif;
+        --font-family-main: 'Manrope', sans-serif;
+
+        --logo-author-font-size: 2.4rem;
+        --logo-author-font-family: 'Inter', sans-serif;
+        --logo-author-font-weight: 600;
+        --logo-author-letter-spacing: -0.04em;
+        --logo-auhtor-line-height: 120%;
+
+        --font-weight-titles: 600;
+
+        --big-author-name-font-size: 16rem;
+        --big-author-name-font-weight: 600;
+        --big-author-name-line-height: 100%;
+        --big-author-name-letter-spacing: -0.04em;
+
+        --full-width-post-font-size: 6.4rem;
+        --full-width-post-line-height: 120%;
+        --full-width-post-letter-spacing: -0.04em;
+
+        --h1-font-size: 4rem;
+        --h1-line-height: 120%;
+        --h1-letter-spacing: -0.04em;
+
+        --h2-font-size: 3.2rem;
+        --h2-line-height: 120%;
+        --h2-letter-spacing: -0.04em;
+
+        --h3-font-size: 2.4rem;
+        --h3-line-height: 120%;
+        --h3-letter-spacing: -0.04em;
+
+        --h4-font-size: 2rem;
+        --h4-line-height: 120%;
+        --h4-letter-spacing: -0.04em;
+
+        --text-L-semibold-font-size: 1.8rem;
+        --text-L-semibold-font-weight: 600;
+        --text-L-semibold-line-height: normal;
+        --text-L-semibold-letter-spacing: -0.02em; 
+
+        --text-L-medium-font-size: 1.8rem;
+        --text-L-medium-font-weight: 500;
+        --text-L-medium-line-height: 160%;
+
+        --text-M-semibold-font-size: 1.6rem;
+        --text-M-semibold-font-weight: 600;
+        --text-M-semibold-line-height: normal;
+        --text-M-semibold-letter-spacing: -0.02em; 
+
+        --text-M-medium-font-size: 1.6rem;
+        --text-M-medium-font-weight: 500;
+        --text-M-medium-line-height: 160%;
+
+        --text-S-bold-font-size: 1.4rem;
+        --text-S-bold-font-weight: 700;
+        --text-S-bold-line-height: normal;
+        --text-S-bold-letter-spacing: -0.02em;
+
+        --text-S-medium-font-size: 1.4rem;
+        --text-S-medium-font-weight: 500;
+        --text-S-medium-line-height: 140%;
+        
+        --text-XS-bold-font-size: 1.2rem;
+        --text-XS-bold-font-weight: 700;
+        --text-XS-bold-line-height: normal;
+
+        --text-XS-medium-font-size: 1.2rem;
+        --text-XS-medium-font-weight: 500;
+        --text-XS-medium-line-height: normal;
+
+        --post-body-XL-semibold-font-size: 1.8rem;
+        --post-body-XL-semibold-font-weight: 600;
+        --post-body-XL-semibold-line-height: 180%;
+
+        --post-body-XL-medium-font-size: 1.8rem;
+        --post-body-XL-medium-font-weight: 500;
+        --post-body-XL-medium-line-height: 180%;
+
+        --menu-M-semibold-font-size: 1.6rem;
+        --menu-M-semibold-font-weight: 600;
+        --menu-M-semibold-line-height: normal;
+        --menu-M-semibold-letter-spacing: -0.02em; 
+
+        --tags-font-size: 1.1rem;
+        --tags-font-weight: 700;
+        --tags-line-height: normal;
+
+        --meta-XS-bold-font-size: 1.2rem;
+        --meta-XS-bold-font-weight: 700;
+        --meta-XS-bold-line-height: normal;
+
+        --buttons-M-semibold-font-size: 1.6rem;
+        --buttons-M-semibold-font-weight: 600;
+        --buttons-M-semibold-line-height: normal;
+        --buttons-M-semibold-letter-spacing: -0.02em;
+    }
+</style>
+{{/match}}
+
+

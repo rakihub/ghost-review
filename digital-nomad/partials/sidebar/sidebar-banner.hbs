@@ -1,0 +1,40 @@
+{{#if @site.members_enabled}}
+{{#unless @member}}
+<form class="subscribe-banner" data-members-form="subscribe" data-members-autoredirect="false" novalidate>
+        {{#if @custom.subscribe_cta_text}}
+        <h2 class="subscribe-banner__title">{{@custom.subscribe_cta_text}}</h2>
+        {{else}}
+        <h2 class="subscribe-banner__title">{{t "Subscribe"}}</h2>
+        {{/if}}
+        {{#if @custom.subscribe_cta_subtext}}
+        <p class="subscribe-banner__text">{{@custom.subscribe_cta_subtext}}</p>
+        {{/if}}
+    <div class="subscribe-banner__input-wrapper">
+        <input class="subscribe-banner__input" data-members-email type="email" name="email-input" id="aside-subscribe-banner-email-input" placeholder="{{t "Enter your email"}}" aria-label="{{t "Your email address"}}" required>
+        <button class="subscribe-banner__input-btn">
+            <span class="subscribe-banner__input-btn-text">{{t "Send"}}</span>
+            <span class="subscribe-banner__input-btn-icon">{{>icons/chevron-right-icon}}</span>
+            <span class="subscribe-banner__input-btn--loader">{{>icons/loader-icon}}</span>
+        </button>
+    </div>
+    <p class="subscribe-banner-error" data-members-error></p>
+    {{#if @site.portal_signup_terms_html}}
+    {{^if @site.portal_signup_checkbox_required}}
+    <div class="subscribe-banner-terms">{{{@site.portal_signup_terms_html}}}</div>
+    {{/if}}
+    {{/if}}
+    <div class="subscribe-banner-success">
+        <div class="subscribe-banner-success__wrapper">
+            {{>icons/subscribe-success-icon}}
+            <p class="subscribe-banner-success__title">
+                {{t "Success! Now Check Your Email"}}
+            </p>
+        </div>
+        <p class="subscribe-banner-success__text">
+            {{t "To complete Subscribe, click the confirmation link in your inbox. If
+            it doesn’t arrive within 3 minutes, check your spam folder."}}
+        </p>
+    </div>
+</form>
+{{/unless}}
+{{/if}}  

@@ -1,0 +1,33 @@
+<div class="header-actions">
+    <div class="header-actions-CTA-DM-container">
+        {{#if @site.members_enabled}}
+        {{#unless @member}}
+        <button class="open-header-CTA-btn" aria-label="{{t "Open header CTA button"}}">
+            {{>icons/three-dots-icon}}
+        </button>
+        {{/unless}}
+        {{/if}}  
+        <button class="switch-theme-btn" aria-label="{{t "Dark mode toggle button"}}">
+            <span class="switch-theme-btn-icons">
+                {{>icons/sun-icon}}
+                {{>icons/moon-icon}}
+            </span>
+        </button>
+    </div>
+    <div class="header-actions-buttons">
+        <button class="action-btn search-btn" title="{{t "Search button"}}" aria-label="{{t "Search button"}}" data-ghost-search>
+            {{>icons/search-icon}}
+            <span class="search-btn__span">{{t "Search"}}</span>
+        </button>
+        {{#if @site.members_enabled}}
+        {{#if @member}}
+        <a href="{{#if @site.portal_button}}#/portal/account{{else}}/account{{/if}}" class="action-btn login-button account-button" title="{{t "Account page link"}}" aria-label="{{t "Account page link"}}">
+            {{>icons/account-icon}}
+            {{t "Account"}}
+        </a>
+        {{else}}
+        <a href="{{#if @site.portal_button}}#/portal/signin{{else}}/signin{{/if}}" class="action-btn login-button" title="{{t "Sign in button"}}" aria-label="{{t "Sign in button"}}">{{t "Sign In"}}</a>
+        {{/if}}
+        {{/if}}
+    </div>
+</div>

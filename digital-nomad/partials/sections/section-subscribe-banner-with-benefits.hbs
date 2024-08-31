@@ -1,0 +1,30 @@
+<section class="section-subscribe-banner-with-benefits{{class}}">
+    <div class="wrapper section-subscribe-banner-with-benefits__wrapper">
+        <div class="section-subscribe-banner-with-benefits__content">
+            <span class="section-subscribe-banner-with-benefits__span">{{t "Membership"}}</span>
+            {{#if tag}}
+                <h2 class="section-subscribe-banner-with-benefits__title">{{tag}}</h2>
+            {{else}}
+                <h2 class="section-subscribe-banner-with-benefits__title">{{t "Subscribe"}}</h2>
+            {{/if}}
+
+            {{{count}}}
+
+            <a class="section-subscribe-banner-with-benefits__btn" href="{{#if @site.portal_button}}{{#if @member}}#/portal/account/plans{{else}}#/portal/signup{{/if}}{{else}}/membership{{/if}}" aria-label="{{t "Join the community"}}">
+                <span class="section-subscribe-banner-with-benefits__btn-text-wrapper">
+                    <span class="section-subscribe-banner-with-benefits__btn-text">
+                        {{t "Join Community"}}
+                        {{>icons/arrow-right-icon}}
+                    </span>
+                    <span class="section-subscribe-banner-with-benefits__btn-text">
+                        {{t "Join Community"}}
+                        {{>icons/arrow-right-icon}}
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="section-subscribe-banner-with-benefits__img-wrapper">
+            <img class="section-subscribe-banner-with-benefits__img" src="{{asset 'images/banner-img.png'}}" alt="banner image">
+        </div>
+    </div>
+</section>

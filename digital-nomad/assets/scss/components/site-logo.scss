@@ -1,0 +1,132 @@
+// Site Logo
+// ------------------------------------------------------------------------------------------------
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  height: 100%;
+
+  &::after {
+    @include font--text-XS-bold;
+    color: var(--color-gray);
+  }
+
+  &__img {
+    width: auto;
+    height: 100%;
+    max-height: 40px;
+    object-fit: contain;
+    transition: opacity $transition-time ease;
+  }
+
+  &__title {
+    color: var(--accent-color-DM-monochrome);
+    @include font--logo-author;
+    line-height: 1;
+    transition: opacity $transition-time ease, color $transition-time ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &:hover {
+    .logo__img {
+      opacity: 0.8;
+    }
+
+    .logo__title {
+      opacity: 0.8;
+    }
+  }
+}
+
+.header.centeredIdentity {
+  .logo {
+    align-items: center;
+
+    &::after {
+      text-align: center;
+    }
+  }
+}
+
+:root[data-theme='light'] {
+  .logo.has-dark-version {
+    .logo__img {
+      &--light {
+        display: block;
+      }
+
+      &--dark {
+        display: none;
+      }
+    }
+  }
+}
+
+:root[data-theme='dark'] {
+  .logo.has-dark-version {
+    .logo__img {
+      &--light {
+        display: none;
+      }
+
+      &--dark {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .logo {
+    &:hover {
+
+      .logo__img,
+      .logo__title {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .logo {
+    &__img {
+      max-height: 32px;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &::after {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    .logo {
+      align-items: center;
+
+      &::after {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}

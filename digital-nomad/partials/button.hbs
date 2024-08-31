@@ -1,0 +1,39 @@
+{{#match btnType "=" 'loadMore'}}
+    <a rel="next" name="latest" class="load-more-btn {{classNames}}" aria-label="{{t "Load more posts button"}}">
+        <span class="load-more-btn__btn-text-wrapper">
+            <span class="load-more-btn__btn-text">
+                {{t "Load More"}}
+            </span>
+            <span class="load-more-btn__btn-text">
+                {{t "Load More"}}
+            </span>
+        </span>
+    </a>
+{{else match btnType "=" 'submit'}}
+    <button aria-label="{{t ariaLabel}}" class="submit-btn {{classNames}}" type="submit">
+        <span class="submit-btn__btn-text-wrapper">
+            <span class="submit-btn__btn-text">
+                <span class="submit-btn__text">{{t btnText}}</span>
+            </span>
+            <span class="submit-btn__btn-text">
+                <span class="submit-btn__text">{{t btnText}}</span>
+            </span>
+        </span>
+        {{>icons/loader-icon}}
+    </button>
+{{else match btnType "=" 'link'}}
+    <a class="submit-btn {{classNames}}" href="{{@site.url}}/{{linkURL}}" aria-label="{{t ariaLabel}}">
+        <span class="submit-btn__btn-text-wrapper">
+            <span class="submit-btn__btn-text">
+                <span class="submit-btn__text">{{t btnText}}</span>
+            </span>
+            <span class="submit-btn__btn-text">
+                <span class="submit-btn__text">{{t btnText}}</span>
+            </span>
+        </span>
+    </a>
+{{else}}
+    <button aria-label="{{t ariaLabel}}" class="{{classNames}}">
+        <span>{{t btnText}}</span>
+    </button>
+{{/match}}
