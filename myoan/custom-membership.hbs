@@ -1,0 +1,20 @@
+{{!< default}}
+{{#post}}
+{{#match @page.show_title_and_feature_image}}
+{{>hero is_custom=true}}
+{{/match}}
+{{>members/tiers}}
+{{>members/subscribe is_free_tier=true}}
+{{#if html}}
+<div class="faq-section">
+	<div class="faq-wrap">
+		<h2 class="g-font-xl">{{{t "Get more {style-start}answers{style-end}" style-start="<span>" style-end="</span>"}}}</h2>
+		<div class="faq-content">
+			{{content}}
+		</div>
+	</div>
+</div>
+{{>related is_latest=true}}
+{{>members/subscribe is_form=true}}
+{{/if}}
+{{/post}}

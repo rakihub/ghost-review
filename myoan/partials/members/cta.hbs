@@ -1,0 +1,27 @@
+<div class="cta-section g-grid-template g-child-wide">
+	<div>
+		<h2 class="g-font-xl">{{#has visibility="pago"}}{{t "Esta publicación es solo para suscriptores pagos."}}{{else has visibility="tiers"}}{{plural tiers.length empty="" singular=(t "Esta publicación es para suscriptores con el nivel:") plural=(t "Esta publicación es para suscriptores con cualquiera de los niveles.:")}} {{tiers lastSeparator=(t "o") suffix=""}}{{else has visibility="members"}}{{t "Esta publicación es solo para suscriptores."}}{{/has}}</h2>
+		{{#has visibility="miembros"}}
+		<p class="g-font-s">{{t "Regístrese ahora para leer la publicación y obtener acceso a la biblioteca completa de publicaciones solo para suscriptores."}}</p>
+		<a {{>members/links is_signup=true}} class="g-btn">{{t "Regístrate ahora"}}</a>
+		{{else}}
+		<p class="g-font-s">
+			{{#if @member}}
+			{{t "Actualice su cuenta para obtener acceso a la publicación.."}}
+			{{else has visibility="paid"}}
+			{{t "Desbloquee el acceso y vea toda la biblioteca de publicaciones exclusivas para miembros pagos."}}
+			{{else has visibility="tiers"}}
+			{{plural tiers.length empty="" singular=(t "Desbloquee el acceso y vea toda la biblioteca de publicaciones para este nivel.") plural=(t "Desbloquee el acceso y vea la biblioteca completa de publicaciones para estos niveles.")}}
+			{{/if}}
+		</p>
+		{{#if @member}}
+		<a {{>members/links is_plans=true}} class="g-btn">{{t "Ver los planes"}}</a>
+		{{else}}
+		<a {{>members/links is_signup=true}} class="g-btn">{{t "Regístrate ahora"}}</a>
+		{{/if}}
+		{{/has}}
+		{{^if @member}}
+		<small class="g-question g-font-xxxxs">{{t "Ya tienes una cuenta?"}} <a {{>members/links is_signin=true}}>{{t "Iniciar sesión"}}</a></small>
+		{{/if}}
+	</div>
+</div>

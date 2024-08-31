@@ -1,0 +1,24 @@
+{{!< default}}
+{{#post}}
+{{#match @page.show_title_and_feature_image}}
+{{>hero is_custom=true}}
+{{/match}}
+{{#get "authors" limit="all" include="count.posts" order="count.posts desc" as |archive|}}
+{{#if archive}}
+<small class="g-label g-font-s">{{t "Meet our authors"}}</small>
+<div class="archive-section g-grid-template g-bg get-contrast g-parent-full g-child-site is-top">
+	{{#foreach archive}}
+	{{#if count.posts}}
+	<div class="g-content">
+		<a href="{{url}}" class="g-img-inline g-font-xl">{{>images/inline_img inline_img=profile_image lazy=true alt=""}}<span class="suffix-author">{{slug}}</span> <sup>{{name}}</sup>{{#if location}}<span class="is-location"> {{t "from"}} {{location}}</span>{{/if}}</a>
+		{{#if bio}}
+		<p class="g-font-m">{{bio}}</p>
+		{{/if}}
+	</div>
+	{{/if}}
+	{{/foreach}}
+</div>
+{{/if}}
+{{/get}}
+{{/post}}
+{{>members/additional is_footer=true}}

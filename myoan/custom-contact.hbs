@@ -1,0 +1,16 @@
+{{!< default-signup}}
+{{#post}}
+<form method="POST" action="{{@custom.contact_form_endpoint}}">
+	<h1 class="signup-title g-font-l">{{title}}</h1>
+	<input type="text" name="name" placeholder="{{t "Your name"}}" aria-label="{{t "Your name"}}" required>
+	<input type="email" name="email" placeholder="{{t "Your email address"}}" aria-label="{{t "Your email address"}}" required>
+	<textarea name="message" placeholder="{{t "Your message"}}" aria-label="{{t "Your message"}}" required></textarea>
+	{{#if codeinjection_foot}}
+	<div class="g-terms">
+		<input type="checkbox" required>
+		<div class="g-font-xxxxs">{{{codeinjection_foot}}}</div>
+	</div>
+	{{/if}}
+	<button class="g-btn" type="submit">{{t "Send message"}}</button>
+</form>
+{{/post}}

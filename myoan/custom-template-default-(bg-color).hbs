@@ -1,0 +1,8 @@
+{{!< default}}
+{{#post}}
+{{#is "page"}}
+{{>posts/page_template is_color_bg_template=true}}
+{{else}}
+{{>posts/post_template is_color_bg_template=true}}
+{{/is}}
+{{/post}}

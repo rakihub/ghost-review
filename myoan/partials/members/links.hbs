@@ -1,0 +1,33 @@
+{{#if @custom.use_portal}}
+	{{#if is_join}}
+		href="javascript:" data-portal="signup"
+	{{else if is_signup}}
+		href="javascript:" data-portal="signup"
+	{{else if is_signin}}
+		href="javascript:" data-portal="signin"
+	{{else if is_plans}}
+		{{#if @member}}
+			href="javascript:" data-portal="account/plans"
+		{{else}}
+			href="javascript:" data-portal="signup"
+		{{/if}}
+	{{/if}}
+{{else if is_join}}
+	{{#if @custom.join_button_url_slug}}
+		href="{{@site.url}}{{@custom.join_button_url_slug}}"
+	{{else}}
+		href="javascript:" data-portal="signup"
+	{{/if}}
+{{else if is_signup}}
+	href="{{@site.url}}/signup/"
+{{else if is_signin}}
+	href="{{@site.url}}/signin/"
+{{else if is_plans}}
+	{{#if @custom.plans_button_url_slug}}
+		href="{{@site.url}}{{@custom.plans_button_url_slug}}"
+	{{else if @member}}
+		href="javascript:" data-portal="account/plans"
+	{{else}}
+		href="javascript:" data-portal="signup"
+	{{/if}}
+{{/if}}

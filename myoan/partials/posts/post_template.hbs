@@ -1,0 +1,23 @@
+{{#if access}}<progress class="post-progress"></progress>{{/if}}
+<article class="post-section g-grid-template g-parent-full g-child-site">
+	{{>posts/header}}
+	<div class="post-content g-grid-template g-parent-full g-child-regular{{^if access}}{{#if html}} is-teaser{{/if}}{{/if}}">
+		{{#if access}}
+		{{content}}
+		{{>posts/share}}
+		{{>posts/comments}}
+		{{else}}
+		{{#if html}}{{{html}}}{{/if}}
+		{{/if}}
+	</div>
+	{{^if access}}
+	{{>members/cta}}
+	{{/if}}
+</article>
+{{>posts/navigation}}
+{{#match @custom.additional_section "'Next for you'"}}
+{{>related is_recommended=true}}
+{{else match @custom.additional_section "'You might also like'"}}
+{{>related is_spotlight=true label=(t "You might also like")}}
+{{/match}}
+{{>members/additional is_footer=true}}

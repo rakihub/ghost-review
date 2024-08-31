@@ -1,0 +1,14 @@
+{{#if @custom.secondary_logo}}
+	{{#match @custom.color_scheme "Dark"}}
+	<a href="{{@site.url}}" class="is-dark"><img src="{{@custom.secondary_logo}}" alt="{{@site.title}} home"></a>
+	{{else match @custom.color_scheme "Auto: Light/Dark"}}
+	<a href="{{@site.url}}" class="is-dark"><img src="{{@custom.secondary_logo}}" alt="{{@site.title}} home"></a>
+	{{else match @custom.color_scheme "Auto: Sepia/Dark"}}
+	<a href="{{@site.url}}" class="is-dark"><img src="{{@custom.secondary_logo}}" alt="{{@site.title}} home"></a>
+	{{/match}}
+	{{^match @custom.color_scheme "Dark"}}
+	<a href="{{@site.url}}"{{#if @site.logo}}><img src="{{@site.logo}}" alt="{{@site.title}} home">{{else}} class="is-title">{{@site.title}}{{/if}}</a>
+	{{/match}}
+{{else}}
+	<a href="{{@site.url}}"{{#if @site.logo}}><img src="{{@site.logo}}" alt="{{@site.title}} home">{{else}} class="is-title">{{@site.title}}{{/if}}</a>
+{{/if}}

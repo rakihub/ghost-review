@@ -1,0 +1,8 @@
+{{!< default}}
+{{#post}}
+{{#match @page.show_title_and_feature_image}}
+{{>hero is_custom=true}}
+{{/match}}
+{{recommendations limit="31"}}
+{{/post}}
+{{>members/additional is_footer=true}}

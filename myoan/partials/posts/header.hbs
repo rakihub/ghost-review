@@ -1,0 +1,46 @@
+{{#if is_color_bg_template}}<div class="is-bg-color g-bg get-contrast g-grid-template g-parent-full g-child-site">{{/if}}
+<div class="hero-section{{#if is_custom_template}} is-custom g-grid-template g-parent-full g-child-site{{else}} g-grid{{/if}}{{#if is_recommended}} get-contrast{{/if}}{{^if feature_image}} no-image{{/if}}{{#if is_center_template}} is-center{{/if}}">
+	<div class="g-content">
+		{{#if is_recommended}}
+		<small class="hero-meta g-label g-font-xs">{{#if @custom.show_author}}{{#foreach authors}}<a href="{{url}}" class="g-img-inline">{{#if @first}}{{>images/inline_img inline_img=profile_image alt=""}}{{/if}}<span class="suffix-author">{{slug}}</span></a>{{^if @last}}, {{/if}}{{/foreach}}{{/if}} <span>{{date published_at format="LL"}}</span></small>
+		<h2 class="g-font-xl"><a href="{{url}}">{{title}}</a></h2>
+		{{else}}
+		{{^is "page"}}
+		<small class="hero-meta g-label g-font-xs">{{#if @custom.show_author}}{{#foreach authors}}<a href="{{url}}" class="g-img-inline">{{#if @first}}{{>images/inline_img inline_img=profile_image alt=""}}{{/if}}<span class="suffix-author">{{slug}}</span></a>{{^if @last}}, {{/if}}{{/foreach}}{{/if}} <span>{{date published_at format="LL"}}</span> <span>{{reading_time minute=(t "1 minut lectura") minutes=(t "% minutes read")}}</span></small>
+		{{/is}}
+		<h1 class="g-font-xl">{{title}}</h1>
+		{{/if}}
+		{{#if custom_excerpt}}
+		<p class="hero-excerpt g-font-m">{{custom_excerpt}}</p>
+		{{/if}}
+		{{^if is_recommended}}
+		{{#if tags}}
+		{{#foreach tags}}
+		{{#if @first}}
+		<div class="hero-tags g-font-xs">
+			<span>{{t "Tags:"}}</span> {{/if}}<a href="{{url}}" class="suffix-tag">{{name}}</a>{{^if @last}}, {{/if}}
+		{{#if @last}}
+		</div>
+		{{/if}}
+		{{/foreach}}
+		{{/if}}
+		{{/if}}
+	</div>
+	{{#if feature_image}}
+	<figure class="hero-image{{#if is_custom_template}} g-grid-template g-parent-full g-child-full{{/if}}">
+		<div class="g-img{{^if is_full}}{{#if is_custom_template}}{{#if is_bg_color}} g-bg{{/if}} g-grid-template g-parent-full{{#if is_wide}} g-child-wide{{else if is_regular}} g-child-regular{{else if is_site}} g-child-site{{/if}}{{/if}}{{/if}}">
+			{{#if is_full}}
+			{{>images/post_img is_img_xl=true}}
+			{{else if is_site}}
+			{{>images/post_img is_img_xl=true}}
+			{{else}}
+			{{>images/post_img is_img_l=true}}
+			{{/if}}
+		</div>
+		{{#if feature_image_caption}}
+		<figcaption>{{{feature_image_caption}}}</figcaption>
+		{{/if}}
+	</figure>
+	{{/if}}
+</div>
+{{#if is_color_bg_template}}</div>{{/if}}

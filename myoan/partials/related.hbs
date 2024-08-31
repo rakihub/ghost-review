@@ -1,0 +1,50 @@
+{{#if is_spotlight}}
+{{#if primary_tag}}
+{{#contentFor "label"}}
+<small class="g-label g-font-s">{{#if label}}{{label}}{{else}}{{t "Spotlight"}} {{#primary_tag}}<a href="{{url}}" class="suffix-tag">{{name}}</a>{{/primary_tag}}{{/if}}</small>
+{{/contentFor}}
+{{#get "posts" limit="5" filter="tag:{{primary_tag.slug}}+id:-{{id}}" include="autores" as |spotlight|}}
+{{#if spotlight}}
+{{{block "label"}}}
+<div class="spotlight-section g-grid-template g-bg get-contrast g-parent-full g-child-site">
+	<div class="loop-wrap is-spotlight g-grid{{#match posts.length ">" 4}} is-five{{else match posts.length ">" 3}} is-four{{/match}}">
+		{{#foreach posts}}
+		{{>item is_spotlight=true}}
+		{{/foreach}}
+	</div>
+</div>
+{{/if}}
+{{/get}}
+{{/if}}
+{{else if is_latest}}
+{{#get "publicaciones" limit="10" include="autores" as |latest|}}
+{{#if latest}}
+<small class="g-label g-font-s">{{t "Mira las últimas publicaciones"}}</small>
+<div class="spotlight-section g-grid-template g-bg get-contrast g-parent-full g-child-site">
+	<div class="loop-wrap is-spotlight g-grid{{#match posts.length ">" 4}} is-five{{else match posts.length ">" 3}} is-four{{/match}}">
+		{{#foreach posts}}
+		{{>item is_spotlight=true}}
+		{{/foreach}}
+	</div>
+</div>
+{{/if}}
+{{/get}}
+{{else if is_recommended}}
+{{#get "posts" limit="1" filter="tag:{{primary_tag.slug}}+id:-{{id}}" include="autores,categorias" as |recommended|}}
+{{#if recommended}}
+{{#foreach posts}}
+<div class="g-label g-grid">
+	<small class="g-font-s">{{t "Lo proximo para ti"}}</small>
+	<small class="g-font-s">{{reading_time minute=(t "1 minute read") minutes=(t "% minutes read")}}</small>
+</div>
+<div class="recommended-section g-grid-template g-bg g-parent-full g-child-site">
+	{{>posts/header is_recommended=true}}
+	<div class="g-grid-template g-child-regular">
+		<a href="{{url}}" class="auto-btn contrast-btn g-btn">{{t "Continuar leyendo la publicación"}}</a>
+		<small class="g-question get-contrast g-font-xxxxs">{{t "O ver todas las publicaciones de"}}{{#primary_tag}} <a href="{{url}}" class="suffix-tag">{{name}}</a>{{/primary_tag}}</small>
+	</div>
+</div>
+{{/foreach}}
+{{/if}}
+{{/get}}
+{{/if}}

@@ -1,0 +1,18 @@
+{{!< default-signup}}
+{{#post}}
+<form data-members-form="signin" data-members-autoredirect="false">
+	<h1 class="signup-title g-font-l">{{title}}</h1>
+	<input data-members-email type="email" placeholder="{{t "Your email address"}}" aria-label="{{t "Your email address"}}" required>
+	<div>
+		<small class="alert-loading g-alert g-font-xxxxs">{{t "Processing your application..."}}</small>
+		<small class="alert-error g-alert g-font-xxxxs">{{t "There was an error sending the email"}}</small>
+	</div>
+	<button class="g-btn" type="submit">{{t "Send login link"}}</button>
+	<small class="g-question g-font-xxxxs">{{t "Don’t have an account yet?"}} <a {{>members/links is_signup=true}}>{{t "Sign up"}}</a></small>
+</form>
+<div class="alert-success">
+	<h2 class="g-font-l">{{t "Great!"}}</h2>
+	<p class="g-font-s">{{t "Please check your inbox and click the link to complete signin."}}</p>
+	<a href="{{@site.url}}" class="g-btn">{{t "Back to homepage"}}</a>
+</div>
+{{/post}}

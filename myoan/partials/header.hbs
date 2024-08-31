@@ -1,0 +1,27 @@
+<header class="header-section">
+	<div class="header-wrap{{#match @custom.header_layout "Logo (right)"}} is-right{{else match @custom.header_layout "Logo (right) + Search"}} is-right{{/match}}">
+		<div class="header-logo g-logo is-header">{{>logo}}</div>
+		<div class="header-content">
+			{{#match @custom.header_layout "Logo (left) + Search + Login panel"}}
+			{{>search is_desktop=true}}
+			{{/match}}
+			<input class="header-toggle" id="toggle" type="checkbox">
+			<label for="toggle">
+				<span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</span>
+			</label>
+			{{#match @custom.header_layout "Logo (left) + Search + Login panel"}}
+			{{>search is_mobile=true}}
+			{{else match @custom.header_layout "Logo (right) + Search"}}
+			{{>search is_mobile=true}}
+			{{/match}}
+			<nav class="header-nav">{{navigation}}</nav>
+		{{#match @custom.header_layout "Logo (right) + Search"}}
+		{{>search is_desktop=true}}
+		{{/match}}
+	</div>
+</div>
+</header>

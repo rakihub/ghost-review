@@ -1,0 +1,17 @@
+{{!< default}}
+{{#tag}}
+<div class="archive-section hero-section">
+	<div class="g-content">
+		<h1 class="g-img-inline g-font-xl">{{>images/inline_img inline_img=feature_image alt=""}}<span class="suffix-tag">{{name}}</span></h1>
+		{{#if description}}
+		<p class="g-font-l">{{description}}</p>
+		{{/if}}
+	</div>
+</div>
+{{/tag}}
+{{>loop is_archive=true prefix=(t "from") label=tag.name suffix="suffix-tag"}}
+{{pagination}}
+{{#foreach posts limit="1"}}
+{{>related is_spotlight=true}}
+{{/foreach}}
+{{>members/additional is_footer=true}}

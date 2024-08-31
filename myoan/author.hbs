@@ -1,0 +1,30 @@
+{{!< default}}
+{{#author}}
+<div class="archive-section hero-section">
+	<div class="g-content">
+		<h1 class="g-img-inline g-font-xl">{{>images/inline_img inline_img=profile_image alt=""}}<span class="suffix-author">{{slug}}</span> <sup>{{name}}</sup>{{#if location}}<span class="is-location"> {{t "from"}} {{location}}</span>{{/if}}</h1>
+		{{#if bio}}
+		<p class="g-font-l">{{bio}}</p>
+		{{/if}}
+		<div class="archive-social">
+			{{#has any="website,facebook,twitter"}}
+			{{#if website}}
+			<a href="{{website}}" class="is-website" target="_blank" rel="noopener">{{readable_url website}}</a>
+			{{/if}}
+			{{#if facebook}}
+			<a href="{{facebook_url}}" target="_blank" rel="noopener" aria-label="link Facebook">{{>icons/social/facebook}}</a>
+			{{/if}}
+			{{#if twitter}}
+			<a href="{{twitter_url}}" target="_blank" rel="noopener" aria-label="link X">{{>icons/social/x}}</a>
+			{{/if}}
+			{{/has}}
+		</div>
+	</div>
+</div>
+{{/author}}
+{{>loop is_archive=true prefix=(t "by") label=author.slug suffix="suffix-author" is_author=true}}
+{{pagination}}
+{{#foreach posts limit="1"}}
+{{>related is_spotlight=true}}
+{{/foreach}}
+{{>members/additional is_footer=true}}

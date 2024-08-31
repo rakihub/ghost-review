@@ -1,0 +1,797 @@
+/* //////////////////////////////////////////////////////////////////////////
+   
+   CSS Part II
+
+   //////////////////////////////////////////////////////////////////////////
+
+   I. Post/Page
+   |
+   ├─ 1.Header
+   ├─ 2.Content
+   ├─ 3.CTA
+   ├─ 4.Share
+   ├─ 5.Comments
+   ├─ 6.Navigation
+   └─ 7.Recommended
+
+   //////////////////////////////////////////////////////////////////////////
+
+   I. Post/Page
+
+   ////////////////////////////////////////////////////////////////////////// */
+
+/* --------------------------------------------------------------------------
+   1.Header
+   -------------------------------------------------------------------------- */
+.hero-section:not(.is-custom) {
+   grid-template-columns: repeat(15, 1fr);
+}
+
+.hero-section:not(.is-custom) > div {
+   grid-column: span 10;
+}
+
+.hero-section.no-image:not(.is-custom) > div {
+   grid-column: 1/-1;
+}
+
+/* Template
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hero-section.is-custom {
+   row-gap: var(--grid-gap);
+}
+
+.hero-section.is-custom figcaption {
+   text-align: center;
+}
+
+.post-section > div.is-bg-color,
+.post-section > div.is-bg-color > div {
+   margin-bottom: clamp(4vh, 2.1vw + 3vh, 7vh);
+}
+
+.post-section > div.is-bg-color {
+   margin-top: clamp(1vh, 1.4vw + .3vh, 3vh);
+}
+
+.post-section > div.is-bg-color > div {
+   margin-top: 0;
+}
+
+.post-section > div.is-bg-color > div > div {
+   margin-top: clamp(4vh, .7vw + 3.7vh, 5vh);
+}
+
+.post-section > div.is-bg-color .hero-tags::before {
+   opacity: .3;
+   border-top: 1px solid;
+}
+
+/* Meta
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hero-meta {
+   width: 100%;
+   margin-bottom: 2.8vh;
+}
+
+.hero-meta img {
+   width: 2em;
+   height: 2em;
+   margin: 0 .4em -.66em 0;
+}
+
+.hero-meta > span:not(:first-child)::before {
+   content: '∙ ';
+}
+
+/* Tags
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hero-tags {
+   position: relative;
+   display: inline-block;
+   margin-top: clamp(3rem, 2.1vw + 2rem, 6rem);
+   padding-top: 1.3vh;
+}
+
+.hero-tags::before {
+   position: absolute;
+   top: 0;
+   width: 100%;
+   content: '';
+   border-top: 1px solid var(--color-border);
+}
+
+/* Image
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hero-image {
+   margin: 0;
+   grid-column: span 5;
+}
+
+/* RWD — Header
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (max-width:1024px) {
+   .hero-section:not(.is-custom) > div,
+   .hero-section:not(.is-custom) .hero-image {
+      grid-column: 1/-1;
+   }
+
+}
+
+@media (max-width:768px) {
+   .hero-section > div {
+      display: grid;
+   }
+
+   .hero-meta {
+      order: 2;
+      margin-top: 2.4vh;
+      margin-bottom: 1vh;
+   }
+
+   .hero-excerpt,
+   .hero-tags {
+      order: 3;
+      justify-self: start;
+   }
+
+   .hero-meta img {
+      width: 1.4em;
+      height: 1.4em;
+      margin: 0 .3em -.4em 0;
+   }
+
+}
+
+@media (min-width:769px) {
+   .hero-section.is-center {
+      text-align: center;
+   }
+
+   .hero-section.is-center .hero-meta,
+   .hero-section.is-center .hero-excerpt {
+      margin-right: auto;
+      margin-left: auto;
+   }
+
+   .hero-section.is-center .hero-meta img {
+      width: 1.4em;
+      height: 1.4em;
+      margin: 0 .3em -.32em 0;
+   }
+
+}
+
+/* --------------------------------------------------------------------------
+   2.Content
+   -------------------------------------------------------------------------- */
+.post-content {
+   font-family: var(--font-family-post-content);
+   font-size: var(--font-size-post);
+   font-weight: var(--font-weight-post-content-regular);
+   margin-bottom: clamp(3vh, 4.9vw + .7vh, 10vh);
+}
+
+.post-content:first-child {
+   margin-top: clamp(2vh, 3.5vw + .3vh, 7vh);
+}
+
+.post-content :is(*, *::before, *::after) {
+   box-sizing: border-box;
+}
+
+.post-content iframe {
+   display: block;
+}
+
+.post-content :is(img, picture, video, canvas, svg) {
+   display: block;
+   max-width: 100%;
+   height: auto;
+}
+
+/* Grid template */
+.post-content .kg-width-full.kg-content-wide {
+   display: grid;
+   width: 100%;
+   grid-template-columns: var(--grid-template-columns);
+}
+
+.post-content .kg-width-wide {
+   grid-column: wide;
+}
+
+.post-content .kg-content-wide > div {
+   grid-column: site;
+}
+
+.post-content .kg-width-full {
+   grid-column: full;
+}
+
+.post-content blockquote.kg-blockquote-alt {
+   grid-column: wide;
+}
+
+/* Margins
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.post-content * {
+   margin: 0;
+}
+
+.post-content > * + * {
+   margin-top: 3vh;
+   margin-bottom: 0;
+}
+
+.post-content > .kg-width-full + .kg-width-full:not(.kg-width-full.kg-card-hascaption + .kg-width-full) {
+   margin-top: 0;
+}
+
+.post-content > [id] + p {
+   margin-top: 1.4vh;
+}
+
+.post-content > :is(hr, blockquote, iframe) {
+   position: relative;
+}
+
+.post-content > * + :is(hr, blockquote, iframe),
+.post-content > :is(hr, blockquote, iframe) + *,
+.post-content > :is(hr, blockquote, iframe) + [id]:not(:first-child) {
+   margin-top: 8vh;
+}
+
+.post-content > * + blockquote:not([class]),
+.post-content > blockquote:not([class]) + *,
+.post-content > blockquote:not([class]) + [id]:not(:first-child) {
+   margin-top: 5vh;
+}
+
+.post-content :not(.kg-card):not(table):not([id]) + :is(.kg-card, table),
+.post-content :is(.kg-card, table) + :not(.kg-card):not(table):not([id]) {
+   margin-top: 5vh;
+}
+
+.post-content > [id]:not(:first-child),
+.post-content :not(.kg-card):not([id]) + .kg-card.kg-width-full,
+.post-content .kg-card.kg-width-full + :not(.kg-card):not([id]) {
+   margin-top: 6vh;
+}
+
+/* Typography
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.post-content h1 {
+   font-size: calc(var(--font-size-xl) / 1.2);
+}
+
+.post-content h2 {
+   font-size: calc(var(--font-size-l) / 1.2);
+}
+
+.post-content h3 {
+   font-size: var(--font-size-m);
+}
+
+.post-content h4 {
+   font-size: var(--font-size-s);
+}
+
+.post-content h5 {
+   font-size: var(--font-size-xs);
+}
+
+.post-content h6 {
+   font-size: var(--font-size-xxs);
+}
+
+.post-content :is(h1, h2, blockquote.kg-blockquote-alt) {
+   font-family: var(--font-family-one);
+   font-weight: var(--font-weight-one-regular);
+   line-height: 1.2;
+   letter-spacing: var(--letter-spacing, normal);
+}
+
+.post-content :is(h3, h4, h5, h6) {
+   font-family: var(--font-family-post);
+   font-weight: var(--font-weight-post-regular);
+}
+
+/* Links
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.post-content a {
+   text-decoration: underline;
+   color: var(--ghost-accent-color);
+   transition: opacity .2s ease;
+}
+
+.post-content a:hover {
+   opacity: .8;
+}
+
+/* Elements
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.post-content :is(ul ol) {
+   padding-left: 28px;
+}
+
+.post-content :is(li + li, li :is(ul, ol)) {
+   margin-top: 8px;
+}
+
+/* List */
+.post-content ol ol li {
+   list-style-type: lower-alpha;
+}
+
+.post-content ol ol ol li {
+   list-style-type: lower-roman;
+}
+
+.post-content hr {
+   width: 100%;
+   height: 1px;
+   border: 0;
+   background-color: var(--color-border);
+}
+
+.post-content pre > code {
+   display: block;
+   padding: 2vh max(1vw, 10px);
+   white-space: pre-wrap;
+}
+
+/* Table */
+.post-content table {
+   font-size: 1.4rem;
+   display: inline-block;
+   overflow-x: auto;
+   width: auto;
+   max-width: 100%;
+   border-spacing: 0;
+   border-collapse: collapse;
+   text-align: left;
+   vertical-align: top;
+   white-space: nowrap;
+   background-color: transparent;
+   -webkit-overflow-scrolling: touch;
+}
+
+.post-content table th {
+   font-size: 1.6rem;
+   background-color: var(--color-three);
+}
+
+.post-content table :is(th, td) {
+   display: table-cell;
+   max-width: 300px;
+   padding: 10px 12px;
+}
+
+.post-content td {
+   border-bottom: 1px solid var(--color-border);
+}
+
+.post-content :is(th:first-child, td:first-child) {
+   padding-left: 10px;
+}
+
+.post-content :is(th:last-child, td:last-child) {
+   padding-right: 10px;
+}
+
+/* Code */
+.post-content pre {
+   min-width: 100%;
+}
+
+.post-content code {
+   font-size: 75%;
+   padding: 2px 5px;
+   background-color: var(--color-three);
+}
+
+.post-content blockquote code {
+   font-size: 75%;
+}
+
+.post-content :is(blockquote code, p code) {
+   border-radius: 5px;
+}
+
+/* Blockquote */
+.post-content blockquote:not([class]) {
+   line-height: 1.4;
+   padding-left: 2rem;
+   border-left: 4px solid var(--ghost-accent-color);
+}
+
+.post-content blockquote.kg-blockquote-alt {
+   font-size: calc(var(--font-size-l) / 1.2);
+   font-style: normal;
+   padding: 0;
+}
+
+/* Figcaptions */
+.post-content figcaption {
+   margin-top: 8px;
+   padding: 0 1vw;
+   text-align: center;
+}
+
+.post-content :is(figcaption, figcaption a) {
+   color: var(--color-font-one);
+}
+
+/* Cards
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.kg-card.kg-signup-card .kg-signup-card-fields,
+.kg-card.kg-signup-card .kg-signup-card-input,
+.kg-card.kg-button-card .kg-btn,
+.kg-card.kg-header-card.kg-v2 .kg-header-card-button,
+.kg-card.kg-product-card .kg-product-card-button,
+.kg-card.kg-signup-card .kg-signup-card-button {
+   border-radius: 100px;
+}
+
+.kg-card.kg-button-card .kg-btn,
+.kg-card.kg-header-card.kg-v2 .kg-header-card-button,
+.kg-card.kg-product-card .kg-product-card-button,
+.kg-card.kg-signup-card .kg-signup-card-button {
+   font-family: var(--font-family-two);
+   font-weight: var(--font-weight-two-regular);
+   height: initial;
+   padding: .55em 2em;
+}
+
+.kg-card:is(.kg-callout-card, .kg-audio-card, .kg-toggle-card, .kg-callout-card),
+.kg-card.kg-product-card .kg-product-card-container, 
+.kg-card.kg-file-card .kg-file-card-container,
+.kg-card.kg-bookmark-card :is(.kg-bookmark-container, .kg-bookmark-thumbnail img) {
+   border-radius: 0;
+}
+
+.kg-card.kg-toggle-card .kg-toggle-content,
+.kg-card.kg-callout-card .kg-callout-text,
+.kg-card.kg-product-card .kg-product-card-description,
+.kg-card.kg-file-card :is(.kg-file-card-caption, .kg-file-card-metadata, .kg-file-card-filesize),
+.kg-card.kg-bookmark-card .kg-bookmark-description {
+   font-size: clamp(1.6rem, .3vw + 1.5rem, 2rem);
+}
+
+.kg-card.kg-toggle-card .kg-toggle-heading-text,
+.kg-card.kg-file-card .kg-file-card-title,
+.kg-card.kg-audio-card .kg-audio-title,
+.kg-card.kg-bookmark-card .kg-bookmark-title {
+   font-size: var(--font-size-xxs);
+   font-weight: var(--font-weight-post-content-bold);
+}
+
+.post-content :is(b, strong),
+.kg-card.kg-header-card .kg-header-card-subheading strong,
+.kg-card.kg-signup-card .kg-signup-card-subheading strong {
+   font-weight: var(--font-weight-post-content-bold);
+}
+
+/* Header & Signup */
+.kg-card.kg-header-card .kg-header-card-heading,
+.kg-card.kg-signup-card .kg-signup-card-heading,
+.kg-card.kg-header-card.kg-width-wide .kg-header-card-heading,
+.kg-card.kg-signup-card.kg-width-wide .kg-signup-card-heading,
+.kg-card.kg-header-card.kg-width-full.kg-layout-split .kg-header-card-heading,
+.kg-card.kg-signup-card.kg-width-full.kg-layout-split .kg-signup-card-heading {
+   font-size: calc(var(--font-size-l) / 1.1);
+   font-weight: var(--font-weight-one-regular);
+   line-height: 1.18;
+}
+
+.kg-card.kg-header-card.kg-width-full .kg-header-card-heading,
+.kg-card.kg-signup-card.kg-width-full .kg-signup-card-heading {
+   font-size: calc(var(--font-size-xl) / 1.1);
+}
+
+.kg-card.kg-header-card .kg-header-card-subheading,
+.kg-card.kg-signup-card .kg-signup-card-subheading,
+.kg-card.kg-header-card.kg-width-full.kg-layout-split .kg-header-card-subheading,
+.kg-card.kg-signup-card.kg-width-full.kg-layout-split .kg-signup-card-subheading,
+.kg-card.kg-signup-card .kg-signup-card-form.success .kg-signup-card-success {
+   font-size: var(--font-size-xxs);
+   font-weight: var(--font-weight-post-content-regular);
+}
+
+.kg-card.kg-header-card.kg-width-full .kg-header-card-subheading:not(.kg-layout-split .kg-header-card-subheading),
+.kg-card.kg-signup-card.kg-width-full .kg-signup-card-subheading:not(.kg-layout-split .kg-signup-card-subheading) {
+   font-size: var(--font-size-s);
+}
+
+.kg-card.kg-header-card .kg-header-card-heading+.kg-header-card-subheading,
+.kg-card.kg-signup-card .kg-signup-card-heading+.kg-signup-card-subheading {
+   margin-top: 1em;
+}
+
+.kg-card.kg-header-card .kg-header-card-heading a,
+.kg-card.kg-signup-card .kg-signup-card-heading a {
+   text-decoration-thickness: 2px;
+   text-underline-offset: 3px;
+}
+
+.kg-card.kg-signup-card .kg-signup-card-fields {
+   display: flex;
+   align-items: center;
+   max-width: 600px;
+   padding: max(.4vw, 5px);
+   border: none;
+}
+
+.kg-card.kg-signup-card :is(.kg-signup-card-fields, .kg-signup-card-input) {
+   background-color: var(--color-body);
+}
+
+.kg-card.kg-signup-card :is(.kg-signup-card-button, .kg-signup-card-input) {
+   min-height: 100%;
+}
+
+.kg-card.kg-signup-card .kg-signup-card-input {
+   font-size: clamp(1.6rem, .4vw + 1.4rem, 2.2rem);
+   margin-right: .6vw;
+}
+
+.kg-card.kg-signup-card .kg-signup-card-disclaimer {
+   font-size: 1.4rem;
+   opacity: .8;
+}
+
+/* Image, Gallery & Embed */
+.kg-card.kg-image,
+.kg-card.kg-embed-card > div > * {
+   margin-right: auto;
+   margin-left: auto;
+}
+
+.kg-card .kg-width-full img {
+   width: 100%;
+}
+
+.kg-card.kg-image[width][height],
+.kg-card.kg-gallery-card .kg-gallery-image {
+   cursor: pointer;
+}
+
+/* Bookmark */
+.kg-card.kg-bookmark-card .kg-bookmark-container {
+   transition: opacity .3s ease;
+}
+
+.kg-card.kg-bookmark-card .kg-bookmark-container:hover {
+   opacity: .8;
+}
+
+.kg-card.kg-bookmark-card .kg-bookmark-description {
+   line-height: 1.3;
+   max-height: none;
+   margin-top: .6em;
+}
+
+/* File */
+.kg-card.kg-file-card .kg-file-card-contents {
+   margin: 10px;
+}
+
+.kg-card.kg-file-card :is(.kg-file-card-caption, .kg-file-card-metadata) {
+   margin-top: 1vh;
+}
+
+.kg-card.kg-file-card .kg-file-card-filename {
+   font-weight: var(--font-weight-post-content-regular);
+}
+
+.kg-card.kg-file-card .kg-file-card-filesize::before {
+   margin-right: 6px;
+   margin-left: 6px;
+}
+
+/* Audio */
+.kg-card.kg-audio-card svg {
+   fill: var(--color-one);
+}
+
+.kg-card.kg-audio-card .kg-audio-playback-rate {
+   color: var(--color-font-one);
+}
+
+/* --------------------------------------------------------------------------
+   3.CTA
+   -------------------------------------------------------------------------- */
+.post-content.is-teaser {
+   position: relative;
+}
+
+.post-content.is-teaser::after {
+   position: absolute;
+   z-index: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   height: 100%;
+   max-height: 300px;
+   content: '';
+   pointer-events: none;
+   opacity: 1;
+   background-color: var(--color-body);
+   -webkit-mask-image: linear-gradient(to bottom,transparent,rgba(0,0,0,.013)8.1%,rgba(0,0,0,.049)15.5%,rgba(0,0,0,.104)22.5%,rgba(0,0,0,.175)29%,rgba(0,0,0,.259)35.3%,rgba(0,0,0,.352)41.2%,rgba(0,0,0,.45)47.1%,rgba(0,0,0,.55)52.9%,rgba(0,0,0,.648)58.8%,rgba(0,0,0,.741)64.7%,rgba(0,0,0,.825)71%,rgba(0,0,0,.896)77.5%,rgba(0,0,0,.951)84.5%,rgba(0,0,0,.987)91.9%,black);
+   mask-image: linear-gradient(to bottom,transparent,rgba(0,0,0,.013)8.1%,rgba(0,0,0,.049)15.5%,rgba(0,0,0,.104)22.5%,rgba(0,0,0,.175)29%,rgba(0,0,0,.259)35.3%,rgba(0,0,0,.352)41.2%,rgba(0,0,0,.45)47.1%,rgba(0,0,0,.55)52.9%,rgba(0,0,0,.648)58.8%,rgba(0,0,0,.741)64.7%,rgba(0,0,0,.825)71%,rgba(0,0,0,.896)77.5%,rgba(0,0,0,.951)84.5%,rgba(0,0,0,.987)91.9%,black);
+}
+
+.cta-section {
+   margin-bottom: clamp(10vh, 3.5vw + 8.3vh, 15vh);
+   text-align: center;
+}
+
+.cta-section p {
+   display: block;
+   max-width: 720px;
+   margin: 3vh auto 4vh;
+   padding: 0;
+}
+
+.cta-section a {
+   width: 100%;
+   max-width: 500px;
+}
+
+/* --------------------------------------------------------------------------
+   4.Share
+   -------------------------------------------------------------------------- */
+.post-share {
+   margin-top: 8vh;
+}
+
+.post-share,
+.post-share > div {
+   width: 100%;
+}
+
+.post-share > div {
+   position: relative;
+   display: inline-flex;
+   justify-content: space-evenly;
+}
+
+.post-share > div a {
+   display: flex;
+   align-items: center;
+   flex-grow: clamp(32px, .2vw + 31px, 34px);
+}
+
+.post-share svg {
+   width: clamp(32px, .2vw + 31px, 34px);
+   fill: var(--color-font-one);
+}
+
+/* Copy link
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.post-share > div + input {
+   display: block;
+   cursor: default;
+   opacity: 0;
+   color: transparent;
+}
+
+.post-share .is-link {
+   cursor: pointer;
+}
+
+.post-share .is-link + small {
+   position: absolute;
+   right: 0;
+   bottom: -5vh;
+   left: 0;
+   display: inline-block;
+   text-align: center;
+   opacity: 0;
+}
+
+.post-share .is-link:not(:active) + small {
+   transition: opacity 10s step-end;
+}
+
+.post-share .is-link:active + small {
+   opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5.Comments
+   -------------------------------------------------------------------------- */
+.comments-section {
+   margin-top: clamp(4vh, 2.1vw + 3vh, 7vh);
+}
+
+.comments-section span {
+   display: none;
+}
+
+.comments-section span + div[id] {
+   padding-top: 3vh;
+   border-top: 1px solid var(--color-border);
+}
+
+.comments-section > div[id] {
+   position: relative;
+   z-index: 1;
+}
+
+.comments-section > div[id]::after {
+   position: absolute;
+   z-index: 0;
+   right: 0;
+   bottom: 24px;
+   left: 0;
+   height: 1px;
+   content: '';
+   border-bottom: 1px solid var(--color-body);
+}
+
+/* --------------------------------------------------------------------------
+   6.Navigation
+   -------------------------------------------------------------------------- */
+.navigation-section {
+   margin-bottom: 10vh;
+   gap: calc(var(--grid-gap) * 2);
+   grid-template-columns: repeat(2, 1fr);
+}
+
+.navigation-section.is-older::before {
+   content: '';
+}
+
+.navigation-section small {
+   padding-bottom: 1.6vh;
+   border-bottom: 1px solid var(--color-border);
+}
+
+.navigation-section > div:only-child {
+   max-width: 100%;
+   grid-column: span 1;
+}
+
+.navigation-section .is-older {
+   text-align: right;
+}
+
+/* RWD — Navigation
+   –––––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (max-width:480px) {
+   .navigation-section small {
+      display: block;
+   }
+
+   .navigation-section.is-older::before {
+      display: none;
+   }
+
+   .navigation-section > div,
+   .navigation-section > div:only-child {
+      grid-column: 1/-1;
+   }
+
+}
+
+/* --------------------------------------------------------------------------
+   7.Recommended
+   -------------------------------------------------------------------------- */
+.recommended-section {
+   padding-bottom: 8vh;
+}
+
+.recommended-section > div:first-child {
+   margin-top: 0;
+   row-gap: calc(var(--grid-gap) * 2);
+}
+
+.recommended-section > div:last-child {
+   text-align: center;
+}
+
+.recommended-section > div > div {
+   margin-top: clamp(4vh, .7vw + 3.7vh, 5vh);
+}

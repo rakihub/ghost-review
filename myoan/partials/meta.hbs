@@ -1,0 +1,5 @@
+{{#if @custom.show_author}}
+{{#if is_primary_author}} {{t "by"}}{{#primary_author}} <a href="{{url}}" class="suffix-author">{{slug}}</a>{{/primary_author}}{{/if}}
+{{#if is_authors}} {{t "by"}}{{#foreach authors}} <a href="{{url}}" class="suffix-author">{{slug}}</a>{{^if @last}}, {{/if}}{{/foreach}}{{/if}}
+{{/if}}
+{{#if is_primary_tag}}{{#primary_tag}}{{t "in"}} <a href="{{url}}" class="suffix-tag">{{name}}</a>{{/primary_tag}}{{/if}}

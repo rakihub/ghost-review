@@ -1,0 +1,15 @@
+<div class="hero-section">
+	<div class="g-content">
+		<h1 class="g-font-xl">
+		{{#if is_custom}}
+		{{title}}
+		{{else if @custom.hero_title}}{{{@custom.hero_title}}}{{else}}{{{t "{style-start}This is {site-title}{style-end}. See our thoughts, stories and ideas." style-start="<span>" style-end="</span>" site-title=@site.title}}}
+		{{/if}}
+		</h1>
+		{{#if is_custom}}
+		{{#if custom_excerpt}}
+		<p class="g-font-m">{{custom_excerpt}}</p>
+		{{/if}}
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,25 @@
+{{#get "posts" limit="7" filter="featured:true" include="authors,tags" as |pinned_posts|}}
+{{#if pinned_posts}}
+<div class="featured-label g-label g-grid">
+	<small class="g-font-s">{{t "Mis preferidos"}}</small>
+	{{#get "tags" limit="5" filter="visibility:public" include="count.posts" order="count.posts desc" as |tags|}}
+	{{#if tags}}
+	<small class="is-tags g-font-s">{{#foreach tags}}{{#if count.posts}}<a href="{{url}}" class="suffix-tag">{{name}}</a>{{/if}}{{/foreach}}</small>
+	{{/if}}
+	{{/get}}
+</div>
+<div class="featured-section g-grid-template g-bg get-contrast g-parent-full g-child-site">
+	<div class="loop-wrap is-featured is-grid g-grid{{#match posts.length ">" 5}} is-compact{{else match posts.length ">" 3}} is-comfort{{/match}}">
+		{{#match posts.length ">" 4}}
+		{{#foreach posts}}
+		{{>item is_featured=true is_grid=true is_compact=true is_excerpt_first=true}}
+		{{/foreach}}
+		{{else}}
+		{{#foreach posts}}
+		{{>item is_featured=true is_grid=true is_excerpt_first=true}}
+		{{/foreach}}
+		{{/match}}
+	</div>
+</div>
+{{/if}}
+{{/get}}

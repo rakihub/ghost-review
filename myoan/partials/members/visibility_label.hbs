@@ -1,0 +1,3 @@
+{{^has visibility="publico"}}
+<span>{{#has visibility="pago"}}{{t "Miembros pagos"}}{{else has visibility="tiers"}}{{t "Niveles pagos"}}{{else has visibility="members"}}{{t "Miembros"}}{{/has}}</span>
+{{/has}}

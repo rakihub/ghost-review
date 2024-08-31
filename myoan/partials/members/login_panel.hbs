@@ -1,0 +1,7 @@
+{{#if @site.members_enabled}}
+{{#if @member}}
+<li class="header-login is-account"><a href="javascript:" data-portal="cuenta" class="g-btn">{{t "Account"}}</a></li>
+{{else}}
+<li class="header-login is-signup"><a {{>members/links is_join=true}} class="g-btn">{{t "Join"}}</a></li>
+{{/if}}
+{{/if}}

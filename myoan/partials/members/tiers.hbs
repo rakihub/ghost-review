@@ -1,0 +1,51 @@
+{{#if @site.paid_members_enabled}}
+<div class="tiers-switch g-label g-grid" data-active-price="yearly">
+	<small class="g-font-s">{{t "See our plans"}}</small>
+	<label class="g-font-s">
+		<span>{{t "Monthly"}}</span>
+		<input type="checkbox" checked>
+		<span class="tiers-slider"></span>
+		<span>{{t "Annually"}}</span>
+	</label>
+</div>
+<div class="tiers-section g-grid-template g-bg g-parent-full g-child-site">
+	<div class="tiers-wrap">
+		{{#get "tiers" limit="all" filter="visibility:public+type:paid" include="monthly_price,yearly_price,benefits"}}
+		{{#foreach tiers}}
+		<div class="tier-item">
+			<div class="tier-content get-contrast">
+				<small class="tier-label g-font-xxxxs">{{name}}</small>
+				<h2 class="tier-title" data-monthly>
+					<span class="g-font-xxl">{{#if monthly_price}}{{price currency=currency}}{{price monthly_price}}{{else}}$0{{/if}}</span>
+					<small class="g-font-xs">{{t "/per month"}}</small>
+				</h2>
+				<h2 class="tier-title" data-yearly>
+					<span class="g-font-xxl">{{#if yearly_price}}{{price currency=currency}}{{price yearly_price}}{{else}}$0{{/if}}</span>
+					<small class="g-font-xs">{{t "/per year"}}</small>
+				</h2>
+				{{#if description}}<p class="g-font-l">{{description}}</p>{{/if}}
+				{{#if benefits}}
+				<ul class="g-benefits">
+					{{#foreach benefits as |benefit|}}
+					<li class="g-font-xxs">{{benefit}}</li>
+					{{/foreach}}
+				</ul>
+				{{/if}}
+			</div>
+			<a href="javascript:" data-portal="signup/{{id}}/monthly" class="tier-btn auto-btn contrast-btn g-btn" data-monthly>{{t "Choose"}}</a>
+			<a href="javascript:" data-portal="signup/{{id}}/yearly" class="tier-btn auto-btn contrast-btn g-btn" data-yearly>{{t "Choose"}}</a>
+		</div>
+		{{/foreach}}
+		{{/get}}
+	</div>
+	{{#contentFor "script_js"}}
+	<script>
+	!function(){
+      const e=document.querySelector(".tiers-switch input"), t=document.querySelector(".tiers-switch");
+      e.addEventListener("change",function(){
+        this.checked?t.setAttribute("data-active-price","yearly"):t.setAttribute("data-active-price","monthly")}
+      )}();
+	</script>
+	{{/contentFor}}
+</div>
+{{/if}}

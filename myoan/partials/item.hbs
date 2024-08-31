@@ -1,0 +1,35 @@
+<article class="item{{#if is_list}} g-grid{{#if is_large_img}} is-large-img{{else if is_small_img}} is-small-img{{/if}}{{/if}}{{^if feature_image}} no-image{{/if}}">
+	{{#if feature_image}}
+	<a href="{{url}}" class="item-img g-img g-img-orientation{{#if is_featured}}{{#match @custom.featured_images_orientation "Portrait"}} is-portrait{{else match @custom.featured_images_orientation "Landscape"}} is-landscape{{else match @custom.featured_images_orientation "Panoramic"}} is-panoramic{{else match @custom.featured_images_orientation "Square"}} is-square{{/match}}{{else if is_spotlight}}{{#match @custom.spotlight_images_orientation "Portrait"}} is-portrait{{else match @custom.spotlight_images_orientation "Landscape"}} is-landscape{{else match @custom.spotlight_images_orientation "Panoramic"}} is-panoramic{{else match @custom.spotlight_images_orientation "Square"}} is-square{{/match}}{{else}}{{#match @custom.feed_images_orientation "Portrait"}} is-portrait{{else match @custom.feed_images_orientation "Landscape"}} is-landscape{{else match @custom.feed_images_orientation "Panoramic"}} is-panoramic{{else match @custom.feed_images_orientation "Square"}} is-square{{/match}}{{/if}}">{{#if is_grid}}{{#if @first}}{{>images/post_img is_img_l=true}}{{else}}{{>images/post_img}}{{/if}}{{else}}{{>images/post_img}}{{/if}}</a>
+	{{/if}}
+	<div class="g-content">
+		{{^if is_spotlight}}
+		<div class="item-meta g-meta{{#if is_grid}}{{#if @first}} g-font-xxs{{else}}{{#if is_compact}} g-font-xxxs{{else}} g-font-xxs{{/if}}{{/if}}{{else if is_list}} g-font-xs{{else}} g-font-xxxs{{/if}}">
+			{{>members/visibility_label}} {{date published_at format="LL"}} {{#if is_featured}}{{#if @first}}{{>meta is_authors=true}}{{>meta is_primary_tag=true}}{{else}}{{>meta is_primary_tag=true}}{{/if}}{{else}}{{>meta is_authors=true}}{{>meta is_primary_tag=true}}{{/if}}
+		</div>
+		{{/if}}
+		<h2 class="{{#if is_grid}}{{#if @first}}{{#if is_compact}}g-font-l{{else}}g-font-xl{{/if}}{{else}}{{^if is_compact}}g-font-m{{else}}g-font-s{{/if}}{{/if}}{{else if is_list}}g-font-xl{{else if is_spotlight}}g-font-s{{/if}}"><a href="{{url}}">{{title}}</a></h2>
+		{{#has any="excerpt,custom_excerpt"}}
+		{{#if is_excerpt_first}}
+		{{#if @first}}
+		<p class="g-font-xs">
+			{{#if custom_excerpt}}{{custom_excerpt}}{{else if excerpt}}{{excerpt}}...{{/if}}
+		</p>
+		{{/if}}
+		{{else if is_excerpt}}
+		<p class="g-font-xs">
+			{{#if custom_excerpt}}{{custom_excerpt}}{{else if excerpt}}{{excerpt}}...{{/if}}
+		</p>
+		{{/if}}
+		{{^if is_list}}
+		{{^if @first}}
+		{{^if feature_image}}
+		<p class="g-font-xxs">
+			{{#if custom_excerpt}}{{custom_excerpt}}{{else if excerpt}}{{excerpt words="30"}}...{{/if}}
+		</p>
+		{{/if}}
+		{{/if}}
+		{{/if}}
+		{{/has}}
+	</div>
+</article>
