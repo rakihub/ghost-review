@@ -9,14 +9,13 @@ import { resolve } from 'path';
 import livereload from 'rollup-plugin-livereload';
 import fg from 'fast-glob';
 
-const jsFiles = fg.sync('assets/js/**/*.js');
-
 export default defineConfig({
-  input: jsFiles,
+  input: "assets/js/app.js",
   output: {
     dir: 'assets/built',
-    sourcemap: false,
-    format: 'commonjs',
+    sourcemap: true,
+    format: 'iife',
+    name: 'App',
     preserveModules: false,
     plugins: [terser()],
   },
@@ -25,8 +24,8 @@ export default defineConfig({
     nodeResolve(),
     babel({ babelHelpers: 'bundled' }),
     postcss({
-      extract: true, // Extract the CSS into a separate file
-      sourceMap: false,
+      extract: "app.css",
+      sourceMap: true,
       plugins: [postcssPresetEnv({})],
       minimize: true,
     }),

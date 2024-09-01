@@ -1,3 +1,10 @@
+import dropdown from './dropdown';
+import pagination from './pagination';
+import lightbox from './lightbox';
+import reframe from 'reframe.js';  // Default export
+
+import '../css/screen.css';
+
 /* Mobile menu burger toggle */
 (function () {
     const navigation = document.querySelector('.gh-navigation');
@@ -50,7 +57,7 @@
 /* Responsive HTML table */
 (function () {
     const tables = document.querySelectorAll('.gh-content > table:not(.gist table)');
-    
+
     tables.forEach(function (table) {
         const wrapper = document.createElement('div');
         wrapper.className = 'gh-table';
