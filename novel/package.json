@@ -1,6 +1,6 @@
 {
-  "name": "novel",
-  "description": "A Ghost theme for novel writers",
+  "name": "link-weave",
+  "description": "A Ghost theme designed to seamlessly weave together your posts, creating a fluid and cohesive storytelling experience.",
   "version": "1.0",
   "engines": {
     "ghost": ">=5.0.0"
@@ -20,7 +20,7 @@
   },
   "author": {
     "name": "Rakihub",
-    "email": "hello@rakihub.com",
+    "email": "theme@rakihub.com",
     "url": "https://rakihub.com"
   },
   "gpm": {
@@ -49,7 +49,8 @@
     "postcss": "^8.4.38",
     "postcss-preset-env": "^8.0.1",
     "rollup": "^3.29.4",
-    "rollup-plugin-livereload": "^2.0.5"
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-postcss": "^4.0.2"
   },
   "browserslist": [
     "defaults"
@@ -118,23 +119,25 @@
       },
       "signup_heading": {
         "type": "text",
-        "description": "Used in your footer across your theme, defaults to site title when empty"
+        "description": "Used in your subscribe section across your theme, defaults to site title when empty"
       },
       "signup_subheading": {
         "type": "text",
         "description": "Defaults to site description when empty"
       },
+      "reserved_tags": {
+        "type": "text",
+        "description": "Reserved tags will be excluded from book titles or categories. Use the tag slugs separated by commas without spaces, e.g, 'news,updates'"
+      },
       "header_style": {
         "type": "select",
         "options": [
+          "Featured slider",
           "Landing",
-          "Highlight",
-          "Magazine",
           "Search",
           "Off"
         ],
-        "description": "Landing is recommended for all sites, Highlight & Magazine for those with more content",
-        "default": "Landing",
+        "default": "Featured slider",
         "group": "homepage"
       },
       "header_text": {
@@ -150,19 +153,51 @@
         "group": "homepage",
         "visibility": "header_style:[Landing, Search]"
       },
-      "show_featured_posts": {
-        "type": "boolean",
-        "default": false,
-        "group": "homepage",
-        "visibility": "header_style:[Highlight, Magazine]"
+      "category_section_layout": {
+        "type": "select",
+        "options": [
+          "3-column grid",
+          "4-column grid",
+          "List"
+        ],
+        "default": "3-column grid",
+        "group": "homepage"
+      },
+      "featured_category_tags": {
+        "type": "text",
+        "description": "Defaults to the category tags with the most books. Use the tag slugs separated by commas without spaces, e.g, 'hash-novel,hash-tech'",
+        "group": "homepage"
+      },
+      "featured_category_tags_limit": {
+        "type": "text",
+        "default": 4,
+        "description": "Limit the feature category tags number. Accept number or text 'all'.",
+        "group": "homepage"
+      },
+      "category_book_count": {
+        "type": "text",
+        "default": 4,
+        "description": "The maximum number of books displayed in each category. Accept number or text 'all'.",
+        "group": "homepage"
+      },
+      "tag_cloud": {
+        "type": "text",
+        "description": "Defaults to the category tags with the most books will be rendered in this section. Use the tag slugs separated by commas without spaces, e.g, 'hash-novel,hash-tech'",
+        "group": "homepage"
+      },
+      "tag_cloud_count": {
+        "type": "text",
+        "default": 10,
+        "description": "Limit the tag number on tag cloud. Accept number or text 'all'.",
+        "group": "homepage"
       },
       "post_feed_style": {
         "type": "select",
         "options": [
-          "List",
-          "Grid"
+          "Grid",
+          "List"
         ],
-        "default": "List",
+        "default": "Grid",
         "group": "homepage"
       },
       "show_images_in_feed": {
@@ -175,31 +210,6 @@
         "type": "boolean",
         "default": true,
         "group": "homepage"
-      },
-      "show_publish_date": {
-        "type": "boolean",
-        "default": true,
-        "group": "homepage"
-      },
-      "show_publication_info_sidebar": {
-        "type": "boolean",
-        "default": false,
-        "group": "homepage"
-      },
-      "show_post_metadata": {
-        "type": "boolean",
-        "default": true,
-        "group": "post"
-      },
-      "enable_drop_caps_on_posts": {
-        "type": "boolean",
-        "default": false,
-        "group": "post"
-      },
-      "show_related_articles": {
-        "type": "boolean",
-        "default": true,
-        "group": "post"
       }
     }
   },
@@ -209,7 +219,6 @@
     "fast-glob": "^3.3.2",
     "imagesloaded": "^5.0.0",
     "photoswipe": "4.1.3",
-    "reframe.js": "^4.0.2",
-    "rollup-plugin-postcss": "^4.0.2"
+    "reframe.js": "^4.0.2"
   }
 }
