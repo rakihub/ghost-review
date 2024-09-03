@@ -5,9 +5,9 @@ import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
+import postcssImport from 'postcss-import';
 import { resolve } from 'path';
 import livereload from 'rollup-plugin-livereload';
-import fg from 'fast-glob';
 
 export default defineConfig({
   input: "assets/js/app.js",
@@ -26,7 +26,10 @@ export default defineConfig({
     postcss({
       extract: "app.css",
       sourceMap: true,
-      plugins: [postcssPresetEnv({})],
+      plugins: [
+        postcssImport(),
+        postcssPresetEnv({})
+      ],
       minimize: true,
     }),
     process.env.BUILD !== 'production' &&

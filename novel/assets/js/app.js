@@ -1,9 +1,18 @@
+import Alpine from 'alpinejs'
 import dropdown from './dropdown';
 import pagination from './pagination';
 import lightbox from './lightbox';
-import reframe from 'reframe.js';  // Default export
+import reframe from 'reframe.js';
+import {initImgSlider, initContentSlider} from './slider';
 
-import '../css/screen.css';
+import '../css/app.css';
+
+window.initImgSlider = initImgSlider;
+window.initContentSlider = initContentSlider;
+
+/* Init Alpine */
+window.Alpine = Alpine;
+Alpine.start();
 
 /* Mobile menu burger toggle */
 (function () {
