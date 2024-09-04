@@ -1,4 +1,5 @@
 @import url("slider.css");
+@import url("category-section.css");
 /* Table of contents
 /* ------------------------------------------------------------
 
@@ -1368,6 +1369,12 @@ Search                         LOGO                    Login Subscribe
     letter-spacing: -0.028em;
 }
 
+.gh-header.is-slider .gh-header-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    letter-spacing: -0.028em;
+}
+
 .gh-header.is-classic.has-image {
     margin-top: 0;
 }
@@ -1616,7 +1623,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 /* 11.1. With sidebar */
-
+/*todo delete with sidebar*/
 .gh-container.has-sidebar .gh-main {
     grid-column: 1 / span 12;
     position: relative;
@@ -1637,18 +1644,21 @@ Search                         LOGO                    Login Subscribe
 }
 
 /* 11.2. Without sidebar */
-
-.gh-container:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
-    grid-column: 3 / span 12;
-}
-
-.gh-container.is-list.no-image:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
-    grid-column: 4 / span 10;
-}
-
-.gh-header:is(.is-highlight, .is-magazine) ~ .gh-container.is-grid:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
+:is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 1 / -1;
 }
+
+/*.gh-container:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {*/
+/*    grid-column: 3 / span 12;*/
+/*}*/
+
+/*.gh-container.is-list.no-image:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {*/
+/*    grid-column: 4 / span 10;*/
+/*}*/
+
+/*.gh-header:is(.is-highlight, .is-magazine) ~ .gh-container.is-grid:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {*/
+/*    grid-column: 1 / -1;*/
+/*}*/
 
 @media (max-width: 1199px) {
     .gh-container-inner {
@@ -1763,7 +1773,7 @@ Search                         LOGO                    Login Subscribe
 
 .gh-container.is-grid .gh-feed {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+    grid-template-columns: repeat(4, minmax(248px, 1fr));
     row-gap: calc(var(--grid-gap) * 1.5);
     overflow: hidden;
 }

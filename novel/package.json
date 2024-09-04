@@ -157,25 +157,25 @@
       "category_section_layout": {
         "type": "select",
         "options": [
-          "3-column grid",
-          "4-column grid",
+          "Grid",
           "List"
         ],
-        "default": "3-column grid",
+        "default": "Grid",
         "group": "homepage"
       },
-      "featured_category_tags": {
+      "category_section_tags": {
         "type": "text",
-        "description": "Defaults to the category tags with the most books. Use the tag slugs separated by commas without spaces, e.g, 'hash-novel,hash-tech'",
+        "default": "all",
+        "description": "Defaults to the category tags with the most books. Use the tag slugs separated by commas without spaces, e.g, '_novel,_tech'",
         "group": "homepage"
       },
-      "featured_category_tags_limit": {
+      "category_section_tag_limit": {
         "type": "text",
         "default": 4,
-        "description": "Limit the feature category tags number. Accept number or text 'all'.",
+        "description": "Limit the category tags number. Accept number or text 'all'.",
         "group": "homepage"
       },
-      "category_book_count": {
+      "category_section_book_limit": {
         "type": "text",
         "default": 4,
         "description": "The maximum number of books displayed in each category. Accept number or text 'all'.",

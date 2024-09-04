@@ -1,0 +1,31 @@
+<section class="gh-container category-container is-{{#match @custom.category_section_layout "List"}}list{{else}}grid{{/match}} gh-outer">
+
+    {{#match @custom.category_section_tags "=" "all"}}
+        {{#get "tags" filter="name:~^'_'" limit=@custom.category_section_tag_limit order="count.posts desc"}}
+            {{#foreach tags}}
+                <div class="gh-container-inner gh-inner category-section">
+                    <main class="gh-main">
+                        <h2 class="category-section-title is-title"
+                            x-data="{categoryTag: '{{name}}'}"
+                            x-init="categoryTag = categoryTag.slice(1)"
+                            x-text="categoryTag"></h2>
+                        <div class="gh-feed">
+                            {{#get "posts" filter="tag:{{slug}}+tag:hash-book" include="tags,authors"
+                                   limit=@custom.category_section_book_limit}}
+                                {{#foreach posts}}
+                                    {{> "category-card"}}
+                                {{/foreach}}
+                            {{/get}}
+                        </div>
+                    </main>
+                </div>
+            {{/foreach}}
+        {{/get}}
+    {{/match}}
+
+    {{#match pagination.pages ">" 1}}
+        <div class="gh-more is-title">
+            <a href="{{@site.url}}/page/2">See all {{> "icons/arrow"}}</a>
+        </div>
+    {{/match}}
+</section>
