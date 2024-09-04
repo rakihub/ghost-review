@@ -4,19 +4,28 @@
         {{#get "tags" filter="name:~^'_'" limit=@custom.category_section_tag_limit order="count.posts desc"}}
             {{#foreach tags}}
                 <div class="gh-container-inner gh-inner category-section">
-                    <main class="gh-main">
+                    <main class="gh-main main-test">
                         <h2 class="category-section-title is-title"
                             x-data="{categoryTag: '{{name}}'}"
-                            x-init="categoryTag = categoryTag.slice(1)"
-                            x-text="categoryTag"></h2>
+                            x-init="categoryTag = categoryTag.slice(1)">
+                            <a href={{url}} x-text="categoryTag"></a>
+                        </h2>
                         <div class="gh-feed">
                             {{#get "posts" filter="tag:{{slug}}+tag:hash-book" include="tags,authors"
                                    limit=@custom.category_section_book_limit}}
                                 {{#foreach posts}}
                                     {{> "category-card"}}
                                 {{/foreach}}
+{{!--                                {{#match pagination.pages ">" 1}}--}}
+{{!--                                    <template x-data x-teleport=".main-test">--}}
+{{!--                                        <div class="category-footer">--}}
+{{!--                                            <a class="category-footer-link" href="{{url}}">Show more {{> "icons/arrow"}}</a>--}}
+{{!--                                        </div>--}}
+{{!--                                    </template>--}}
+{{!--                                {{/match}}--}}
                             {{/get}}
                         </div>
+
                     </main>
                 </div>
             {{/foreach}}

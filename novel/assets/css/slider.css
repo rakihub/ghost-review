@@ -10,14 +10,6 @@
     height: 100%;
 }
 
-.slider-inner {
-    /*height: 100%;*/
-}
-
-.slider-card {
-    /*height: 100%;*/
-}
-
 .slider-card-img {
     background-color: #F7F7F7;
 }
@@ -30,8 +22,9 @@
 }
 
 .slider-card-img img {
+    width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .slider-card-content {
