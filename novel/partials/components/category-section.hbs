@@ -13,10 +13,4 @@
             {{/foreach}}
         {{/get}}
     {{/match}}
-
-    {{#match pagination.pages ">" 1}}
-        <div class="gh-more is-title">
-            <a href="{{@site.url}}/page/2">See all {{> "icons/arrow"}}</a>
-        </div>
-    {{/match}}
 </section>

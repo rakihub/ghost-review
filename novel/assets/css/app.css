@@ -1567,13 +1567,13 @@ Search                         LOGO                    Login Subscribe
 
 .gh-container {
     flex-grow: 1;
-    margin-top: 64px;
 }
 
 .gh-container-inner {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     column-gap: var(--grid-gap);
+    padding: 56px 0;
 }
 
 :is(.gh-featured, .gh-cta) + .gh-container {
@@ -1603,7 +1603,21 @@ Search                         LOGO                    Login Subscribe
 }
 
 .home-template .gh-feed:has(> :nth-child(12):last-child) ~ .gh-more {
-    display: block;
+    display: flex;
+    justify-content: center;
+}
+
+.gh-more button {
+    color: #fff;
+    border: none;
+    padding: 5px 18px;
+    background-color: var(--ghost-accent-color);
+    border-radius: 4px;
+}
+
+.gh-more button:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 .gh-more a {

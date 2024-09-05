@@ -5,7 +5,7 @@
         <h2 class="category-section-title is-title">
             <a href={{url}} x-text="categoryTag"></a>
         </h2>
-        <div class="gh-feed">
+        <div class="gh-feed category-feed">
             {{#get "posts" filter="tag:{{slug}}+tag:[hash-book,hash-blog]" include="tags,authors" limit=@custom.category_section_book_limit}}
                 {{#foreach posts}}
                     {{#has tag="#book"}}

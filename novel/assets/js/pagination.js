@@ -1,5 +1,8 @@
 export default function pagination(isInfinite = true, done, isMasonry = false) {
-    const feedElement = document.querySelector('.gh-feed');
+    const mainElement = document.querySelector('.gh-main:has(.gh-loadmore)');
+    if (!mainElement) return;
+
+    const feedElement = mainElement.querySelector('.gh-feed');
     if (!feedElement) return;
 
     let loading = false;
@@ -11,16 +14,19 @@ export default function pagination(isInfinite = true, done, isMasonry = false) {
     }
 
     const loadNextPage = async function () {
+        console.log("enter loadNextPage");
         const nextElement = document.querySelector('link[rel=next]');
         if (!nextElement) return;
 
         try {
+            console.log("fetch loadNextPage");
             const res = await fetch(nextElement.href);
             const html = await res.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
 
-            const postElements = doc.querySelectorAll('.gh-feed:not(.gh-featured):not(.gh-related) > *');
+            const postElements = doc.querySelectorAll('.gh-feed:not(.gh-featured):not(.gh-related):not(.category-feed) > *');
+            console.log(postElements);
             const fragment = document.createDocumentFragment();
             const elems = [];
 

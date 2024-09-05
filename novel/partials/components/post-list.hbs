@@ -21,27 +21,14 @@
                 {{!-- Homepage --}}
                 {{#match feed "home"}}
                     {{#foreach posts}}
-                        {{#foreach tags visibility="internal" limit=1}}
-                            {{#match name "=" "#book"}}
-                                {{> "post-book-card" lazyLoad=true post=../this}}
-                            {{else}}
-                                {{> "post-blog-card" lazyLoad=true post=../this}}
-                            {{/match}}
-                        {{/foreach}}
+                        {{> "new-post-card" lazyLoad=true}}
                     {{/foreach}}
                 {{/match}}
 
                 {{!-- All posts --}}
                 {{#match feed "index"}}
-                    {{#match pagination.page 2}}
-                        {{#get "posts" include="authors" limit=@config.posts_per_page as |recent|}}
-                            {{#foreach recent}}
-                                {{> "post-card"}}
-                            {{/foreach}}
-                        {{/get}}
-                    {{/match}}
                     {{#foreach posts}}
-                        {{> "post-card" lazyLoad=true}}
+                        {{> "new-post-card" lazyLoad=true}}
                     {{/foreach}}
                 {{/match}}
 
@@ -56,7 +43,7 @@
 
             {{#match pagination.pages ">" 1}}
                 <div class="gh-more is-title">
-                    <a href="{{@site.url}}/page/2">See all {{> "icons/arrow"}}</a>
+                    <button class="button-secondary gh-loadmore">Load more</button>
                 </div>
             {{/match}}
         </main>
