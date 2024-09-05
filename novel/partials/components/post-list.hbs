@@ -8,7 +8,7 @@
 
 <section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#if showSidebar}} has-sidebar{{/if}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
     <div class="gh-container-inner gh-inner">
-        
+
         {{#if showTitle}}
             <h2 class="gh-container-title">
                 {{#unless title}}Latest{{else}}{{title}}{{/unless}}
@@ -20,39 +20,15 @@
 
                 {{!-- Homepage --}}
                 {{#match feed "home"}}
-                    {{#match @custom.header_style "Highlight"}}
-                        {{#if @custom.show_featured_posts}}
-                            {{#match posts.length ">=" 4}}
-                                {{#get "posts" include="authors" limit="16"}}
-                                    {{#foreach posts from="5"}}
-                                        {{> "post-card" lazyLoad=true}}
-                                    {{/foreach}}
-                                {{/get}}
+                    {{#foreach posts}}
+                        {{#foreach tags visibility="internal" limit=1}}
+                            {{#match name "=" "#book"}}
+                                {{> "post-book-card" lazyLoad=true post=../this}}
+                            {{else}}
+                                {{> "post-blog-card" lazyLoad=true post=../this}}
                             {{/match}}
-                        {{else}}
-                            {{#match posts.length ">=" 10}}
-                                {{#get "posts" include="authors" limit="22"}}
-                                    {{#foreach posts from="11"}}
-                                        {{> "post-card" lazyLoad=true}}
-                                    {{/foreach}}
-                                {{/get}}
-                            {{/match}}
-                        {{/if}}
-                    {{else match @custom.header_style "Magazine"}}
-                        {{#match posts.length ">=" 7}}
-                            {{#get "posts" include="authors" limit="19"}}
-                                {{#foreach posts from="8"}}
-                                    {{> "post-card" lazyLoad=true}}
-                                {{/foreach}}
-                            {{/get}}
-                        {{/match}}
-                    {{else}}
-                        {{#get "posts" include="authors" limit="12"}}
-                            {{#foreach posts}}
-                                {{> "post-card" lazyLoad=true}}
-                            {{/foreach}}
-                        {{/get}}
-                    {{/match}}
+                        {{/foreach}}
+                    {{/foreach}}
                 {{/match}}
 
                 {{!-- All posts --}}

@@ -1,7 +1,7 @@
 {
   "name": "link-weave",
   "description": "A Ghost theme designed to seamlessly weave together your posts, creating a fluid and cohesive storytelling experience.",
-  "version": "1.0",
+  "version": "1.0.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -126,10 +126,6 @@
         "type": "text",
         "description": "Defaults to site description when empty"
       },
-      "reserved_tags": {
-        "type": "text",
-        "description": "Reserved tags will be excluded from book titles or categories. Use the tag slugs separated by commas without spaces, e.g, 'news,updates'"
-      },
       "header_style": {
         "type": "select",
         "options": [
@@ -183,7 +179,7 @@
       },
       "tag_cloud": {
         "type": "text",
-        "description": "Defaults to the category tags with the most books will be rendered in this section. Use the tag slugs separated by commas without spaces, e.g, 'hash-novel,hash-tech'",
+        "description": "Defaults to the category tags with the most books or blogs. Use the tag slugs separated by commas without spaces, e.g, '_novel,_romance'",
         "group": "homepage"
       },
       "tag_cloud_count": {
@@ -208,6 +204,11 @@
         "visibility": "post_feed_style:List"
       },
       "show_author": {
+        "type": "boolean",
+        "default": true,
+        "group": "homepage"
+      },
+      "show_publish_date": {
         "type": "boolean",
         "default": true,
         "group": "homepage"

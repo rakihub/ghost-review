@@ -1,3 +1,7 @@
+.category-container .category-main{
+
+}
+
 body:has(.gh-header) .category-container {
     margin-top: 160px !important;
 }
@@ -15,7 +19,7 @@ body:has(.gh-header) .category-container {
 }
 
 .category-section-title {
-    font-size: calc(1.9rem* var(--factor, 1));
+    font-size: calc(1.9rem * var(--factor, 1));
     font-weight: 725;
     letter-spacing: -.014em;
     line-height: 1.3;

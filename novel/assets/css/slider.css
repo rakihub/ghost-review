@@ -11,7 +11,7 @@
 }
 
 .slider-card-img {
-    background-color: #F7F7F7;
+    background-color: var(--color-lighter-gray);
 }
 
 .slider-card-img figure {
@@ -88,7 +88,7 @@
 }
 
 .slider-button-prev, .slider-button-next {
-    background-color: #F7F7F7;
+    background-color: var(--color-lighter-gray);;
     border-width: 0;
     border-radius: 50%;
     width: 44px;
