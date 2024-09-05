@@ -162,7 +162,7 @@
       "category_section_tags": {
         "type": "text",
         "default": "all",
-        "description": "Defaults to the category tags with the most books. Use the tag slugs separated by commas without spaces, e.g, '_novel,_tech'",
+        "description": "Defaults to the category tags with the most books or blogs. Use the tag slugs separated by commas without spaces, e.g, '_novel,_tech'",
         "group": "homepage"
       },
       "category_section_tag_limit": {
@@ -179,13 +179,8 @@
       },
       "tag_cloud": {
         "type": "text",
-        "description": "Defaults to the category tags with the most books or blogs. Use the tag slugs separated by commas without spaces, e.g, '_novel,_romance'",
-        "group": "homepage"
-      },
-      "tag_cloud_count": {
-        "type": "text",
-        "default": 10,
-        "description": "Limit the tag number on tag cloud. Accept number or text 'all'.",
+        "default": "all",
+        "description": "Defaults to all category tags with the most books or blogs. Accept 'all' or  tag slugs separated by commas without spaces, e.g, '_novel,_romance'",
         "group": "homepage"
       },
       "post_feed_style": {
@@ -195,6 +190,18 @@
           "List"
         ],
         "default": "Grid",
+        "group": "homepage"
+      },
+      "post_card_image_ratio": {
+        "type": "select",
+        "options": [
+          "1 / 1",
+          "1 / 1.5",
+          "16 / 9",
+          "4 / 3",
+          "3 / 2"
+        ],
+        "default": "1 / 1",
         "group": "homepage"
       },
       "show_images_in_feed": {

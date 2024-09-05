@@ -1,8 +1,8 @@
 <div class="gh-container-inner gh-inner category-section"
      x-data="{categoryTag: '{{name}}', categoryUrl: '{{url}}'}"
-     x-init="categoryTag = categoryTag.slice(1).toLowerCase()">
-    <main :class="'gh-main category-' + categoryTag">
-        <h2 class="category-section-title is-title">
+     x-init="categoryTag = categoryTag[0] === '_'  ? categoryTag.slice(1) : categoryTag">
+    <main :class="'gh-main category-' + categoryTag.toLowerCase()">
+        <h2 class="gh-container-title category-section-title is-title">
             <a href={{url}} x-text="categoryTag"></a>
         </h2>
         <div class="gh-feed category-feed">
