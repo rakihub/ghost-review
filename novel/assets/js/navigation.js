@@ -8,7 +8,7 @@ export default function makeFooterNavi() {
 
   function createNav(label, liElementArray) {
     const divElement = document.createElement('div');
-    divElement.classList.add('footer-nav-menu');
+    divElement.classList.add('footer-nested-menu');
 
     const spanElement = document.createElement('span');
     spanElement.textContent = label;
@@ -18,8 +18,6 @@ export default function makeFooterNavi() {
     const ulElement = document.createElement('ul');
     ulElement.classList.add('nav', 'secondary', 'submenu');
 
-    console.log("liElementArray")
-    console.log(liElementArray)
     liElementArray.forEach(liElement => {
       ulElement.appendChild(liElement);
     })
@@ -36,9 +34,13 @@ export default function makeFooterNavi() {
     return {span: spanElement, label: spanElement.textContent};
   }
 
+  function createSpanPlaceholder() {
+    let spanElement = document.createElement('span');
+    spanElement.classList.add('span-placeholder');
+    return spanElement;
+  }
+
   const menuItems = footerMenu.querySelectorAll("ul li");
-  console.log("menuItems");
-  console.log(menuItems);
 
   const menuItemMap = new Map(); // parent menu item => [child menu item]
 
@@ -63,13 +65,14 @@ export default function makeFooterNavi() {
     menuItemMap.set(currentItemLabel, subMenuItems);
   }
 
-  console.log(menuItemMap);
-
   footerMenu.remove();
 
+  // To make the footer nav menu align right side of container
+  if (menuItemMap.size < 4) {
+    Array.from({length: 4 - menuItemMap.size}).forEach(() => footerNav.append(createSpanPlaceholder()));
+  }
+
   menuItemMap.forEach((subItems, label) => {
-    console.log(`label ${label}`);
-    console.log("subItems", subItems);
     footerNav.append(createNav(label, subItems));
   });
 };

@@ -10,7 +10,6 @@ import '../css/app.css';
 
 window.initImgSlider = initImgSlider;
 window.initContentSlider = initContentSlider;
-window.makeFooterNavi = makeFooterNavi;
 
 /* Init Alpine */
 window.Alpine = Alpine;
