@@ -120,11 +120,12 @@
       },
       "signup_heading": {
         "type": "text",
-        "description": "Used in your subscribe section across your theme, defaults to site title when empty"
+        "default": "Subscribe to our newsletter",
+        "description": "Used in your subscribe section across your theme."
       },
       "signup_subheading": {
         "type": "text",
-        "description": "Defaults to site description when empty"
+        "default": "Get the latest news, updates and guides."
       },
       "header_style": {
         "type": "select",

@@ -4,11 +4,13 @@ import pagination from './pagination';
 import lightbox from './lightbox';
 import reframe from 'reframe.js';
 import {initImgSlider, initContentSlider} from './slider';
+import makeFooterNavi, {makeHeaderNavi} from './navigation.js';
 
 import '../css/app.css';
 
 window.initImgSlider = initImgSlider;
 window.initContentSlider = initContentSlider;
+window.makeFooterNavi = makeFooterNavi;
 
 /* Init Alpine */
 window.Alpine = Alpine;
@@ -54,6 +56,11 @@ Alpine.start();
 /* Turn the main nav into dropdown menu when there are more than 5 menu items */
 (function () {
     dropdown();
+})();
+
+/* Turn the footer nav into menu with sub menu items */
+(function () {
+    makeFooterNavi();
 })();
 
 /* Infinite scroll pagination */
