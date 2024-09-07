@@ -65,17 +65,6 @@ function makeHeaderNavi() {
     item.appendChild(createNav(subItems));
     item.classList.add("menu-has-subitems");
 
-    // item.addEventListener('click', function (e) {
-    //   e.stopPropagation();
-    //   item.classList.toggle("is-nested-open");
-    // });
-    //
-    // window.addEventListener('click', function (e) {
-    //   if (item.classList.contains('is-nested-open')) {
-    //     item.classList.remove('is-nested-open');
-    //   }
-    // });
-
     window.addEventListener('click', function (e) {
       if (item.classList.contains('is-nested-open')) {
         item.classList.remove('is-nested-open');

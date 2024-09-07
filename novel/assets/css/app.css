@@ -1426,7 +1426,7 @@ Search                         LOGO                    Login Subscribe
     /*padding: clamp(48px, 3.64vw + 33.45px, 80px) clamp(40px, 2.73vw + 29.09px, 64px);*/
     padding: 56px 0;
     /*text-align: center;*/
-    border-block: 1px solid var(--color-border);;
+    border-top: 1px solid var(--color-border);
     /*background-color: var(--color-lighter-gray);*/
 }
 
