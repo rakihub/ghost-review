@@ -4,7 +4,7 @@ import pagination from './pagination';
 import lightbox from './lightbox';
 import reframe from 'reframe.js';
 import {initImgSlider, initContentSlider} from './slider';
-import makeFooterNavi, {makeHeaderNavi} from './navigation.js';
+import {makeFooterNavi} from './navigation.js';
 
 import '../css/app.css';
 

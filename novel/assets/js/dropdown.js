@@ -1,4 +1,5 @@
 import imagesLoaded from  "imagesloaded";
+import {makeHeaderNavi} from './navigation.js';
 
 export default function dropdown() {
     const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -77,11 +78,13 @@ export default function dropdown() {
     }
 
     imagesLoaded(logo, function () {
+        makeHeaderNavi();
         makeDropdown();
     });
 
     window.addEventListener('load', function () {
         if (!logo) {
+            makeHeaderNavi();
             makeDropdown();
         }
     });
@@ -89,6 +92,7 @@ export default function dropdown() {
     window.addEventListener('resize', function () {
         setTimeout(() => {
             nav.innerHTML = navHTML;
+            makeHeaderNavi()
             makeDropdown();
         }, 1);
     });

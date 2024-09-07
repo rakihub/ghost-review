@@ -1,4 +1,92 @@
-export default function makeFooterNavi() {
+function extractElements(liElement) {
+  const linkElement = liElement.querySelector('a');
+  const spanElement = linkElement.querySelector('span');
+  return {link: linkElement, span: spanElement, label: spanElement.textContent};
+}
+
+function makeHeaderNavi() {
+  const headerMenu = document.querySelector('.gh-navigation-menu');
+  if (!headerMenu) return;
+
+  const subItem = headerMenu.querySelector('.is-subitem');
+  if (!subItem) return;
+
+  function createNav(liElementArray) {
+    const ulElement = document.createElement('ul');
+    ulElement.classList.add('header-nested-menu');
+
+    liElementArray.forEach(liElement => {
+      ulElement.appendChild(liElement);
+    })
+
+    return ulElement;
+  }
+
+  const menuItems = headerMenu.querySelectorAll("ul li");
+
+  const menuItemMap = new Map(); // parent menu item => [child menu item]
+
+  let currentItem = null;
+  let subMenuItems = [];
+  menuItems.forEach((item, index) => {
+    if (!item.classList.contains('is-subitem')) {
+      if (currentItem !== null) {
+        menuItemMap.set(currentItem, subMenuItems);
+      }
+
+      currentItem = item;
+      subMenuItems = [];
+    } else {
+      const {span, label} = extractElements(item);
+      span.textContent = label.slice(1);
+
+      subMenuItems.push(item);
+    }
+  });
+  if (currentItem !== null) {
+    menuItemMap.set(currentItem, subMenuItems);
+  }
+
+  menuItemMap.forEach((subItems, item) => {
+    if (subItems.length === 0) {
+      return;
+    }
+
+    item.innerHTML = item.innerHTML.replace(/href="[^"]*"/, 'href="#"');
+
+    const {link} = extractElements(item);
+
+    link.innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <polyline points="6 9 12 15 18 9"></polyline>
+</svg>
+`;
+
+    item.appendChild(createNav(subItems));
+    item.classList.add("menu-has-subitems");
+
+    // item.addEventListener('click', function (e) {
+    //   e.stopPropagation();
+    //   item.classList.toggle("is-nested-open");
+    // });
+    //
+    // window.addEventListener('click', function (e) {
+    //   if (item.classList.contains('is-nested-open')) {
+    //     item.classList.remove('is-nested-open');
+    //   }
+    // });
+
+    window.addEventListener('click', function (e) {
+      if (item.classList.contains('is-nested-open')) {
+        item.classList.remove('is-nested-open');
+      } else if (item.contains(e.target)) {
+        item.classList.add('is-nested-open');
+      }
+    });
+  });
+}
+
+function makeFooterNavi() {
   const footerNav = document.querySelector('.footer-nav');
   const footerMenu = document.querySelector('.gh-footer-menu');
   if (!footerMenu || !footerNav) return;
@@ -28,42 +116,39 @@ export default function makeFooterNavi() {
     return divElement;
   }
 
-  function getSpanAndLabel(liElement) {
-    let linkElement = liElement.querySelector('a');
-    let spanElement = linkElement.querySelector('span');
-    return {span: spanElement, label: spanElement.textContent};
-  }
-
   function createSpanPlaceholder() {
     let spanElement = document.createElement('span');
     spanElement.classList.add('span-placeholder');
     return spanElement;
   }
 
+  function getMenuItemMap(menuItems, menuItemMap) {
+    let currentItemLabel = null;
+    let subMenuItems = [];
+    menuItems.forEach((item, index) => {
+      if (!item.classList.contains('is-subitem')) {
+        if (currentItemLabel !== null) {
+          menuItemMap.set(currentItemLabel, subMenuItems);
+        }
+
+        currentItemLabel = extractElements(item).label;
+        subMenuItems = [];
+      } else {
+        const {span, label} = extractElements(item);
+        span.textContent = label.slice(1);
+
+        subMenuItems.push(item);
+      }
+    });
+    if (currentItemLabel !== null) {
+      menuItemMap.set(currentItemLabel, subMenuItems);
+    }
+  }
+
   const menuItems = footerMenu.querySelectorAll("ul li");
 
   const menuItemMap = new Map(); // parent menu item => [child menu item]
-
-  let currentItemLabel = null;
-  let subMenuItems = [];
-  menuItems.forEach((item, index) => {
-    if (!item.classList.contains('is-subitem')) {
-      if (currentItemLabel !== null) {
-        menuItemMap.set(currentItemLabel, subMenuItems);
-      }
-
-      currentItemLabel = getSpanAndLabel(item).label;
-      subMenuItems = [];
-    } else {
-      const {span, label} = getSpanAndLabel(item);
-      span.textContent = label.slice(1);
-
-      subMenuItems.push(item);
-    }
-  });
-  if (currentItemLabel !== null) {
-    menuItemMap.set(currentItemLabel, subMenuItems);
-  }
+  getMenuItemMap(menuItems, menuItemMap);
 
   footerMenu.remove();
 
@@ -75,8 +160,6 @@ export default function makeFooterNavi() {
   menuItemMap.forEach((subItems, label) => {
     footerNav.append(createNav(label, subItems));
   });
-};
+}
 
-export const makeHeaderNavi = () => {
-  const mainElement = document.querySelector('.gh-main:has(.gh-loadmore)');
-};
+export {makeHeaderNavi, makeFooterNavi};
