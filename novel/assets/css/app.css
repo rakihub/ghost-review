@@ -2,6 +2,8 @@
 @import url("category-section.css");
 @import url("tag-cloud.css");
 @import url("navigation.css");
+@import url("table-of-contents.css");
+
 
 /* Table of contents
 /* ------------------------------------------------------------
@@ -926,12 +928,21 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-card-tag {
-    display: none;
-    margin-bottom: 4px;
+    align-items: center;
+    color: var(--color-secondary-text);
+    display: flex;
+    /*font-size: 1.4rem;*/
+    font-weight: 600;
+
+    gap: 12px;
+    letter-spacing: -.005em;
+    line-height: 1;
+    margin: 0 0 10px;
+    /*margin-bottom: 4px;*/
     font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
+    /*font-weight: 500;*/
+    /*letter-spacing: 0.01em;*/
+    /*text-transform: uppercase;*/
 }
 
 .gh-card-title {
@@ -2123,6 +2134,7 @@ headings, text, images and lists. We deal with cards lower down. */
 .gh-content {
     font-size: var(--content-font-size, 1.7rem);
     letter-spacing: -0.01em;
+    padding-bottom: 80px;
 }
 
 /* Default vertical spacing */
@@ -2778,7 +2790,7 @@ figcaption a {
 }
 
 .gh-footer.has-accent-color .gh-footer-bar {
-    border-top: 0;
+    /*border-top: 0;*/
 }
 
 .gh-footer.has-accent-color .gh-button {

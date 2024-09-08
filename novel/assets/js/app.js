@@ -1,10 +1,12 @@
-import Alpine from 'alpinejs'
+import Alpine from 'alpinejs';
+import tocbot from 'tocbot';
 import dropdown from './dropdown';
 import pagination from './pagination';
 import lightbox from './lightbox';
 import reframe from 'reframe.js';
 import {initImgSlider, initContentSlider} from './slider';
 import {makeFooterNavi} from './navigation.js';
+import {initToc, adjustTocPosition} from './table-of-contents.js';
 
 import '../css/app.css';
 
@@ -67,6 +69,12 @@ Alpine.start();
     if (!document.body.classList.contains('post-template')) {
         pagination(false);
     }
+})();
+
+/* Init toc, adjust Table of contents container position */
+(function () {
+    adjustTocPosition();
+    initToc();
 })();
 
 /* Responsive HTML table */

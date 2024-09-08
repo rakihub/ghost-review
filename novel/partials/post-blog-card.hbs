@@ -18,7 +18,11 @@
         {{/if}}
         <div class="gh-card-wrapper">
             {{#if post.primary_tag}}
-                <p class="gh-card-tag">{{post.primary_tag.name}}</p>
+                <p class="gh-card-tag"
+                   x-data="{tagName: '{{post.primary_tag.name}}'}"
+                   x-init="tagName = tagName[0] === '_'  ? tagName.slice(1) : tagName">
+                    {{post.primary_tag.name}}
+                </p>
             {{/if}}
             <h3 class="gh-card-title is-title">{{post.title}}</h3>
             {{#if post.custom_excerpt}}
