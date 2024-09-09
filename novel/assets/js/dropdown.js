@@ -69,10 +69,24 @@ export default function dropdown() {
         head.classList.add('is-dropdown-loaded');
 
         window.addEventListener('click', function (e) {
-            if (head.classList.contains('is-dropdown-open')) {
-                head.classList.remove('is-dropdown-open');
-            } else if (toggle.contains(e.target)) {
-                head.classList.add('is-dropdown-open');
+            const nestedMenuList = toggle.querySelectorAll(".menu-has-subitems");
+            if (nestedMenuList) {
+                // Prevent dropdown menu from collapsing when the nested menu inside is clicked
+                if (head.classList.contains('is-dropdown-open')) {
+                    const clickedNestedMenu = Array.from(nestedMenuList).find(menu => menu.contains(e.target));
+                      if (!clickedNestedMenu || clickedNestedMenu.querySelector(".header-nested-menu").contains(e.target)) {
+                          head.classList.remove('is-dropdown-open');
+                      }
+                } else if (toggle.contains(e.target)) {
+                    head.classList.add('is-dropdown-open');
+                }
+
+            } else {
+                if (head.classList.contains('is-dropdown-open')) {
+                    head.classList.remove('is-dropdown-open');
+                } else if (toggle.contains(e.target)) {
+                    head.classList.add('is-dropdown-open');
+                }
             }
         });
     }

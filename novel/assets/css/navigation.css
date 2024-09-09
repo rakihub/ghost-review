@@ -20,16 +20,8 @@
 }
 
 .gh-navigation-menu .header-nested-menu {
-    position: absolute;
     z-index: 100;
     opacity: 0;
-    visibility: hidden;
-    margin-top: 24px;
-    top: 100%;
-    left: 0;
-    padding: 12px 0;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 7px 20px -5px rgba(0, 0, 0, .15);
-    border-radius: 5px;
     list-style: none;
     background: #fff;
     color: #000;
@@ -47,6 +39,46 @@
     display: block;
     line-height: 1.5;
     padding: 7px 20px;
+}
+
+.gh-dropdown .header-nested-menu {
+    position: static !important;
+    display: none;
+    padding-inline-start: 0;
+}
+
+.gh-dropdown li.menu-has-subitems.is-nested-open .header-nested-menu {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .gh-navigation-menu .nav > .menu-has-subitems .header-nested-menu {
+        position: absolute;
+        left: 0;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 7px 20px -5px rgba(0, 0, 0, .15);
+        border-radius: 5px;
+        visibility: hidden;
+        margin-top: 24px;
+        top: 100%;
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .gh-navigation-menu .header-nested-menu {
+        position: static;
+        display: none;
+        padding-inline-start: 0;
+    }
+
+    .gh-navigation-menu li.menu-has-subitems > a {
+        justify-content: center;
+    }
+
+    .gh-navigation-menu li.menu-has-subitems.is-nested-open .header-nested-menu {
+        margin-top: 20px;
+        display: block;
+    }
 }
 
 

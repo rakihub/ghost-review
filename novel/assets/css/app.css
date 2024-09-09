@@ -794,6 +794,8 @@ Search                         LOGO                    Login Subscribe
     #gh-navigation .gh-navigation-menu {
         transition: none;
         transform: translateY(0);
+        align-self: start;
+        text-align: center;
     }
 
     #gh-navigation .nav {
