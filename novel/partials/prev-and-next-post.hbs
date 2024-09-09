@@ -1,0 +1,25 @@
+<div class="post-navi-container">
+    {{#prev_post in="primary_tag"}}
+        <a class="post-navi-link prev" href="{{url}}">
+            <span class="post-navi-text">
+                <span class="post-navi-label">Previous</span>
+                <span class="post-navi-title">
+                    {{title}}
+                </span>
+            </span>
+            {{> "icons/chevron-left"}}
+        </a>
+    {{/prev_post}}
+
+    {{#next_post in="primary_tag"}}
+        <a class="post-navi-link next" href="{{url}}">
+            <span class="post-navi-text">
+                <span class="post-navi-label">Next</span>
+                <span class="post-navi-title">
+                    {{title}}
+                </span>
+            </span>
+            {{> "icons/chevron-right"}}
+        </a>
+    {{/next_post}}
+</div>

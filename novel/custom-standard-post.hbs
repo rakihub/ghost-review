@@ -47,17 +47,7 @@
             </header>
 
             <section class="gh-content gh-canvas is-body">
-
                 {{content}}
-
-                {{#if access}}
-                    {{#prev_post in="primary_tag"}}
-                        <a href="{{url}}">{{title}}</a>
-                    {{/prev_post}}
-                    {{#next_post in="primary_tag"}}
-                        <a href="{{url}}">{{title}}</a>
-                    {{/next_post}}
-                {{/if}}
             </section>
 
         </article>
