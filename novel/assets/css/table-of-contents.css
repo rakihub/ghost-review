@@ -9,14 +9,14 @@
         z-index: 99;
         top: 0;
         bottom: 0;
-        margin-top: 96px;
+        margin-top: calc(28px* var(--content-spacing-factor, 1));
         width: 250px;
         visibility: hidden;
     }
 
     .toc-inner {
         position: sticky;
-        top: 32px;
+        top: calc(28px* var(--content-spacing-factor, 1));
     }
 }
 

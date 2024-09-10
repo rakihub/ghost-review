@@ -46,12 +46,14 @@
 
             </header>
 
-            <section class="gh-content gh-canvas is-body">
+            <section class="gh-content gh-canvas is-body" x-data="{indexOpen: false}">
 
                 {{content}}
 
                 {{#if access}}
                     {{> "prev-and-next-post"}}
+                    {{> "index-of-contents-control"}}
+                    {{> "index-of-contents" primaryTag=primary_tag title=title}}
                 {{/if}}
             </section>
 

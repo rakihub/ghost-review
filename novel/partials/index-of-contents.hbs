@@ -1,0 +1,56 @@
+<aside class="index-of-contents-control-container">
+    <div class="index-of-contents-control-inner">
+        <button class="index-of-contents-button" @click="indexOpen = !indexOpen">
+            {{> "icons/list-bullet"}}
+        </button>
+    </div>
+</aside>
+<aside class="index-of-contents-container" x-show="indexOpen" @click.outside="indexOpen = false" x-init="initIndexOfContents">
+    <h3>Index</h3>
+    <div class="index-of-contents">
+        <ul>
+            {{#get "tags" filter="slug:~^'{{primaryTag.slug}}_'" order="published_at asc"}}
+                {{#foreach tags}}
+                    <li class="has-sublist" x-data="{subListOpen: true}">
+                        <button @click="subListOpen = !subListOpen">
+                            <span>{{name}}</span>
+                            {{> "icons/arrow-down"}}
+                        </button>
+                        {{#get "posts" filter="tag:{{slug}}" order="published_at asc"}}
+                            <ul class="sublist" x-show="subListOpen">
+                                {{#foreach posts}}
+                                    <li>
+                                        <a href="{{url}}">
+                                            <span>{{title}}</span>
+                                            {{#unless access}}
+                                                {{^has visibility="public"}}
+                                                    {{> "icons/lock"}}
+                                                {{/has}}
+                                            {{/unless}}
+                                        </a>
+                                    </li>
+                                {{/foreach}}
+                            </ul>
+                        {{/get}}
+                    </li>
+                {{else}}
+                    {{#get "posts" filter="primary_tag:{{primaryTag.slug}}" order="published_at asc"}}
+                        {{#foreach posts}}
+                            <li>
+                                <a href="{{url}}">
+                                    <span>{{title}}</span>
+                                    {{#unless access}}
+                                        {{^has visibility="public"}}
+                                            {{> "icons/lock"}}
+                                        {{/has}}
+                                    {{/unless}}
+                                    {{> "icons/lock-icon"}}
+                                </a>
+                            </li>
+                        {{/foreach}}
+                    {{/get}}
+                {{/foreach}}
+            {{/get}}
+        </ul>
+    </div>
+</aside>

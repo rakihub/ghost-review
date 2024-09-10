@@ -4,6 +4,7 @@
 @import url("navigation.css");
 @import url("table-of-contents.css");
 @import url("post-navi.css");
+@import url("index-of-contents.css");
 
 
 /* Table of contents
@@ -70,6 +71,7 @@ production stylesheet in assets/built/screen.css
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
     --color-dark-border: rgb(0 0 0 / 0.55);
+    --color-shadow: rgb(0 0 0 / 0.3);
     --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --font-serif: "EB Garamond", Georgia, Times, serif;
     --font-serif-alt: Georgia, Times, serif;
@@ -86,6 +88,7 @@ production stylesheet in assets/built/screen.css
     --color-secondary-text: rgb(255 255 255 / 0.64);
     --color-border: rgb(255 255 255 / 0.15);
     --color-dark-border: rgb(255 255 255 / 0.5);
+    --color-shadow: rgb(255 255 255 / 0.3);
 }
 
 /* 2. Fonts

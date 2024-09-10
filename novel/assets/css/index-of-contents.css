@@ -1,0 +1,111 @@
+.index-of-contents-control-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    grid-column: main-end / auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    z-index: 99;
+    margin-top: 0 !important;
+    margin-bottom: 80px !important;
+    padding-left: max(4vmin, 20px);
+}
+
+.index-of-contents-control-inner {
+    position: sticky;
+    bottom: 80px;
+    color: var(--color-secondary-text) !important;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.index-of-contents-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-primary-text) !important;
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--color-border);
+    border-radius: 99px;
+    padding: 8px 8px;
+}
+
+.index-of-contents-button svg {
+    width: 28px;
+    height: 28px;
+}
+
+.index-of-contents-button:hover {
+    cursor: pointer;
+}
+
+.index-of-contents-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin-top: 0 !important;
+    padding: max(4vmin, 20px);
+    background-color: var(--background-color);
+    box-shadow: 0 25px 50px -12px var(--color-shadow);
+    z-index: 100;
+    overflow-y: auto;
+    scrollbar-color: var(--color-shadow) var(--background-color);
+}
+
+.index-of-contents-container h3 {
+    text-align: center;
+}
+
+.index-of-contents-container button {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 20px 0 10px  0;
+    border: none;
+    color: var(--color-primary-text);
+    background-color: var(--color-lighter-gray);
+}
+
+.index-of-contents-container button:hover {
+    cursor: pointer;
+}
+
+.index-of-contents-container :is(button, a) {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.index-of-contents-container ul {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.index-of-contents-container li {
+    margin-top: 0 !important;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.index-of-contents-container a {
+    display: inline-flex;
+    justify-content: space-between;
+    text-decoration: none !important;
+    color: var(--color-primary-text) !important;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.index-of-contents-container a:hover {
+    background-color: var(--color-lighter-gray);
+}
+
+.index-of-contents-container a svg {
+    width: 16px;
+    height: 16px;
+}
