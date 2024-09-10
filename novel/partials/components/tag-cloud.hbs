@@ -5,7 +5,7 @@
             {{#match @custom.tag_cloud "=" "all"}}
                 {{#get "tags" filter="name:~^'_'" order="count.posts desc"}}
                     {{#foreach tags}}
-                        <a class="gh-card" href="{{url}}" x-data="{tagName: '{{name}}'}"
+                        <a class="gh-card" href="{{url}}" x-data="{tagName: `{{name}}`}"
                            x-init="tagName = tagName[0] === '_'  ? tagName.slice(1) : tagName" x-text="tagName">
                         </a>
                     {{/foreach}}
@@ -13,7 +13,7 @@
             {{else}}
                 {{#get "tags" filter="name:[{{@custom.tag_cloud}}]" order="count.posts desc"}}
                     {{#foreach tags}}
-                        <a href="{{url}}" x-data="{tagName: '{{name}}'}"
+                        <a href="{{url}}" x-data="{tagName: `{{name}}`}"
                            x-init="tagName = tagName[0] === '_'  ? tagName.slice(1) : tagName" x-text="tagName">
                         </a>
                     {{/foreach}}

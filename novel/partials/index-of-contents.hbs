@@ -6,29 +6,20 @@
     </div>
 </aside>
 <aside class="index-of-contents-container" x-show="indexOpen" @click.outside="indexOpen = false" x-init="initIndexOfContents">
-    <h3>Index</h3>
+    <a href="{{primaryTag.url}}" target="_blank" aria-label="{{primaryTag.name}} Link"><h3>{{primaryTag.name}}</h3></a>
     <div class="index-of-contents">
         <ul>
             {{#get "tags" filter="slug:~^'{{primaryTag.slug}}_'" order="published_at asc"}}
                 {{#foreach tags}}
                     <li class="has-sublist" x-data="{subListOpen: true}">
                         <button @click="subListOpen = !subListOpen">
-                            <span>{{name}}</span>
+                            <span x-text="`{{name}}`.split('_').slice(1).join(' ')"></span>
                             {{> "icons/arrow-down"}}
                         </button>
                         {{#get "posts" filter="tag:{{slug}}" order="published_at asc"}}
                             <ul class="sublist" x-show="subListOpen">
                                 {{#foreach posts}}
-                                    <li>
-                                        <a href="{{url}}">
-                                            <span>{{title}}</span>
-                                            {{#unless access}}
-                                                {{^has visibility="public"}}
-                                                    {{> "icons/lock"}}
-                                                {{/has}}
-                                            {{/unless}}
-                                        </a>
-                                    </li>
+                                    {{> "index-of-contents-item"}}
                                 {{/foreach}}
                             </ul>
                         {{/get}}
@@ -36,17 +27,7 @@
                 {{else}}
                     {{#get "posts" filter="primary_tag:{{primaryTag.slug}}" order="published_at asc"}}
                         {{#foreach posts}}
-                            <li>
-                                <a href="{{url}}">
-                                    <span>{{title}}</span>
-                                    {{#unless access}}
-                                        {{^has visibility="public"}}
-                                            {{> "icons/lock"}}
-                                        {{/has}}
-                                    {{/unless}}
-                                    {{> "icons/lock-icon"}}
-                                </a>
-                            </li>
+                            {{> "index-of-contents-item"}}
                         {{/foreach}}
                     {{/get}}
                 {{/foreach}}

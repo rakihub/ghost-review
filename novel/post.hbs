@@ -19,7 +19,7 @@
 
                 {{#if @custom.show_post_metadata}}
                     <div class="gh-article-meta">
-                        <div class="gh-article-author-image instapaper_ignore">
+                        <div class="gh-article-author-image">
                             {{#foreach authors}}
                                 {{#if profile_image}}
                                     <a href="{{url}}">
@@ -46,14 +46,13 @@
 
             </header>
 
-            <section class="gh-content gh-canvas is-body" x-data="{indexOpen: false}">
+            <section class="gh-content gh-canvas is-body" x-data="{indexOpen: false, currentSlug: '{{slug}}'}">
 
                 {{content}}
 
                 {{#if access}}
                     {{> "prev-and-next-post"}}
-                    {{> "index-of-contents-control"}}
-                    {{> "index-of-contents" primaryTag=primary_tag title=title}}
+                    {{> "index-of-contents" primaryTag=primary_tag}}
                 {{/if}}
             </section>
 

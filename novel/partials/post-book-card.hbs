@@ -18,9 +18,6 @@
           {{/if}}
            <div class="gh-card-wrapper">
                {{#if post.tags}}
-{{!--                      <p class="gh-card-tag"> --}}
-{{!--                       <p class="gh-card-tag" x-data x-init="$el.textContent = $el.textContent.split(',').find(word => {console.log(word); return word.trim().startsWith('_')})"> --}}
-{{!--                       <p class="gh-card-tag" x-data x-init="$el.textContent = $el.textContent.trim().split(',').find(word => word.startsWith('_'))">  --}}
                      <p class="gh-card-tag" x-data x-init="$el.textContent = $el.textContent !== '' ? $el.textContent.split(',')[0].trim().slice(1) : ''">
                        {{#foreach post.tags as |bookTag|}}
                            {{#match bookTag.name.[0] "=" "_"}}

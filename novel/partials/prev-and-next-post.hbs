@@ -9,6 +9,8 @@
             </span>
             {{> "icons/chevron-left"}}
         </a>
+    {{else}}
+        <span class="post-navi-link prev" style="visibility: hidden"></span>
     {{/prev_post}}
 
     {{#next_post in="primary_tag"}}
@@ -21,5 +23,7 @@
             </span>
             {{> "icons/chevron-right"}}
         </a>
+    {{else}}
+        <span class="post-navi-link next" style="visibility: hidden"></span>
     {{/next_post}}
 </div>
