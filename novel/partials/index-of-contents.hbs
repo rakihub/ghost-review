@@ -5,7 +5,8 @@
         </button>
     </div>
 </aside>
-<aside class="index-of-contents-container" x-show="indexOpen" @click.outside="indexOpen = false" x-init="initIndexOfContents">
+<aside class="index-of-contents-container" x-show="indexOpen" @click.outside="indexOpen = false" x-init="(() => { initIndexOfContents(); handleScroll(); })()">
+    <button class="close-button" @click="indexOpen = !indexOpen">{{> "icons/close"}}</button>
     <a href="{{primaryTag.url}}" target="_blank" aria-label="{{primaryTag.name}} Link"><h3>{{primaryTag.name}}</h3></a>
     <div class="index-of-contents">
         <ul>

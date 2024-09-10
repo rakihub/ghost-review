@@ -7,13 +7,14 @@ import reframe from 'reframe.js';
 import {initImgSlider, initContentSlider} from './slider';
 import {makeFooterNavi} from './navigation.js';
 import {initToc, adjustTocPosition} from './table-of-contents.js';
-import initIndexOfContents from './index-of-contents.js';
+import {initIndexOfContents, handleScroll} from './index-of-contents.js';
 
 import '../css/app.css';
 
 window.initImgSlider = initImgSlider;
 window.initContentSlider = initContentSlider;
 window.initIndexOfContents = initIndexOfContents;
+window.handleScroll = handleScroll;
 
 /* Init Alpine */
 window.Alpine = Alpine;
