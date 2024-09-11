@@ -1,13 +1,13 @@
 <section class="gh-container category-container is-{{#match @custom.category_section_layout "List"}}list{{else}}grid{{/match}} gh-outer">
 
     {{#match @custom.category_section_tags "=" "all"}}
-        {{#get "tags" filter="name:~^'_'" limit=@custom.category_section_tag_limit order="count.posts desc"}}
+        {{#get "tags" filter="slug:~^'_'" limit=@custom.category_section_tag_limit order="count.posts desc"}}
             {{#foreach tags}}
                {{> "category-grid"}}
             {{/foreach}}
         {{/get}}
     {{else}}
-        {{#get "tags" filter="name:[{{@custom.category_section_tags}}]" limit=@custom.category_section_tag_limit order="count.posts desc"}}
+        {{#get "tags" filter="slug:[{{@custom.category_section_tags}}]" limit=@custom.category_section_tag_limit order="count.posts desc"}}
             {{#foreach tags}}
                 {{> "category-grid"}}
             {{/foreach}}

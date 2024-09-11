@@ -5,6 +5,7 @@
 @import url("table-of-contents.css");
 @import url("post-navi.css");
 @import url("index-of-contents.css");
+@import url("tag-book.css");
 
 
 /* Table of contents
@@ -2019,7 +2020,7 @@ Search                         LOGO                    Login Subscribe
     font-size: 1.3rem;
     font-weight: 500;
     letter-spacing: 0.01em;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     color: var(--ghost-accent-color);
 }
 
@@ -2059,6 +2060,10 @@ Search                         LOGO                    Login Subscribe
     background-color: var(--color-light-gray);
     border-radius: 50%;
     border: 3px solid var(--background-color);
+}
+
+.gh-article-author-image:not(:has(a)) {
+    display: none;
 }
 
 .gh-article-author-image a:first-child {
@@ -2108,6 +2113,8 @@ Search                         LOGO                    Login Subscribe
 
 .gh-article-image img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* 14.2. Page template */
@@ -2569,15 +2576,27 @@ figcaption a {
 .gh-archive.has-image .gh-archive-inner {
     align-items: center;
     grid-column: 1 / -1;
+    /*border: 1px solid black;*/
 }
 
-.gh-archive:not(.has-sidebar):not(.has-image) .gh-archive-inner {
+.gh-archive:not(.has-image) .gh-archive-inner {
     grid-column: 3 / span 12;
+}
+
+.gh-archive:not(.has-image) .gh-archive-inner .gh-archive-wrapper {
+    grid-column: 1 / -1;
 }
 
 .gh-archive .gh-article-image {
     grid-column: auto;
     margin-top: 0;
+    aspect-ratio: 1.35 / 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*border: 1px solid orange;*/
 }
 
 :is(.tag-template, .author-template) .gh-container {
@@ -2588,6 +2607,7 @@ figcaption a {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
+    align-items: center;
     gap: 24px;
 }
 

@@ -18,9 +18,9 @@
           {{/if}}
            <div class="gh-card-wrapper">
                {{#if post.tags}}
-                     <p class="gh-card-tag" x-data x-init="$el.textContent = $el.textContent !== '' ? $el.textContent.split(',')[0].trim().slice(1) : ''">
+                   <p class="gh-card-tag" x-data x-init="$el.textContent = $el.textContent ? ($el.textContent.split(',')[0].trim().charAt(0) === '_' ? $el.textContent.split(',')[0].trim().slice(1) : $el.textContent.split(',')[0].trim()) : ''">
                        {{#foreach post.tags as |bookTag|}}
-                           {{#match bookTag.name.[0] "=" "_"}}
+                           {{#match bookTag.slug.[0] "=" "_"}}
                                {{bookTag.name}},
                            {{/match}}
                        {{/foreach}}

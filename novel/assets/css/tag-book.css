@@ -1,0 +1,12 @@
+.gh-archive .category-tag {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.gh-archive .category-tag .gh-article-tag {
+    padding: 3px 6px;
+    /*color: var(--color-secondary-text);*/
+    background-color: var(--color-lighter-gray);
+
+}
