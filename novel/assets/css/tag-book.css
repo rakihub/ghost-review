@@ -2,11 +2,16 @@
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    margin-bottom: 12px;
 }
 
 .gh-archive .category-tag .gh-article-tag {
     padding: 3px 6px;
-    /*color: var(--color-secondary-text);*/
+    margin-bottom: 0;
     background-color: var(--color-lighter-gray);
-
 }
+
+.tag-template .index-of-contents-container.static {
+    grid-column: 5 / span 8;
+}
+

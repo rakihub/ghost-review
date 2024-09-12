@@ -9,18 +9,18 @@
                     {{#foreach posts}}
                         <div class="gh-article-meta">
                              <div class="gh-article-author-image">
-{{!--                                {{#foreach authors}}--}}
-{{!--                                    {{#if profile_image}}--}}
-{{!--                                        <a href="{{url}}">--}}
-{{!--                                            <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}">--}}
-{{!--                                        </a>--}}
-{{!--                                    {{else}}--}}
-{{!--                                        <a href="{{url}}">{{> "icons/avatar"}}</a>--}}
-{{!--                                    {{/if}}--}}
-{{!--                                {{/foreach}}--}}
+                                {{#foreach authors}}
+                                    {{#if profile_image}}
+                                        <a href="{{url}}">
+                                            <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}">
+                                        </a>
+                                    {{else}}
+                                        <a href="{{url}}">{{> "icons/avatar"}}</a>
+                                    {{/if}}
+                                {{/foreach}}
                              </div>
                             <div class="gh-article-meta-wrapper">
-                                <h4 class="gh-article-author-name"></h4>
+                                <h4 class="gh-article-author-name">{{authors}}</h4>
                                 <div class="gh-article-meta-content">
                                     {{{block "lastUpdate"}}}
                                 </div>
@@ -53,4 +53,11 @@
     </section>
 {{/tag}}
 
-{{> "components/post-list" feed="archive" postFeedStyle=@custom.post_feed_style showTitle=false showSidebar=@custom.show_publication_info_sidebar}}
+<section class="gh-container is-list no-image gh-outer">
+    <div class="gh-container-inner gh-inner">
+        <div class="index-of-contents-container static" x-data="{currentSlug: ''}">
+            <h2 class="is-title index-of-contents-title">Index of Contents</h2>
+            {{> "index-of-contents" primaryTag=tag}}
+        </div>
+    </div>
+</section>

@@ -1,7 +1,7 @@
 function initIndexOfContents() {
   const canvas = document.querySelector('.gh-content.gh-canvas');
   const indexControl = document.querySelector('.index-of-contents-control-container');
-  const indexContainer = document.querySelector('.index-of-contents-container');
+  const indexContainer = document.querySelector('.index-of-contents-container.float');
   if (!canvas || !indexControl || !indexContainer) return;
 
   function setMarginBottom() {
