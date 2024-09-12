@@ -1617,11 +1617,16 @@ Search                         LOGO                    Login Subscribe
     letter-spacing: -0.014em;
 }
 
-.gh-container.has-sidebar .gh-more {
-    grid-column: span 12;
+.gh-more:not(:has(button)) {
+    display: none !important;
 }
 
-.home-template .gh-feed:has(> :nth-child(12):last-child) ~ .gh-more {
+.gh-container.has-sidebar .gh-more {
+    /*grid-column: span 12;*/
+}
+
+/*.home-template .gh-feed:has(> :nth-child(12):last-child) ~ .gh-more {*/
+.home-template .gh-more {
     display: flex;
     justify-content: center;
 }
@@ -1676,34 +1681,35 @@ Search                         LOGO                    Login Subscribe
 }
 
 /* 11.2. Without sidebar */
-:is(.gh-container-title, .gh-main, .gh-more) {
+.gh-container :is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 1 / -1;
 }
 
-.gh-container.is-list :is(.gh-container-title, .gh-main) {
+.gh-container:not(.has-sidebar).is-list :is(.gh-container-title, .gh-main, .gh-more) {
     grid-column: 3 / span 12;
 }
+
 /*.gh-container :is(.gh-container-title, .gh-main, .gh-more) {*/
 /*    grid-column: 3 / span 12;*/
 /*}*/
 
-/*.gh-container.is-list.no-image:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {*/
-/*    grid-column: 4 / span 10;*/
-/*}*/
+.gh-container.is-list.no-image:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
+    grid-column: 4 / span 10;
+}
 
 /*.gh-header:is(.is-highlight, .is-magazine) ~ .gh-container.is-grid:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {*/
 /*    grid-column: 1 / -1;*/
 /*}*/
 
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
     .gh-container-inner {
         display: block;
         overflow: hidden;
     }
 
-    .gh-container.has-sidebar .gh-sidebar {
-        display: none;
-    }
+    /*.gh-container.has-sidebar .gh-sidebar {*/
+    /*    display: none;*/
+    /*}*/
 }
 
 /* 12. Post list
@@ -1717,7 +1723,7 @@ Search                         LOGO                    Login Subscribe
     margin-bottom: calc(var(--grid-gap) / 2);
     /*text-transform: uppercase;*/
     grid-column: 1 / -1;
-    /*padding-bottom: 12px;*/
+    padding-bottom: 12px;
     /*border-bottom: 1px solid var(--color-border);*/
 }
 
@@ -1819,6 +1825,10 @@ Search                         LOGO                    Login Subscribe
     overflow: hidden;
 }
 
+.gh-container.has-sidebar.is-grid .gh-feed {
+    grid-template-columns: repeat(3, minmax(248px, 1fr));
+}
+
 .gh-container.is-grid .gh-card::before {
     position: absolute;
     top: calc(var(--grid-gap) / -2);
@@ -1839,14 +1849,31 @@ Search                         LOGO                    Login Subscribe
     background-color: var(--color-border);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
     .gh-container.is-grid .gh-feed {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gh-container.has-sidebar.is-grid .gh-feed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1023px) {
+    /* When screen width < 1024px, the sidebar won't be sticky alongside grid anymore */
+    .gh-container.has-sidebar.is-grid .gh-feed {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .gh-container.is-grid .gh-feed, .gh-container.has-sidebar.is-grid .gh-feed {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 576px) {
-    .gh-container.is-grid .gh-feed {
+    .gh-container.is-grid .gh-feed, .gh-container.has-sidebar.is-grid .gh-feed {
         display: flex;
         flex-direction: column;
     }
@@ -1868,13 +1895,21 @@ Search                         LOGO                    Login Subscribe
 
 .gh-sidebar-title {
     grid-column: 1 / -1;
+
+    font-size: calc(1.9rem* var(--factor, 1));
+    font-weight: 725;
+    grid-column: 1 / -1;
+    letter-spacing: -.014em;
+    line-height: 1.3;
     margin-bottom: calc(var(--grid-gap) / 2);
-    padding-bottom: 12px;
-    font-size: 1.2rem;
-    font-weight: 550;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--color-border);
+    /*margin-bottom: calc(var(--grid-gap) / 2);*/
+    /*padding-bottom: 12px;*/
+    /*font-size: 1.2rem;*/
+    /*font-weight: 550;*/
+    /*letter-spacing: 0.025em;*/
+
+    /*text-transform: uppercase;*/
+    /*border-bottom: 1px solid var(--color-border);*/
 }
 
 .gh-about {
@@ -1912,8 +1947,27 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-recommendations {
-    margin-top: 48px;
+    /*margin-top: 48px;*/
 }
+
+.title-with-arrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.title-with-arrow svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-secondary-text);
+    transform: rotate(-45deg);
+    transform-origin: 50% 50%;
+    /*transition: transform 0.2s ease-in-out;*/
+}
+
+/*.title-with-arrow:hover svg {*/
+/*    transform: rotate(0deg);*/
+/*}*/
 
 .gh-recommendations .recommendations {
     display: flex;
@@ -1998,6 +2052,25 @@ Search                         LOGO                    Login Subscribe
 
 .gh-recommendations button:hover {
     opacity: 0.8;
+}
+
+@media (max-width: 1023px) {
+    .gh-sidebar-inner {
+        padding-top: calc(2 * 56px);
+    }
+
+    .gh-sidebar-title {
+        /*margin-top: -2px;*/
+        /*font-size: 1.5rem;*/
+        /*font-weight: 650;*/
+        /*letter-spacing: -0.009em;*/
+        font-size: calc(1.9rem* var(--factor, 1));
+        font-weight: 725;
+        grid-column: 1 / -1;
+        letter-spacing: -.014em;
+        line-height: 1.3;
+        margin-bottom: calc(var(--grid-gap) / 2);
+    }
 }
 
 /* 14. Post/page
