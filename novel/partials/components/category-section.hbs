@@ -1,4 +1,4 @@
-<section class="gh-container category-container is-{{#match @custom.category_section_layout "List"}}list{{else}}grid{{/match}} gh-outer">
+<section class="gh-container category-container is-grid gh-outer">
 
     {{#match @custom.category_section_tags "=" "all"}}
         {{#get "tags" filter="slug:~^'_'" limit=@custom.category_section_tag_limit order="count.posts desc"}}

@@ -151,15 +151,6 @@
         "group": "homepage",
         "visibility": "header_style:[Landing, Search]"
       },
-      "category_section_layout": {
-        "type": "select",
-        "options": [
-          "Grid",
-          "List"
-        ],
-        "default": "Grid",
-        "group": "homepage"
-      },
       "category_section_tags": {
         "type": "text",
         "default": "all",
@@ -191,18 +182,6 @@
           "List"
         ],
         "default": "Grid",
-        "group": "homepage"
-      },
-      "post_card_image_ratio": {
-        "type": "select",
-        "options": [
-          "1 / 1",
-          "1 / 1.5",
-          "16 / 9",
-          "4 / 3",
-          "3 / 2"
-        ],
-        "default": "1 / 1",
         "group": "homepage"
       },
       "show_images_in_feed": {
