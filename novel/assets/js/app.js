@@ -70,9 +70,6 @@ Alpine.start();
 /* Infinite scroll pagination */
 (function () {
     if (!document.body.classList.contains('post-template')) {
-        pagination(false);
-    }
-    if (document.body.classList.contains('tag-template') || document.body.classList.contains('author-template')) {
         customPagination(false);
     }
 })();
