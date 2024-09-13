@@ -1,7 +1,7 @@
 import Alpine from 'alpinejs';
-import tocbot from 'tocbot';
 import dropdown from './dropdown';
 import pagination from './pagination';
+import customPagination from './pagination-custom.js';
 import lightbox from './lightbox';
 import reframe from 'reframe.js';
 import {initImgSlider, initContentSlider} from './slider';
@@ -71,6 +71,9 @@ Alpine.start();
 (function () {
     if (!document.body.classList.contains('post-template')) {
         pagination(false);
+    }
+    if (document.body.classList.contains('tag-template') || document.body.classList.contains('author-template')) {
+        customPagination(false);
     }
 })();
 

@@ -11,7 +11,7 @@
                 {{#foreach posts}}
                     {{#has tag="#book"}}
                         {{> "category-book-card" lazyLoad=true}}
-                    {{else}}
+                    {{else has tag="#blog"}}
                         {{> "category-blog-card" lazyLoad=true}}
                     {{/has}}
                 {{/foreach}}

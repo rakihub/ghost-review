@@ -6,7 +6,7 @@
     * showSidebar (true, false)
 --}}
 
- <section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#match feed "home"}}{{#if @site.recommendations_enabled}} has-sidebar{{/if}}{{/match}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
+ <section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#if showSidebar}}{{#if @site.recommendations_enabled}} has-sidebar{{/if}}{{/if}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
     <div class="gh-container-inner gh-inner">
 
         {{#if showTitle}}
@@ -15,40 +15,27 @@
             </h2>
         {{/if}}
 
-        <main class="gh-main">
-            <div class="gh-feed">
-
-                {{!-- Homepage --}}
-                {{#match feed "home"}}
-                    {{#foreach posts}}
-                        {{> "new-post-card" lazyLoad=true}}
-                    {{/foreach}}
-                {{/match}}
-
-                {{!-- All posts --}}
-                {{#match feed "index"}}
-                    {{#foreach posts}}
-                        {{> "new-post-card" lazyLoad=true}}
-                    {{/foreach}}
-                {{/match}}
-
-                {{!-- Tag and author pages --}}
-                {{#match feed "archive"}}
-                    {{#foreach posts}}
-                        {{> "post-card" lazyLoad=true}}
-                    {{/foreach}}
-                {{/match}}
-
-            </div>
-
-            {{#match pagination.pages ">" 1}}
-                <div class="gh-more is-title">
-                    <button class="button-secondary gh-loadmore">Load more</button>
-                </div>
-            {{/match}}
-        </main>
-
+        {{!-- Homepage --}}
         {{#match feed "home"}}
+            {{> "post-list-feed" feed="home"}}
+        {{/match}}
+
+        {{!-- All posts --}}
+        {{#match feed "index"}}
+            {{> "post-list-feed" feed="index"}}
+        {{/match}}
+
+        {{!-- Tag pages --}}
+        {{#match feed "categoryArchive"}}
+            {{> "post-list-feed-of-archive" feed="categoryArchive"}}
+        {{/match}}
+
+        {{!-- Author pages --}}
+        {{#match feed "authorArchive"}}
+            {{> "post-list-feed-of-archive" feed="authorArchive"}}
+        {{/match}}
+
+        {{#if showSidebar}}
             {{#if @site.recommendations_enabled}}
                 <aside class="gh-sidebar">
                     <div class="gh-sidebar-inner">
@@ -62,6 +49,6 @@
                     </div>
                 </aside>
             {{/if}}
-        {{/match}}
+        {{/if}}
     </div>
 </section>

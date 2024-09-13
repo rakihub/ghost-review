@@ -1,0 +1,44 @@
+<main class="gh-main archive-container" x-data>
+    <div class="gh-feed">
+
+        {{!-- Tag and author pages --}}
+        {{#match feed "categoryArchive"}}
+            {{#get "posts" filter="tag:{{tag.slug}}+tag:[hash-book,hash-blog]" include="tags,authors"
+                   limit=@config.posts_per_page page=pagination.page}}
+
+                {{#foreach posts}}
+                    {{> "new-post-card" lazyLoad=true}}
+                {{/foreach}}
+
+                {{#match pagination.pages ">" pagination.page}}
+                    <template x-teleport=".archive-container">
+                        <div class="gh-more is-title">
+                            <button class="button-secondary custom-loadmore" data-current-page="{{pagination.page}}">Load more</button>
+                        </div>
+                    </template>
+                {{/match}}
+
+            {{/get}}
+        {{/match}}
+
+        {{#match feed "authorArchive"}}
+            {{#get "posts" filter="author:{{author.slug}}+tag:[hash-book,hash-blog]" include="tags,authors"
+                   limit=@config.posts_per_page page=pagination.page}}
+
+                {{#foreach posts}}
+                    {{> "new-post-card" lazyLoad=true}}
+                {{/foreach}}
+
+                {{#match pagination.pages ">" pagination.page}}
+                    <template x-teleport=".archive-container">
+                        <div class="gh-more is-title">
+                            <button class="button-secondary custom-loadmore" data-current-page="{{pagination.page}}">Load more</button>
+                        </div>
+                    </template>
+                {{/match}}
+
+            {{/get}}
+        {{/match}}
+    </div>
+
+</main>

@@ -4,7 +4,8 @@
 <main class="gh-main gh-outer">
 
     {{#author}}
-        <section class="gh-archive{{#if @custom.show_publication_info_sidebar}} has-sidebar{{/if}} gh-inner">
+{{!--         <section class="gh-archive{{#if @custom.show_publication_info_sidebar}} has-sidebar{{/if}} gh-inner"> --}}
+        <section class="gh-archive has-sidebar gh-inner">
             <div class="gh-archive-inner">
                 <div class="gh-archive-wrapper">
                     <h1 class="gh-article-title is-title">
@@ -19,11 +20,14 @@
                     {{/if}}
                     <footer class="gh-author-meta">
                         <div class="gh-author-social">
+                            {{#if website}}
+                                <a class="gh-author-social-link" aria-label="Author website link" href="{{website}}" target="_blank" rel="noopener">{{> "icons/global"}}</a>
+                            {{/if}}
                             {{#if facebook}}
-                                <a class="gh-author-social-link" href="{{facebook_url}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                                <a class="gh-author-social-link" aria-label="Author facebook link" href="{{facebook_url}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
                             {{/if}}
                             {{#if twitter}}
-                                <a class="gh-author-social-link" href="{{twitter_url}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                                <a class="gh-author-social-link" aria-label="Author twitter url" href="{{twitter_url}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
                             {{/if}}
                         </div>
                         {{#if location}}
@@ -37,7 +41,7 @@
             </div>
         </section>
     {{/author}}
-    
-    {{> "components/post-list" feed="archive" postFeedStyle=@custom.post_feed_style showTitle=false showSidebar=@custom.show_publication_info_sidebar}}
+
+    {{> "components/post-list" feed="authorArchive" postFeedStyle=@custom.post_feed_style showTitle=false showSidebar=true}}
 
 </main>

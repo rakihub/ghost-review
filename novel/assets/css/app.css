@@ -1626,7 +1626,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 /*.home-template .gh-feed:has(> :nth-child(12):last-child) ~ .gh-more {*/
-.home-template .gh-more {
+.gh-feed:has(> :last-child) ~ .gh-more {
     display: flex;
     justify-content: center;
 }
