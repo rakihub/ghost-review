@@ -32,7 +32,7 @@
 
         {{!-- Author pages --}}
         {{#match feed "authorArchive"}}
-            {{> "post-list-feed-of-archive" feed="authorArchive"}}
+            {{> "post-list-feed-of-archive" feed="authorArchive" authorOrTagSlug=authorOrTagSlug}}
         {{/match}}
 
         {{#if showSidebar}}

@@ -1,9 +1,9 @@
 <main class="gh-main archive-container" x-data>
     <div class="gh-feed">
 
-        {{!-- Tag and author pages --}}
+        {{!-- Tag pages --}}
         {{#match feed "categoryArchive"}}
-            {{#get "posts" filter="tag:{{tag.slug}}+tag:[hash-book,hash-blog]" include="tags,authors"
+            {{#get "posts" filter="tag:{{authorOrTagSlug}}+tag:[hash-book,hash-blog]" include="tags,authors"
                    limit=@config.posts_per_page page=pagination.page}}
 
                 {{#foreach posts}}
@@ -21,8 +21,10 @@
             {{/get}}
         {{/match}}
 
+        {{!-- Author pages --}}
         {{#match feed "authorArchive"}}
-            {{#get "posts" filter="author:{{author.slug}}+tag:[hash-book,hash-blog]" include="tags,authors"
+
+            {{#get "posts" filter="author:{{authorOrTagSlug}}+tag:[hash-book,hash-blog]" include="tags,authors"
                    limit=@config.posts_per_page page=pagination.page}}
 
                 {{#foreach posts}}
