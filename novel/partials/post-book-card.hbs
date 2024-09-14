@@ -17,15 +17,21 @@
                </figure>
           {{/if}}
            <div class="gh-card-wrapper">
-               {{#if post.tags}}
-                   <p class="gh-card-tag" x-data x-init="$el.textContent = $el.textContent ? ($el.textContent.split(',')[0].trim().charAt(0) === '_' ? $el.textContent.split(',')[0].trim().slice(1) : $el.textContent.split(',')[0].trim()) : ''">
-                       {{#foreach post.tags as |bookTag|}}
-                           {{#match bookTag.slug.[0] "=" "_"}}
-                               {{bookTag.name}},
-                           {{/match}}
-                       {{/foreach}}
-                   </p>
-               {{/if}}
+               <div class="gh-card-tag">
+                   {{#if post.tags}}
+                       <p x-data x-init="$el.textContent = $el.textContent ? ($el.textContent.split(',')[0].trim().charAt(0) === '_' ? $el.textContent.split(',')[0].trim().slice(1) : $el.textContent.split(',')[0].trim()) : ''">
+                           {{#foreach post.tags as |bookTag|}}
+                               {{#match bookTag.slug.[0] "=" "_"}}
+                                   {{bookTag.name}},
+                               {{/match}}
+                           {{/foreach}}
+                       </p>
+                   {{/if}}
+                   {{#if post.featured}}
+                       <div class="card-tag-featured">{{> "icons/fire"}} <span>Featured</span></div>
+                   {{/if}}
+               </div>
+
                {{#if post.primary_tag}}
                    {{#if post.primary_tag.name}}
                        <h3 class="gh-card-title is-title">{{post.primary_tag.name}} Book</h3>
@@ -36,11 +42,6 @@
                    {{/if}}
                {{/if}}
                <footer class="gh-card-meta">
-                   {{#unless post.access}}
-                       {{^has visibility="public"}}
-                           {{> "icons/lock"}}
-                       {{/has}}
-                   {{/unless}}
                    {{#if @custom.show_author}}
                        <span class="gh-card-author">By {{#foreach post.authors}}{{#if @first}}{{name}}{{else}}, {{name}}{{/if}}{{/foreach}}</span>
                    {{/if}}

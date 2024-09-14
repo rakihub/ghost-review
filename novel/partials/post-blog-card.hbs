@@ -17,13 +17,24 @@
             </figure>
         {{/if}}
         <div class="gh-card-wrapper">
-            {{#if post.primary_tag}}
-                <p class="gh-card-tag"
-                   x-data="{tagName: `{{post.primary_tag.name}}`}"
-                   x-init="tagName = tagName[0] === '_'  ? tagName.slice(1) : tagName">
-                    {{post.primary_tag.name}}
-                </p>
-            {{/if}}
+
+            <div class="gh-card-tag">
+                {{#if post.primary_tag}}
+                    <p x-data="{tagName: `{{post.primary_tag.name}}`}"
+                       x-init="tagName = tagName[0] === '_'  ? tagName.slice(1) : tagName">
+                        {{post.primary_tag.name}}
+                    </p>
+                {{/if}}
+                {{#unless access}}
+                    {{^has visibility="public"}}
+                        {{> "icons/lock"}}
+                    {{/has}}
+                {{/unless}}
+                {{#if featured}}
+                    <div class="card-tag-featured">{{> "icons/fire"}} <span>Featured</span></div>
+                {{/if}}
+            </div>
+
             <h3 class="gh-card-title is-title">{{post.title}}</h3>
             {{#if post.custom_excerpt}}
                 <p class="gh-card-excerpt is-body">{{post.custom_excerpt}}</p>
@@ -34,11 +45,6 @@
                 {{/if}}
             {{/unless}}
             <footer class="gh-card-meta">
-                {{#unless post.access}}
-                    {{^has visibility="public"}}
-                        {{> "icons/lock"}}
-                    {{/has}}
-                {{/unless}}
              {{#if @custom.show_author}}
                     <span class="gh-card-author">By {{#foreach post.authors}}{{#if @first}}{{name}}{{else}}, {{name}}{{/if}}{{/foreach}}</span>
                 {{/if}}

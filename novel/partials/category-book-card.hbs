@@ -16,9 +16,14 @@
             </figure>
         {{/if}}
         <div class="gh-card-wrapper">
+            <div class="gh-card-tag">
+                {{#if featured}}
+                    <div class="card-tag-featured">{{> "icons/fire"}} <span>Featured</span></div>
+                {{/if}}
+            </div>
             {{#if primary_tag}}
                 {{#if primary_tag.name}}
-                    <h1 class="gh-card-title is-title">{{primary_tag.name}}</h1>
+                    <h3 class="gh-card-title is-title">{{primary_tag.name}} book</h3>
                 {{/if}}
 
                 {{#if primary_tag.description}}
@@ -26,11 +31,6 @@
                 {{/if}}
             {{/if}}
             <footer class="gh-card-meta">
-                {{#unless access}}
-                    {{^has visibility="public"}}
-                        {{> "icons/lock"}}
-                    {{/has}}
-                {{/unless}}
                 {{#if @custom.show_author}}
                     <span class="gh-card-author">
                         By {{#foreach authors}}{{#if @first}}{{name}}{{else}}, {{name}}{{/if}}{{/foreach}}
