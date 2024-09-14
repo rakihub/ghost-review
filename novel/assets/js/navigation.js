@@ -142,8 +142,20 @@ function makeFooterNavi() {
   footerMenu.remove();
 
   // To make the footer nav menu align right side of container
-  if (menuItemMap.size < 4) {
-    Array.from({length: 4 - menuItemMap.size}).forEach(() => footerNav.append(createSpanPlaceholder()));
+  const lgQuery = window.matchMedia('(max-width: 1199px)');
+  const smQuery = window.matchMedia('(max-width: 767px)');
+
+  if (!lgQuery.matches && !smQuery.matches) {
+    // max-width >= 1200, 6 column grid
+    if (menuItemMap.size < 4) {
+      Array.from({length: 4 - menuItemMap.size}).forEach(() => footerNav.append(createSpanPlaceholder()));
+    }
+
+  } else if (lgQuery.matches && !smQuery.matches) {
+    // max-width < 1200, 5 column grid
+    if (menuItemMap.size < 3) {
+      Array.from({length: 3 - menuItemMap.size}).forEach(() => footerNav.append(createSpanPlaceholder()));
+    }
   }
 
   menuItemMap.forEach((subItems, label) => {
