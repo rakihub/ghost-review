@@ -1,3 +1,4 @@
+/* To make the 'index' take the position of column 'main' inside content grid */
 function initIndexOfContents() {
   const canvas = document.querySelector('.gh-content.gh-canvas');
   const indexControl = document.querySelector('.index-of-contents-control-container');
@@ -30,6 +31,7 @@ function initIndexOfContents() {
   });
 }
 
+/* When screen width < 992px, the index control button will show when detect scroll up action */
 function handleScroll() {
   const mediaQuery = window.matchMedia('(max-width: 991px)');
   if (!mediaQuery.matches) return;
@@ -52,4 +54,20 @@ function handleScroll() {
   });
 }
 
-export {initIndexOfContents, handleScroll};
+/*  Prevent the whole page from scrolling when index container's scrollbar reaches the top/bottom */
+function stopScroll() {
+  const indexContainer = document.querySelector('.index-of-contents-container.float');
+
+  indexContainer.addEventListener('wheel', function(event) {
+    const delta = event.deltaY;
+    const atTop = indexContainer.scrollTop === 0;
+    const atBottom = indexContainer.scrollTop + indexContainer.clientHeight >= indexContainer.scrollHeight;
+
+    // Prevent scrolling the page when reaching the top or bottom
+    if ((delta < 0 && atTop) || (delta > 0 && atBottom)) {
+      event.preventDefault();
+    }
+  });
+}
+
+export {initIndexOfContents, handleScroll, stopScroll};

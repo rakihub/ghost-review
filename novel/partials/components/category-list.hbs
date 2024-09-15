@@ -3,13 +3,13 @@
     {{#match @custom.category_section_tags "=" "all"}}
         {{#get "tags" filter="slug:~^'_'" limit=@custom.category_section_tag_limit order="count.posts desc"}}
             {{#foreach tags}}
-               {{> "category-grid"}}
+               {{> "category-section"}}
             {{/foreach}}
         {{/get}}
     {{else}}
         {{#get "tags" filter="slug:[{{@custom.category_section_tags}}]" limit=@custom.category_section_tag_limit order="count.posts desc"}}
             {{#foreach tags}}
-                {{> "category-grid"}}
+                {{> "category-section"}}
             {{/foreach}}
         {{/get}}
     {{/match}}

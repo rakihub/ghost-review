@@ -2112,6 +2112,17 @@ Search                         LOGO                    Login Subscribe
     color: var(--ghost-accent-color);
 }
 
+.book-article-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.book-article-tag svg {
+    width: 20px;
+    height: 20px;
+}
+
 .gh-article-title {
     font-size: calc(clamp(3.4rem, 1.36vw + 2.85rem, 4.6rem) * var(--factor, 1));
     line-height: 1.1;
