@@ -952,6 +952,10 @@ Search                         LOGO                    Login Subscribe
     /*text-transform: uppercase;*/
 }
 
+.gh-card-tag p:empty {
+    display: none;
+}
+
 .gh-card-tag svg {
     height: 16px;
     width: 16px;
@@ -1781,7 +1785,11 @@ Search                         LOGO                    Login Subscribe
 .gh-container.is-list .gh-card-image {
     flex-shrink: 0;
     width: 220px;
-    aspect-ratio: 1.618033;
+    /*width: 165px;*/
+    /*aspect-ratio: 1.618033;*/
+    aspect-ratio: 1.333333;
+    /*aspect-ratio: 1 / 1;*/
+    background-color: var(--color-lighter-gray);
 }
 
 @container list-feed (width < 600px) {
@@ -1790,7 +1798,7 @@ Search                         LOGO                    Login Subscribe
     }
 }
 
-.gh-container.is-list .gh-card:not(.no-image) .gh-card-wrapper {
+.gh-container.is-list .gh-card.has-image .gh-card-wrapper {
     max-width: 600px;
 }
 
@@ -1806,7 +1814,7 @@ Search                         LOGO                    Login Subscribe
     margin-top: 6px;
 }
 
-.gh-container.is-list .gh-card + .gh-card::before {
+.gh-container.is-list :is(.gh-card, template) + .gh-card::before {
     position: absolute;
     top: calc(var(--grid-gap) / -2);
     left: 0;
@@ -2206,14 +2214,25 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-article-image {
-    grid-column: wide;
+    /*grid-column: wide;*/
     margin-top: 40px;
+}
+
+.gh-article-image.wide {
+    grid-column: wide;
 }
 
 .gh-article-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+.gh-article-image.narrow img {
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 14.2. Page template */
