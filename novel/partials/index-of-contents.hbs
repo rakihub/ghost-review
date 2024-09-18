@@ -4,7 +4,7 @@
             {{#foreach tags}}
                 <li class="has-sublist" x-data="{subListOpen: true}">
                     <button @click="subListOpen = !subListOpen">
-                        <span x-text="`{{name}}`.split('_').slice(1).join(' ')"></span>
+                        <span x-text="`{{name}}`.includes('_') ? `{{name}}`.split('_')[1] : `{{name}}`"></span>
                         {{> "icons/arrow-down"}}
                     </button>
                     {{#get "posts" filter="tag:{{slug}}" order="published_at asc"}}
@@ -20,7 +20,7 @@
             {{/foreach}}
         {{/get}}
         {{#contentFor "bookChapters"}}
-            {{#get "posts" filter="primary_tag:{{primaryTag.slug}}" order="published_at asc"}}
+            {{#get "posts" filter="tag:{{primaryTag.slug}}" order="published_at asc"}}
                 {{#foreach posts}}
                     {{> "index-of-contents-item"}}
                 {{/foreach}}

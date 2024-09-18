@@ -3,7 +3,7 @@
         <div class="gh-archive-inner">
             <header class="gh-archive-wrapper" x-data="{categoriesHtml: ''}">
                 <div class="category-tag" x-html="categoriesHtml"></div>
-                <h1 class="gh-article-title is-title">{{name}}</h1>
+                <h1 class="gh-article-title is-title" x-text="`{{name}}`.replace('_', ' ')"></h1>
 
                 {{#get "posts" filter="primary_tag:{{slug}}+tag:hash-book" include="tags,authors" order="published_at asc" limit=1}}
                     {{#foreach posts}}
