@@ -15,99 +15,110 @@
             </h2>
         {{/if}}
 
-        <main class="gh-main feed-container" x-data>
-            <div class="gh-feed">
+        {{#match feed "!=" "indexOfContents"}}
+            <main class="gh-main feed-container" x-data>
+                <div class="gh-feed">
 
-                {{!-- Homepage --}}
-                {{#match feed "home"}}
-                    {{#get "posts" filter="tag:[hash-book,hash-blog]" include="tags,authors"
-                           limit=@config.posts_per_page page=pagination.page}}
+                    {{!-- Homepage --}}
+                    {{#match feed "home"}}
+                        {{#get "posts" filter="tag:[hash-book,hash-blog]" include="tags,authors"
+                               limit=@config.posts_per_page page=pagination.page}}
 
-                        {{#foreach posts}}
-                            {{> "new-post-card" lazyLoad=true}}
-                        {{/foreach}}
+                            {{#foreach posts}}
+                                {{> "new-post-card" lazyLoad=true}}
+                            {{/foreach}}
 
-                        {{#match pagination.pages ">" pagination.page}}
-                            <template x-teleport=".feed-container">
-                                <div class="gh-more is-title">
-                                    <button class="button-secondary custom-loadmore"
-                                            data-current-page="{{pagination.page}}">Load more
-                                    </button>
-                                </div>
-                            </template>
-                        {{/match}}
+                            {{#match pagination.pages ">" pagination.page}}
+                                <template x-teleport=".feed-container">
+                                    <div class="gh-more is-title">
+                                        <button class="button-secondary custom-loadmore"
+                                                data-current-page="{{pagination.page}}">Load more
+                                        </button>
+                                    </div>
+                                </template>
+                            {{/match}}
 
-                    {{/get}}
-                {{/match}}
+                        {{/get}}
+                    {{/match}}
 
-                {{#match feed "index"}}
-                    {{#get "posts" filter="tag:[hash-book,hash-blog]" include="tags,authors"
-                           limit=@config.posts_per_page page=pagination.page}}
+                    {{#match feed "index"}}
+                        {{#get "posts" filter="tag:[hash-book,hash-blog]" include="tags,authors"
+                               limit=@config.posts_per_page page=pagination.page}}
 
-                        {{#foreach posts}}
-                            {{> "new-post-card" lazyLoad=true}}
-                        {{/foreach}}
+                            {{#foreach posts}}
+                                {{> "new-post-card" lazyLoad=true}}
+                            {{/foreach}}
 
-                        {{#match pagination.pages ">" pagination.page}}
-                            <template x-teleport=".feed-container">
-                                <div class="gh-more is-title">
-                                    <button class="button-secondary custom-loadmore"
-                                            data-current-page="{{pagination.page}}">Load more
-                                    </button>
-                                </div>
-                            </template>
-                        {{/match}}
+                            {{#match pagination.pages ">" pagination.page}}
+                                <template x-teleport=".feed-container">
+                                    <div class="gh-more is-title">
+                                        <button class="button-secondary custom-loadmore"
+                                                data-current-page="{{pagination.page}}">Load more
+                                        </button>
+                                    </div>
+                                </template>
+                            {{/match}}
 
-                    {{/get}}
-                {{/match}}
+                        {{/get}}
+                    {{/match}}
 
-                {{!-- Tag pages --}}
-                {{#match feed "categoryArchive"}}
-                    {{#get "posts" filter="tag:{{authorOrTagSlug}}+tag:[hash-book,hash-blog]" include="tags,authors"
-                           limit=@config.posts_per_page page=pagination.page}}
+                    {{!-- Tag pages --}}
+                    {{#match feed "categoryArchive"}}
+                        {{#get "posts" filter="tag:{{authorOrTagSlug}}+tag:[hash-book,hash-blog]" include="tags,authors"
+                               limit=@config.posts_per_page page=pagination.page}}
 
-                        {{#foreach posts}}
-                            {{> "new-post-card" lazyLoad=true}}
-                        {{/foreach}}
+                            {{#foreach posts}}
+                                {{> "new-post-card" lazyLoad=true}}
+                            {{/foreach}}
 
-                        {{#match pagination.pages ">" pagination.page}}
-                            <template x-teleport=".feed-container">
-                                <div class="gh-more is-title">
-                                    <button class="button-secondary custom-loadmore"
-                                            data-current-page="{{pagination.page}}">Load more
-                                    </button>
-                                </div>
-                            </template>
-                        {{/match}}
+                            {{#match pagination.pages ">" pagination.page}}
+                                <template x-teleport=".feed-container">
+                                    <div class="gh-more is-title">
+                                        <button class="button-secondary custom-loadmore"
+                                                data-current-page="{{pagination.page}}">Load more
+                                        </button>
+                                    </div>
+                                </template>
+                            {{/match}}
 
-                    {{/get}}
-                {{/match}}
+                        {{/get}}
+                    {{/match}}
 
-                {{!-- Author pages --}}
-                {{#match feed "authorArchive"}}
+                    {{!-- Author pages --}}
+                    {{#match feed "authorArchive"}}
 
-                    {{#get "posts" filter="author:{{authorOrTagSlug}}+tag:[hash-book,hash-blog]" include="tags,authors"
-                           limit=@config.posts_per_page page=pagination.page}}
+                        {{#get "posts" filter="author:{{authorOrTagSlug}}+tag:[hash-book,hash-blog]" include="tags,authors"
+                               limit=@config.posts_per_page page=pagination.page}}
 
-                        {{#foreach posts}}
-                            {{> "new-post-card" lazyLoad=true}}
-                        {{/foreach}}
+                            {{#foreach posts}}
+                                {{> "new-post-card" lazyLoad=true}}
+                            {{/foreach}}
 
-                        {{#match pagination.pages ">" pagination.page}}
-                            <template x-teleport=".feed-container">
-                                <div class="gh-more is-title">
-                                    <button class="button-secondary custom-loadmore"
-                                            data-current-page="{{pagination.page}}">Load more
-                                    </button>
-                                </div>
-                            </template>
-                        {{/match}}
+                            {{#match pagination.pages ">" pagination.page}}
+                                <template x-teleport=".feed-container">
+                                    <div class="gh-more is-title">
+                                        <button class="button-secondary custom-loadmore"
+                                                data-current-page="{{pagination.page}}">Load more
+                                        </button>
+                                    </div>
+                                </template>
+                            {{/match}}
 
-                    {{/get}}
-                {{/match}}
-            </div>
+                        {{/get}}
+                    {{/match}}
+                </div>
 
-        </main>
+            </main>
+        {{/match}}
+
+        {{#match feed "=" "indexOfContents"}}
+            <main class="gh-main">
+                <div class="index-of-contents-container static" x-data="{currentSlug: ''}">
+                    <h2 class="is-title index-of-contents-title">Index of Contents</h2>
+                    {{> "index-of-contents" primaryTag=tag}}
+                </div>
+            </main>
+        {{/match}}
 
         {{#if showSidebar}}
             {{#if @site.recommendations_enabled}}

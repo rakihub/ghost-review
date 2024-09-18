@@ -53,11 +53,4 @@
     </section>
 {{/tag}}
 
-<section class="gh-container is-list no-image gh-outer">
-    <div class="gh-container-inner gh-inner">
-        <div class="index-of-contents-container static" x-data="{currentSlug: ''}">
-            <h2 class="is-title index-of-contents-title">Index of Contents</h2>
-            {{> "index-of-contents" primaryTag=tag}}
-        </div>
-    </div>
-</section>
+{{> "components/post-list" feed="indexOfContents" primaryTag=tag postFeedStyle="list" showTitle=false showSidebar=true}}

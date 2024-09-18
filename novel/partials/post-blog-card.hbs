@@ -25,10 +25,10 @@
                         {{post.primary_tag.name}}
                     </p>
                 {{/if}}
-                {{#unless access}}
-                    {{^has visibility="public"}}
+                {{#unless post.access}}
+                    {{^match post.visibility "=" "public"}}
                         {{> "icons/lock"}}
-                    {{/has}}
+                    {{/match}}
                 {{/unless}}
                 {{#if featured}}
                     <div class="card-tag-featured">{{> "icons/fire"}} <span>Featured</span></div>
