@@ -1,9 +1,11 @@
 {{!--
     Parameters:
-    * feed (index, home, archive, recent)
+    * feed (index, home, categoryArchive, authorArchive, indexOfContents)
     * postFeedStyle (list, grid)
     * showTitle (true, false)
     * showSidebar (true, false)
+    * authorOrTagSlug: slug of author or tag
+    * primaryTag
 --}}
 
  <section class="gh-container is-{{#match postFeedStyle "List"}}list{{else}}grid{{/match}}{{#if showSidebar}}{{#if @site.recommendations_enabled}} has-sidebar{{/if}}{{/if}}{{#unless @custom.show_images_in_feed}} no-image{{/unless}} gh-outer">
