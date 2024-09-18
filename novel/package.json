@@ -1,5 +1,5 @@
 {
-  "name": "link-weave",
+  "name": "novel",
   "description": "A Ghost theme designed to seamlessly weave together your posts, creating a fluid and cohesive storytelling experience.",
   "version": "1.0.0",
   "engines": {
@@ -29,6 +29,7 @@
       "Beautiful",
       "Clean",
       "Minimal",
+      "Novel",
       "Blog"
     ]
   },

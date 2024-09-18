@@ -122,6 +122,11 @@
     opacity: 0.8;
 }
 
+.social-links svg {
+    width: 20px;
+    height: 20px;
+}
+
 /* Footer non-nested menu */
 
 .gh-footer-menu {
