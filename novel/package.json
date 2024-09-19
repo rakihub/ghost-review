@@ -15,12 +15,12 @@
     "test": "gscan .",
     "test:ci": "gscan --fatal --verbose .",
     "build": "rollup -c --environment BUILD:production",
-    "zip": "npm run build && bestzip $npm_package_name.zip assets/* locales/* partials/* members/* *.hbs package.json rollup.config.js README.md",
+    "zip": "mkdir -p dist && npm run build && bestzip ./dist/$npm_package_name.zip assets/* locales/* partials/* members/* *.hbs package.json rollup.config.js README.md\n",
     "pretest": "npm run build"
   },
   "author": {
     "name": "Rakihub",
-    "email": "theme@rakihub.com",
+    "email": "hello@rakihub.com",
     "url": "https://rakihub.com"
   },
   "gpm": {
