@@ -1847,6 +1847,7 @@ Search                         LOGO                    Login Subscribe
 
     .gh-container.is-list .gh-card-image {
         width: 100%;
+        background-color: transparent;
     }
 }
 
