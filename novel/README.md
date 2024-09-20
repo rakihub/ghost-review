@@ -1,65 +1,114 @@
 # Novel
 
-A theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Source! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Source/releases) page.
+A Ghost theme crafted specifically for online novel reading and easy content grouping.
 
-&nbsp;
+----
 
-# First time using a Ghost theme?
+## Demo & Doc
++ **Demo**: https://novel.rakihub.com
++ **Documentation**: ??
 
-Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
+----
 
-This theme has lots of code comments to help explain what's going on just by reading the code. Once you feel comfortable with how everything works, we also have full [theme API documentation](https://ghost.org/docs/themes/) which explains every possible Handlebars helper and template.
+## Features
++ [Tag-based book organization](https://novel.rakihub.com/tag/a-womans-trust/)
++ Seamless blog & book publishing
++ [Index of Contents](https://novel.rakihub.com/monella/) for easy navigation
++ Customizable tags on homepage (change tags, number or order)
++ Tag cloud on homepage
++ Dropdown menu in header
++ Multi-column navigation menu in site footer
++ Optional image lightbox with zoom for posts
++ Light and Dark version
++ Lightweight and minimal
 
-**The main files are:**
+----
 
-- `default.hbs` - The parent template file, which includes your global header/footer
-- `home.hbs` - The homepage
-- `index.hbs` - The main template to generate a list of posts
-- `post.hbs` - The template used to render individual posts
-- `page.hbs` - Used for individual pages
-- `tag.hbs` - Used for tag archives, eg. "all posts tagged with `news`"
-- `author.hbs` - Used for author archives, eg. "all posts written by Jamie"
+## Installation instructions
 
-One neat trick is that you can also create custom one-off templates by adding the slug of a page to a template file. For example:
+1. Navigate to **Ghost Settings > Design & branding** from the admin menu
+2. Click **Change theme** in the bottom right corner
+3. Then click the **Upload theme** button in the upper right corner
+4. Click inside the upload box to select a **novel.zip**, or drag-and-drop the **digital-nomad.zip** into the upload box
+5. Once uploaded, click **Activate** to activate the theme
 
-- `page-about.hbs` - Custom template for an `/about/` page
-- `tag-news.hbs` - Custom template for `/tag/news/` archive
-- `author-ali.hbs` - Custom template for `/author/ali/` archive
+----
 
+## Theme Structure
 
-# Development
+The main templates files are:
 
-Source styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
+- [`default.hbs`](default.hbs) - The main template file
+- [`home.hbs`](home.hbs) - The homepage template file
+- [`index.hbs`](index.hbs) - Used for a list of posts
+- [`post.hbs`](post.hbs) - Used for book chapters and supports index of contents
+- [`custom-blog-with-narrow-feature-image`](custom-blog-with-narrow-feature-image.hbs) - Used for individual posts with narrow feature image
+- [`custom-blog-with-toc.hbs`](custom-blog-with-toc.hbs) - Used for individual posts with table of contents
+- [`custom-blog-with-wide-feature-image.hbs`](custom-blog-with-wide-feature-image.hbs) - Used for individual posts with wide feature image
+- [`custom-standard-blog.hbs`](custom-standard-blog.hbs) used for individual posts with standard feature image
+- [`page.hbs`](page.hbs) - Used for individual pages
+- [`tag.hbs`](tag.hbs) - Used for category archives or book display
+- [`author.hbs`](author.hbs) - Used for author archives
+- [`page.hbs`](page.hbs) - Used for pages
+
+----
+
+# Development Guide
+
+**Novel** theme provides a first-class development experience out of the box.
+
+### Setup
+
+To see realtime changes during development, symlink the digital-nomad theme folder to the `content/themes` folder in your local Ghost install.
 
 ```bash
-# install dependencies
-yarn install
-
-# run development server
-yarn dev
+ln -s /path/to/digital-nomad /ghost/content/themes/digital-nomad
 ```
 
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+Restart Ghost and select the **digital-nomad** theme from **Settings**.
 
-The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
+From the theme's root directory, install the dependencies:
 
 ```bash
-# create .zip file
-yarn zip
+npm install
 ```
 
-# PostCSS Features Used
+If Node isn't installed, follow the [official Node installation guide](https://nodejs.org/).
 
-- Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
+### Start development mode
 
+From the **digital-nomad** theme folder, start development mode:
 
-# SVG Icons
+```bash
+npm run dev
+```
 
-Source uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
+Changes you make to your styles, scripts, and Handlebars files will show up automatically in the browser. CSS and Javascript will be compiled and output to the `built` folder.
 
-You can add your own SVG icons in the same manner.
+Press `ctrl + c` in the terminal to exit development mode.
 
+### Build, zip, and test your theme
 
-# Copyright & License
+Compile your CSS and JavaScript assets for production with the following command:
 
-Copyright (c) 2013-2023 Ghost Foundation - Released under the [MIT license](LICENSE).
+```bash
+npm run build
+```
+
+Create a zip archive:
+
+```bash
+npm run zip
+```
+
+Use `gscan` to test your theme for compatibility with Ghost:
+
+```bash
+npm run test
+```
+
+----
+
+## Copyright & License
+
+Copyright (c) 2024 [Rakihub](https://rakihub.com) - Released under the MIT license.
