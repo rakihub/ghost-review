@@ -119,15 +119,6 @@
         ],
         "default": "Modern sans-serif"
       },
-      "signup_heading": {
-        "type": "text",
-        "default": "Subscribe to our newsletter",
-        "description": "Used in your subscribe section across your theme."
-      },
-      "signup_subheading": {
-        "type": "text",
-        "default": "Get the latest news, updates and guides."
-      },
       "header_style": {
         "type": "select",
         "options": [
@@ -152,28 +143,39 @@
         "group": "homepage",
         "visibility": "header_style:[Landing, Search]"
       },
-      "category_section_tags": {
+      "featured_category_tags": {
         "type": "text",
         "default": "all",
-        "description": "Defaults to the category tags with the most books or blogs. Use the tag slugs separated by commas without spaces, e.g, '_novel,_tech'",
+        "description": "Defaults to all category tags. Use the tag slugs separated by commas without spaces, e.g, '_novel,_tech'",
         "group": "homepage"
       },
-      "category_section_tag_limit": {
+      "featured_category_tags_limit": {
         "type": "text",
         "default": 4,
         "description": "Limit the category tags number. Accept number or text 'all'.",
         "group": "homepage"
       },
-      "category_section_book_limit": {
+      "featured_category_posts_limit": {
         "type": "text",
         "default": 4,
-        "description": "The maximum number of books displayed in each category. Accept number or text 'all'.",
+        "description": "The maximum number of posts displayed in each category. Accept number or text 'all'.",
         "group": "homepage"
       },
       "tag_cloud": {
         "type": "text",
         "default": "all",
-        "description": "Defaults to all category tags with the most books or blogs. Accept 'all' or  tag slugs separated by commas without spaces, e.g, '_novel,_romance'",
+        "description": "Defaults to all category tags. Accept 'all' or  tag slugs separated by commas without spaces, e.g, '_novel,_romance'",
+        "group": "homepage"
+      },
+      "subscribe_heading": {
+        "type": "text",
+        "default": "Subscribe to our newsletter",
+        "description": "Used in your subscribe section across your theme.",
+        "group": "homepage"
+      },
+      "subscribe_subheading": {
+        "type": "text",
+        "default": "Get the latest news, updates and guides.",
         "group": "homepage"
       },
       "post_feed_style": {

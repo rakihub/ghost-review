@@ -14,7 +14,8 @@ A Ghost theme crafted specifically for online novel reading and easy content gro
 + [Tag-based book organization](https://novel.rakihub.com/tag/a-womans-trust/) for structured content grouping
 + Seamless blog & book publishing capability
 + [Index of Contents](https://novel.rakihub.com/monella/) for easy chapter navigation
-+ Customizable homepage tags (modify tags, number and order)
++ [Prev and next post](https://novel.rakihub.com/monella/) for easy content navigation
++ Customizable featured category tags on homepage (modify tags, number and order)
 + Customizable tag cloud on homepage
 + 4 header style options: slider, landing, search or off
 + 2 post feed layout: list or grid
@@ -44,7 +45,7 @@ The main templates files are:
 - [`home.hbs`](home.hbs) - The homepage template file
 - [`index.hbs`](index.hbs) - Used for a list of posts
 - [`post.hbs`](post.hbs) - Used for book chapters and supports index of contents
-- [`custom-blog-with-narrow-feature-image`](custom-blog-with-narrow-feature-image.hbs) - Used for individual posts with narrow feature image
+- [`custom-blog-with-narrow-feature-image.hbs`](custom-blog-with-narrow-feature-image.hbs) - Used for individual posts with narrow feature image
 - [`custom-blog-with-toc.hbs`](custom-blog-with-toc.hbs) - Used for individual posts with table of contents
 - [`custom-blog-with-wide-feature-image.hbs`](custom-blog-with-wide-feature-image.hbs) - Used for individual posts with wide feature image
 - [`custom-standard-blog.hbs`](custom-standard-blog.hbs) used for individual posts with standard feature image

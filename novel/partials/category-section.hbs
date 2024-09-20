@@ -7,7 +7,7 @@
              {{> "icons/arrow"}}
          </a>
         <div class="gh-feed category-feed">
-            {{#get "posts" filter="tag:{{slug}}+tag:[hash-book,hash-blog]" include="tags,authors" limit=@custom.category_section_book_limit}}
+            {{#get "posts" filter="tag:{{slug}}+tag:[hash-book,hash-blog]" include="tags,authors" limit=@custom.featured_category_posts_limit}}
                 {{#foreach posts}}
                     {{#has tag="#book"}}
                         {{> "category-book-card" lazyLoad=true}}
