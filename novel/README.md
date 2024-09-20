@@ -11,13 +11,15 @@ A Ghost theme crafted specifically for online novel reading and easy content gro
 ----
 
 ## Features
-+ [Tag-based book organization](https://novel.rakihub.com/tag/a-womans-trust/)
-+ Seamless blog & book publishing
-+ [Index of Contents](https://novel.rakihub.com/monella/) for easy navigation
-+ Customizable tags on homepage (change tags, number or order)
-+ Tag cloud on homepage
++ [Tag-based book organization](https://novel.rakihub.com/tag/a-womans-trust/) for structured content grouping
++ Seamless blog & book publishing capability
++ [Index of Contents](https://novel.rakihub.com/monella/) for easy chapter navigation
++ Customizable homepage tags (modify tags, number and order)
++ Customizable tag cloud on homepage
++ 4 header style options: slider, landing, search or off
++ 2 post feed layout: list or grid
 + Dropdown menu in header
-+ Multi-column navigation menu in site footer
++ Multi-column navigation menu in footer
 + Optional image lightbox with zoom for posts
 + Light and Dark version
 + Lightweight and minimal
@@ -29,7 +31,7 @@ A Ghost theme crafted specifically for online novel reading and easy content gro
 1. Navigate to **Ghost Settings > Design & branding** from the admin menu
 2. Click **Change theme** in the bottom right corner
 3. Then click the **Upload theme** button in the upper right corner
-4. Click inside the upload box to select a **novel.zip**, or drag-and-drop the **digital-nomad.zip** into the upload box
+4. Click inside the upload box to select a **novel.zip**, or drag-and-drop the **novel.zip** into the upload box
 5. Once uploaded, click **Activate** to activate the theme
 
 ----
@@ -59,13 +61,13 @@ The main templates files are:
 
 ### Setup
 
-To see realtime changes during development, symlink the digital-nomad theme folder to the `content/themes` folder in your local Ghost install.
+To see realtime changes during development, symlink the novel theme folder to the `content/themes` folder in your local Ghost install.
 
 ```bash
-ln -s /path/to/digital-nomad /ghost/content/themes/digital-nomad
+ln -s /path/to/novel /ghost/content/themes/novel
 ```
 
-Restart Ghost and select the **digital-nomad** theme from **Settings**.
+Restart Ghost and select the **novel** theme from **Settings**.
 
 From the theme's root directory, install the dependencies:
 
@@ -77,7 +79,7 @@ If Node isn't installed, follow the [official Node installation guide](https://n
 
 ### Start development mode
 
-From the **digital-nomad** theme folder, start development mode:
+From the **novel** theme directory, start development mode:
 
 ```bash
 npm run dev
