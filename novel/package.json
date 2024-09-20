@@ -1,6 +1,6 @@
 {
   "name": "novel",
-  "description": "A Ghost theme designed to seamlessly weave together your posts, creating a fluid and cohesive storytelling experience.",
+  "description": "A Ghost theme crafted specifically for online novel reading and easy content grouping.",
   "version": "1.0.0",
   "engines": {
     "ghost": ">=5.0.0"
