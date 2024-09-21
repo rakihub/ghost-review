@@ -146,7 +146,7 @@
       "featured_category_tags": {
         "type": "text",
         "default": "all",
-        "description": "Defaults to all category tags. Use the tag slugs separated by commas without spaces, e.g, '_novel,_tech'",
+        "description": "Use the tag slugs separated by commas without spaces, e.g, '_novel,_tech'",
         "group": "homepage"
       },
       "featured_category_tags_limit": {
@@ -164,7 +164,7 @@
       "tag_cloud": {
         "type": "text",
         "default": "all",
-        "description": "Defaults to all category tags. Accept 'all' or  tag slugs separated by commas without spaces, e.g, '_novel,_romance'",
+        "description": "Accept 'all' or  tag slugs separated by commas without spaces, e.g, '_novel,_romance'",
         "group": "homepage"
       },
       "subscribe_heading": {
