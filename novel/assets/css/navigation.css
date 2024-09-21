@@ -85,7 +85,7 @@
 /* Footer nav
 -----------------------------------------------------------*/
 .footer-nav {
-    padding: 56px 0;
+    padding: var(--section-padding) 0;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: var(--grid-gap);
