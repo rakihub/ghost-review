@@ -27,7 +27,7 @@
                                limit=@config.posts_per_page page=pagination.page}}
 
                             {{#foreach posts}}
-                                {{> "new-post-card" lazyLoad=true}}
+                                {{> "post-card" lazyLoad=true}}
                             {{/foreach}}
 
                             {{#match pagination.pages ">" pagination.page}}
@@ -48,7 +48,7 @@
                                limit=@config.posts_per_page page=pagination.page}}
 
                             {{#foreach posts}}
-                                {{> "new-post-card" lazyLoad=true}}
+                                {{> "post-card" lazyLoad=true}}
                             {{/foreach}}
 
                             {{#match pagination.pages ">" pagination.page}}
@@ -70,7 +70,7 @@
                                limit=@config.posts_per_page page=pagination.page}}
 
                             {{#foreach posts}}
-                                {{> "new-post-card" lazyLoad=true}}
+                                {{> "post-card" lazyLoad=true}}
                             {{/foreach}}
 
                             {{#match pagination.pages ">" pagination.page}}
@@ -93,7 +93,7 @@
                                limit=@config.posts_per_page page=pagination.page}}
 
                             {{#foreach posts}}
-                                {{> "new-post-card" lazyLoad=true}}
+                                {{> "post-card" lazyLoad=true}}
                             {{/foreach}}
 
                             {{#match pagination.pages ">" pagination.page}}

@@ -4,14 +4,14 @@
         {{!-- Homepage --}}
         {{#match feed "home"}}
             {{#foreach posts}}
-                {{> "new-post-card" lazyLoad=true}}
+                {{> "post-card" lazyLoad=true}}
             {{/foreach}}
         {{/match}}
 
         {{!-- All posts --}}
         {{#match feed "index"}}
             {{#foreach posts}}
-                {{> "new-post-card" lazyLoad=true}}
+                {{> "post-card" lazyLoad=true}}
             {{/foreach}}
         {{/match}}
 
