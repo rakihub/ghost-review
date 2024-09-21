@@ -7,8 +7,8 @@
   },
   "license": "MIT",
   "screenshots": {
-    "desktop": "assets/screenshot_desktop.webp",
-    "mobile": "assets/screenshot_mobile.webp"
+    "desktop": "assets/screenshot-desktop.jpg",
+    "mobile": "assets/screenshot-mobile.jpg"
   },
   "scripts": {
     "dev": "rollup -c --environment BUILD:development -w",

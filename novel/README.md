@@ -6,7 +6,7 @@ A Ghost theme crafted specifically for online novel reading and easy content gro
 
 ## Demo & Doc
 + **Demo**: https://novel.rakihub.com
-+ **Documentation**: ??
++ **Documentation**: https://blog.rakihub.com/theme-novel-documentation/
 
 ----
 
@@ -14,7 +14,7 @@ A Ghost theme crafted specifically for online novel reading and easy content gro
 + [Tag-based book organization](https://novel.rakihub.com/tag/a-womans-trust/) for structured content grouping
 + Seamless blog & book publishing capability
 + [Index of Contents](https://novel.rakihub.com/monella/) for easy chapter navigation
-+ [Prev and next post](https://novel.rakihub.com/monella/) for easy content navigation
++ [Previous and next post navigation](https://novel.rakihub.com/monella/) for easy content navigation
 + Customizable featured category tags on homepage (modify tags, number and order)
 + Customizable tag cloud on homepage
 + 4 header style options: slider, landing, search or off
