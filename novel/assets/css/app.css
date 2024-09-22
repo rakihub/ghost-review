@@ -880,10 +880,6 @@ Search                         LOGO                    Login Subscribe
     }
 
     .is-open#gh-navigation .gh-navigation-actions {
-        position: sticky;
-        right: 0;
-        bottom: 0;
-        left: 0;
         display: inline-flex;
         flex-direction: column;
         gap: 12px;
