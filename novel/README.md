@@ -1,6 +1,6 @@
-# Novel
+# Novel —  Book & Tag Ghost Theme
 
-A Ghost theme crafted specifically for online novel reading and easy content grouping.
+Novel is a Ghost theme designed for online book reading and tag-based content grouping. With Novel, publishing books or organizing content is simple, offering readers an immersive and organized reading experience.
 
 ----
 
@@ -11,16 +11,16 @@ A Ghost theme crafted specifically for online novel reading and easy content gro
 ----
 
 ## Features
-+ [Tag-based book organization](https://novel.rakihub.com/tag/a-womans-trust/) for structured content grouping
-+ Seamless blog & book publishing capability
++ [Tag-based content organization](https://novel.rakihub.com/tag/a-womans-trust/) for clear and efficient content management.
++ Effortless book and blog publishing capabilities
 + [Index of Contents](https://novel.rakihub.com/monella/) for easy chapter navigation
-+ [Previous and next post navigation](https://novel.rakihub.com/monella/) for easy content navigation
-+ Customizable featured category tags on homepage (modify tags, number and order)
++ [Previous and next post navigation](https://novel.rakihub.com/monella/) for seamless content flow
++ Customizable featured category tags on homepage
 + Customizable tag cloud on homepage
 + 4 header style options: slider, landing, search or off
 + 2 post feed layout: list or grid
-+ Dropdown menu in header
-+ Multi-column navigation menu in footer
++ Dropdown menu in the header
++ Multi-column navigation menu in the footer
 + Optional image lightbox with zoom for posts
 + Light and Dark version
 + Lightweight and minimal
