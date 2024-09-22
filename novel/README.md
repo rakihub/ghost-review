@@ -12,9 +12,9 @@ Novel is a Ghost theme designed for online book reading and tag-based content gr
 
 ## Features
 + [Tag-based content organization](https://novel.rakihub.com/tag/a-womans-trust/) for clear and efficient content management.
-+ Effortless book and blog publishing capabilities
 + [Index of Contents](https://novel.rakihub.com/monella/) for easy chapter navigation
 + [Previous and next post navigation](https://novel.rakihub.com/monella/) for seamless content flow
++ Effortless book and blog publishing capabilities
 + Customizable featured category tags on homepage
 + Customizable tag cloud on homepage
 + 4 header style options: slider, landing, search or off

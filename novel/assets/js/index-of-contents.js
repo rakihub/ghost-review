@@ -1,4 +1,7 @@
-/* To make the 'index' take the position of column 'main' inside content grid */
+/**
+ * Make the 'index of contents' take the position of column 'main' inside content grid
+ * Make the control button of 'index of contents' has exact position
+ */
 function initIndexOfContents() {
   const canvas = document.querySelector('.gh-content.gh-canvas');
   const indexControl = document.querySelector('.index-of-contents-control-container');
@@ -14,19 +17,24 @@ function initIndexOfContents() {
     indexControl.style.marginBottom = `${widthBetween}px`;
   }
 
-  function setWidth() {
+  function setWidthAndLeft() {
     const canvasGrid = window.getComputedStyle(canvas).gridTemplateColumns;
-    const contentWidth=  parseFloat(canvasGrid.match(/[\d.]+px/g)[2]);
+    const [fullLeft, wideLeft, mainWidth] = canvasGrid.match(/[\d.]+px/g);
+
+    const leftWidth = parseInt(fullLeft) + parseInt(wideLeft);
+    const contentWidth=  parseFloat(mainWidth);
+
+    indexContainer.style.left = `${leftWidth}px`;
     indexContainer.style.width = `${contentWidth}px`;
   }
 
   setMarginBottom();
-  setWidth();
+  setWidthAndLeft();
 
   window.addEventListener('resize', function () {
     setTimeout(() => {
       setMarginBottom();
-      setWidth();
+      setWidthAndLeft();
     }, 250)
   });
 }
