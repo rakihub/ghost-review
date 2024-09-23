@@ -1,16 +1,16 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
-
+import { Navigation, Pagination, EffectFade, Controller } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-export const initImgSlider = () => {
-  const slider = document.querySelector('.swiper.img-slider')
+let imgSlider;
+let contentSlider;
 
-  new Swiper(slider, {
-    modules: [Navigation, Pagination],
+export const initSliders = () => {
+  imgSlider = new Swiper('.swiper.img-slider', {
+    modules: [Navigation, Pagination, Controller],
     direction: 'horizontal',
     loop: true,
     slidesPerView: 1,
@@ -24,27 +24,10 @@ export const initImgSlider = () => {
         allowTouchMove: false
       }
     },
-    pagination: {
-      el: '.slider-pagination',
-      clickable: true,
-      bulletClass: 'slider-pagination-bullet',
-      bulletActiveClass: 'active',
-      renderBullet: function (_, className) {
-        return `<div class="${className}"><span></span></div>`;
-      }
-    },
-    navigation: {
-      prevEl: '.slider-button-prev',
-      nextEl: '.slider-button-next'
-    }
-  })
-}
+  });
 
-export const initContentSlider = () => {
-  const slider = document.querySelector('.swiper.content-slider')
-
-  new Swiper(slider, {
-    modules: [Navigation, Pagination, EffectFade],
+  contentSlider = new Swiper('.swiper.content-slider', {
+    modules: [Navigation, Pagination, EffectFade, Controller],
     direction: 'horizontal',
     loop: true,
     slidesPerView: 1,
@@ -75,5 +58,10 @@ export const initContentSlider = () => {
       prevEl: '.slider-button-prev',
       nextEl: '.slider-button-next'
     }
-  })
-}
+  });
+
+  // Link the sliders
+  imgSlider.controller.control = contentSlider;
+  contentSlider.controller.control = imgSlider;
+};
+

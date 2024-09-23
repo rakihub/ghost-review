@@ -13,8 +13,8 @@
 
         {{!-- Featured slider layout --}}
         {{#match headerStyle "Featured slider"}}
-            <div class="slider-container">
-                <div class="slider img-slider swiper" x-data x-init="initImgSlider()">
+            <div class="slider-container" x-data x-init="initSliders()">
+                <div class="slider img-slider swiper">
                     <div class="slider-inner swiper-wrapper">
                         {{#get "posts" filter="featured:true+tag:hash-book" include="tags,authors"}}
                             {{#foreach posts}}
@@ -23,7 +23,7 @@
                         {{/get}}
                     </div>
                 </div>
-                <div class="slider content-slider swiper" x-data x-init="initContentSlider()">
+                <div class="slider content-slider swiper">
                     <div class="slider-inner swiper-wrapper">
                         {{#get "posts" filter="featured:true+tag:hash-book" include="tags,authors"}}
                             {{#foreach posts}}
