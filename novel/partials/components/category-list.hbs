@@ -7,7 +7,7 @@
             {{/foreach}}
         {{/get}}
     {{else}}
-        {{#get "tags" filter="slug:[{{@custom.category_section_tags}}]" include="count.posts" limit=@custom.featured_category_tags_limit }}
+        {{#get "tags" filter="slug:[{{@custom.featured_category_tags}}]" include="count.posts" limit=@custom.featured_category_tags_limit }}
             {{#foreach tags}}
                 {{> "category-section"}}
             {{/foreach}}
