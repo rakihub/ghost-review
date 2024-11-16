@@ -1,9 +1,9 @@
 import Alpine from 'alpinejs';
-import dropdown from './dropdown';
+import dropdown from './dropdown.js';
 import customPagination from './pagination-custom.js';
-import lightbox from './lightbox';
+import lightbox from './lightbox.js';
 import reframe from 'reframe.js';
-import {initSliders} from './slider';
+import {initSliders} from './slider.js';
 import {makeFooterNavi} from './navigation.js';
 import {initToc, adjustTocPosition} from './table-of-contents.js';
 import {initIndexOfContents, handleScroll, stopScroll} from './index-of-contents.js';

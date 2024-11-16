@@ -12,8 +12,8 @@
   },
   "scripts": {
     "dev": "rollup -c --environment BUILD:development -w",
-    "test": "gscan .",
-    "test:ci": "gscan --fatal --verbose .",
+    "test": "gscan novel",
+    "test:ci": "gscan --fatal --verbose novel",
     "build": "rollup -c --environment BUILD:production",
     "zip": "mkdir -p dist && npm run build && bestzip ./dist/$npm_package_name.zip assets/* locales/* partials/* members/* *.hbs package.json rollup.config.js README.md\n",
     "pretest": "npm run build"
